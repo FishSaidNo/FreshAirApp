@@ -1,23 +1,29 @@
-<title>Match Point Brisbane</title>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-<link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="css/mystylemobile.css" />		
-<link href="css/mystyle.css" rel="stylesheet" type="text/css"/>
-
-
-<div id="header"> 		
-	<div id="headerWrapper">			
-		<div id="logo"></div>	
-		<div id="signButtons">		
-			<a href="signIn.php">Log In</a>			
-			<a href="sign_up.php">Sign Up</a>
+<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+	<div class="container">
+		<div class="navbar-header">
+			<!-- Button for smallest screens -->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			<a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
 		</div>
-	</div>	
-	<div id="menu"> 		
-			<a href="contact.php">Contact Us</a>			
-			<a href="admin.php">Admin</a>
-			<a href="about.php">About Us</a>
-			<a href="index.php">Home</a>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav pull-right">
+				<li class="active"><a href="index.php">Home</a></li>
+				<li><a href="statistics.php">Statistics</a></li>
+				<li><a href="aboutus.php">About Us</a></li>
+				<li><a href="facts.php">Facts</a></li>
+				<li><a href="awareness.php">Awareness</a></li>
+				<?php
+				if(@$_SESSION['No'] || @$_SESSION['Yes']){
+				?>
+				<li><a href="logout.php">Logout</a></li>
+				<?php
+				}else{
+				?>
+				<li><a class="btn" href="signin.php">Admin Sign In</a></li>
+				<?php
+				}
+				?>
+			</ul>
+		</div><!--/.nav-collapse -->
 	</div>
-</div>	
+</div> 

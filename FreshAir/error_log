@@ -1,0 +1,337 @@
+[08-May-2016 21:57:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'root', '123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[08-May-2016 21:58:43 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshair1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshair1_root', '123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[08-May-2016 21:58:51 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshair1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshair1_root', '123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[08-May-2016 22:01:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/statistics.php on line 9
+[08-May-2016 22:01:34 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/aboutus.php on line 7
+[08-May-2016 22:01:36 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/facts.php on line 7
+[08-May-2016 22:01:38 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/awareness.php on line 7
+[08-May-2016 22:01:39 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/contactus.php on line 7
+[08-May-2016 22:04:30 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/aboutus.php on line 7
+[08-May-2016 22:04:31 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/facts.php on line 7
+[08-May-2016 22:08:33 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/statistics.php on line 9
+[08-May-2016 22:13:20 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/statistics.php on line 9
+[08-May-2016 22:18:07 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[08-May-2016 22:18:50 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[08-May-2016 23:19:45 America/Chicago] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home1/freshai1/public_html/index.php on line 207
+[08-May-2016 23:19:45 America/Chicago] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home1/freshai1/public_html/index.php on line 207
+[08-May-2016 23:19:45 America/Chicago] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home1/freshai1/public_html/index.php on line 207
+[09-May-2016 00:00:48 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[09-May-2016 00:01:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/statistics.php on line 40
+[09-May-2016 00:01:20 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 00:02:32 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 00:03:54 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 00:05:20 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 00:07:31 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 00:08:39 America/Chicago] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home1/freshai1/public_html/signinTemp.php on line 23
+[09-May-2016 00:09:08 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 28
+[09-May-2016 19:47:48 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:00:53 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/statistics.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:02:56 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/aboutus.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:44:50 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:44:51 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:45:13 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:45:37 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:46:57 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:50:38 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:51:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:51:24 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[09-May-2016 20:51:35 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'freshai1_root'@'localhost' to database 'freshai1_freshair'' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'admin123456')
+#1 /home1/freshai1/public_html/index.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[10-May-2016 11:12:37 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/index.php on line 47
+[10-May-2016 20:04:08 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[10-May-2016 20:07:30 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[12-May-2016 04:07:55 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/awareness.php on line 7
+[12-May-2016 04:07:59 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/awareness.php on line 7
+[12-May-2016 04:09:00 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[12-May-2016 04:09:30 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[12-May-2016 04:09:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 25
+[12-May-2016 04:10:22 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 23
+[12-May-2016 04:10:23 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_Admin.php on line 4
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_Admin.php on line 7
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_Admin.php on line 18
+[12-May-2016 04:10:23 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_M.php on line 4
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_M.php on line 7
+[12-May-2016 04:10:23 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_M.php on line 18
+[12-May-2016 04:12:44 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:12:44 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_M.php on line 4
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_Admin.php on line 4
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_M.php on line 7
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_Admin.php on line 7
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_M.php on line 18
+[12-May-2016 04:12:44 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_Admin.php on line 18
+[12-May-2016 04:34:26 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[12-May-2016 04:35:18 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[12-May-2016 04:35:19 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home1/freshai1/public_html/adminProfile.php on line 269
+[12-May-2016 04:36:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:36:00 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, object given in /home1/freshai1/public_html/select_Admin.php on line 17
+[12-May-2016 04:36:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:36:00 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, object given in /home1/freshai1/public_html/select_M.php on line 17
+[12-May-2016 04:37:57 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:37:57 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, object given in /home1/freshai1/public_html/select_Admin.php on line 17
+[12-May-2016 04:37:57 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:37:57 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, object given in /home1/freshai1/public_html/select_M.php on line 17
+[12-May-2016 04:42:13 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:42:13 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:42:13 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, object given in /home1/freshai1/public_html/select_M.php on line 17
+[12-May-2016 04:43:40 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:43:40 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetchRow() in /home1/freshai1/public_html/select_Admin.php on line 17
+[12-May-2016 04:43:40 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:43:40 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetchRow() in /home1/freshai1/public_html/select_M.php on line 17
+[12-May-2016 04:44:11 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:44:11 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 04:44:23 America/Chicago] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 210
+[12-May-2016 04:44:23 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/adminData.php on line 210
+[12-May-2016 04:44:23 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home1/freshai1/public_html/adminData.php on line 210
+[12-May-2016 04:44:23 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/freshai1/public_html/adminData.php on line 244
+[12-May-2016 04:46:11 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:47:21 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:47:51 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:47:58 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:48:52 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:51:03 America/Chicago] PHP Warning:  mysqli_query() expects at least 2 parameters, 1 given in /home1/freshai1/public_html/adminData.php on line 210
+[12-May-2016 04:51:03 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/adminData.php on line 244
+[12-May-2016 04:52:06 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, string given in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:52:53 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 245
+[12-May-2016 04:55:16 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 216
+[12-May-2016 04:56:24 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 04:57:13 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 04:58:25 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 04:58:27 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 04:58:34 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 17:57:56 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 17:59:46 America/Chicago] PHP Parse error:  syntax error, unexpected ',' in /home1/freshai1/public_html/adminData.php on line 218
+[12-May-2016 18:01:13 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 217
+[12-May-2016 18:41:32 America/Chicago] PHP Deprecated:  mysql_select_db(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/data2.php on line 17
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/data2.php on line 17
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home1/freshai1/public_html/data2.php on line 17
+[12-May-2016 18:41:32 America/Chicago] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/data2.php on line 18
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/data2.php on line 18
+[12-May-2016 18:41:32 America/Chicago] PHP Deprecated:  mysql_select_db(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/data2.php on line 21
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/data2.php on line 21
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home1/freshai1/public_html/data2.php on line 21
+[12-May-2016 18:41:32 America/Chicago] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/data2.php on line 25
+[12-May-2016 18:41:32 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/data2.php on line 25
+[12-May-2016 18:59:02 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home1/freshai1/public_html/data2.php on line 24
+[12-May-2016 19:00:24 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/data2.php on line 24
+[12-May-2016 19:23:38 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[12-May-2016 19:23:39 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:23:39 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:25:20 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:25:20 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:28:30 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:28:30 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:30:55 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:30:55 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:31:52 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:31:52 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home1/freshai1/public_html/select_Admin.php on line 38
+[12-May-2016 19:31:52 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:32:22 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:32:22 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:33:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:33:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 19:39:58 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/adminData.php on line 91
+[12-May-2016 20:26:59 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[12-May-2016 20:27:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-May-2016 20:27:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:29:29 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 00:29:31 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:29:31 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:29:59 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:30:05 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:30:05 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:30:28 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:30:28 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:50:06 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 00:50:07 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:50:08 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:50:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 00:50:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:04:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/adminData.php on line 9
+[13-May-2016 01:07:33 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 01:07:33 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 01:07:34 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:07:34 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:07:34 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:07:34 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:08:18 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 01:09:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:09:00 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:09:09 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:09:18 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:09:18 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 01:14:31 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 02:56:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 02:56:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 04:39:27 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 04:39:31 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 04:39:31 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 04:39:43 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 04:39:49 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 07:36:20 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[13-May-2016 07:37:51 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 07:37:51 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[13-May-2016 07:38:03 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[14-May-2016 09:18:53 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, object given in /home1/freshai1/public_html/data.php on line 13
+[14-May-2016 09:18:53 America/Chicago] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home1/freshai1/public_html/data.php on line 23
+[14-May-2016 09:39:33 America/Chicago] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home1/freshai1/public_html/dataf.php on line 34
+[14-May-2016 09:45:05 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/dataf.php on line 35
+[14-May-2016 09:45:29 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/dataf.php on line 35
+[14-May-2016 09:48:32 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/dataf.php on line 35
+[14-May-2016 10:15:41 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home1/freshai1/public_html/dataf.php on line 19
+[14-May-2016 10:23:37 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/data.php on line 14
+[14-May-2016 10:23:52 America/Chicago] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home1/freshai1/public_html/data.php on line 20
+[14-May-2016 10:23:52 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/data.php on line 24
+[14-May-2016 10:24:07 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/data.php on line 23
+[14-May-2016 10:35:22 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::mysql_fetch_assoc() in /home1/freshai1/public_html/data.php on line 14
+[14-May-2016 10:35:39 America/Chicago] PHP Fatal error:  Call to undefined method PDOStatement::fetch_assoc() in /home1/freshai1/public_html/data.php on line 14
+[14-May-2016 10:41:55 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home1/freshai1/public_html/data.php on line 18
+[14-May-2016 12:24:08 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/SO_data.php on line 26
+[14-May-2016 12:36:47 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/PM_data.php on line 26
+[14-May-2016 12:42:50 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/PM_data.php on line 26
+[14-May-2016 12:52:06 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 12:55:24 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 12:57:44 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 22
+[14-May-2016 12:59:12 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 22
+[14-May-2016 13:01:06 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:01:21 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:01:49 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:06:50 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:08:40 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:12:38 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:13:27 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 26
+[14-May-2016 13:15:20 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/NO_data.php on line 26
+[14-May-2016 13:16:50 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[14-May-2016 13:16:50 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/NO_data.php on line 26
+[14-May-2016 13:21:07 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/NO_data.php on line 26
+[14-May-2016 13:23:52 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/NO_data.php on line 26
+[15-May-2016 02:03:46 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 04:40:12 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 08:11:18 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 27
+[15-May-2016 17:40:15 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[15-May-2016 18:03:01 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:05:08 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:05:37 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:07:15 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:10:50 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:14:47 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 18:14:52 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/AQI_data.php on line 27
+[15-May-2016 20:08:54 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[15-May-2016 20:09:05 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[15-May-2016 20:09:05 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[15-May-2016 20:09:16 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[15-May-2016 20:42:52 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[15-May-2016 20:42:52 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[15-May-2016 22:50:44 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/awareness.php on line 7
+[15-May-2016 22:51:18 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/awareness.php on line 7
+[16-May-2016 00:45:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PM25' in 'field list'' in /home1/freshai1/public_html/receiveDataFromApp.php:141
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(141): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 141
+[16-May-2016 00:46:18 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PM2.5' in 'field list'' in /home1/freshai1/public_html/receiveDataFromApp.php:141
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(141): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 141
+[16-May-2016 00:46:53 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''PM2.5',PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
+			'' at line 1' in /home1/freshai1/public_html/receiveDataFromApp.php:141
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(141): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 141
+[16-May-2016 00:52:48 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[16-May-2016 00:53:42 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 27
+[16-May-2016 00:56:15 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 27
+[16-May-2016 00:57:37 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 27
+[16-May-2016 00:59:27 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 00:59:27 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 153
+[16-May-2016 01:01:39 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 139
+[16-May-2016 01:01:42 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 139
+[16-May-2016 01:02:59 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 01:02:59 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 136
+[16-May-2016 01:04:35 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 01:04:36 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 136
+[16-May-2016 01:04:45 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 01:04:45 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home1/freshai1/public_html/statisticsTemp.php on line 136
+[16-May-2016 01:09:35 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 01:10:52 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 27
+[16-May-2016 01:11:48 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
+[16-May-2016 06:45:57 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/index.php on line 47
+[16-May-2016 06:46:00 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/index.php on line 47

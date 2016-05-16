@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "INSERT INTO members(first_name,last_name,password,email_address) "
                 . " VALUES ( '" . $firstname . "','" . $lastname . "','" . md5($password) . "','" . $email . "')";
         $mysqli->query($query);
-        header('Location: index.php');
+        echo("<script>location.href = '/index.php?msg=$msg';</script>");
     }
 }
 ?><!DOCTYPE html>
@@ -47,36 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body class="home">
 	<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
-		<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="statistics.php">Statistics</a></li>
-					<li><a href="aboutus.php">About Us</a></li>
-					<li><a href="facts.php">Facts</a></li>
-					<li><a href="awareness.php">Awareness</a></li>
-					<li><a href="contactus.php">Contact Us</a></li>
-							<?php
-						if(@$_SESSION['email_address']){
-						?>
-						<li><a href="logout.php">Logout</a></li>
-						<?php
-						}else{
-						?>
-						<li><a class="btn" href="signin.php">Admin Sign In</a></li>
-						<?php
-						}
-						?>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
+	<?php include 'menu.php'; ?>
 	<!-- /.navbar -->
 
 	<header id="head" class="secondary"></header>
@@ -120,13 +91,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 								<div class="top-margin">
 										<label>Password <span class="text-danger">*</span></label>
-										<input type="password" class="form-control" name="password">
+										<input type="password" id="pwd" class="form-control" name="password">
 								</div>
 								
 								<!--<div class="col-sm-6"> -->
 								<div class="top-margin">									
 										<label>Confirm Password <span class="text-danger">*</span></label>
-										<input type="password" class="form-control" name="confirmpassword">
+										<input type="password" id="cpwd" class="form-control"  name="confirmpassword">
 								</div>
 						</div>
 
@@ -134,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 								<div class="row">
 									<div class="col-lg-8">
-										 <button class="btn btn-action" type="submit">Register</button>                     
+										 <button class="btn btn-action" type="submit" onclick="return CheckPasswordNew();">Register</button>                     
 									</div>
 									<div class="col-lg-4 text-right">
 										
@@ -152,85 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		</div>
 	</div>	<!-- /container -->
-
-
-	
-	<footer id="footer" class="top-space">
-
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact Us</h3>
-						<div class="widget-body">
-								<p>0421415067
-								<br>
-								<br>
-								<a href="mailto:lzcangmah@gmail.com">lzcangmah@gmail.com</a>
-								<br>
-								<br>
-								2 george st, brisbane QLD 4000
-								</p>	
-						</div>
-					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow Us</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								
-								<a href=""><i class="fa fa-youtube fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">QUT FreshAir</h3>
-						<div class="widget-body">
-							<p>Every day the QUT FreshAir tells you how clean or polluted your outdoor air is, along with associated health effects that may be of concern. The QUT FreshAir translates air quality data into numbers and colors that help people understand when to take action to protect their health.</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="index.php">Home</a> | 
-								<a href="aboutus.php">About</a> |
-								<a href="index.php">Map</a> |
-								<a href="contactus.php">Contact</a> |
-								<b><a href="signup.php">Sign up</a></b>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2016,  Designed by QUT FreshAir</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-	</footer>	
-		
-
-
-
+<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -238,5 +131,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
+
+
+ <script>
+
+        function CheckPasswordNew() {
+
+console.log("test password");
+            var txt = document.getElementById("pwd").value;
+
+            if (txt == '' || txt == null || txt == undefined) {
+                alert("Please input the password");
+                return false;
+            }
+           
+            
+            if(txt.length < 8)
+            {
+                alert("Password should be 8 character long");
+                return false;
+            }
+
+            var isNum = true;
+            var isChar = true;
+            
+            for (var i = 0 ; i < txt.length; i++) {
+                var num = txt.charCodeAt(i);
+
+                if (num >= 65 && num <= 92)
+                    isChar = false;
+
+                if (num >= 48 && num <= 57)
+                    isNum = false;
+            }
+
+            if (isNum || isChar)
+            {
+                alert("Password should contain at least 1 upper case character and 1 number");
+                return false;
+            }
+            
+
+console.log("text");
+            var ctxt = document.getElementById("cpwd").value;
+
+if( txt != ctxt )
+{ alert("Password and confirm password are not same ");
+return false;}
+
+            else
+            return true;
+        }
+
+    </script>
+
 </body>
 </html>

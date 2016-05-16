@@ -1,0 +1,79 @@
+.left,
+.right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 3.5em;
+  width: 140px;
+  margin: auto;
+  background: #999;
+}
+
+.left1,
+.right1 {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 2.5em;
+  margin: auto;
+  background: red;
+}
+ 
+.left {
+  left: 0;
+  -webkit-transform-origin: 0 50%;
+     -moz-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+       -o-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transform: rotate(-90deg) translate(-50%, 50%);
+     -moz-transform: rotate(-90deg) translate(-50%, 50%);
+      -ms-transform: rotate(-90deg) translate(-50%, 50%);
+       -o-transform: rotate(-90deg) translate(-50%, 50%);
+          transform: rotate(-90deg) translate(-50%, 50%);
+}
+ 
+.left1 {
+  left: 90;
+  -webkit-transform-origin: 0 50%;
+     -moz-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+       -o-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transform: rotate(-90deg) translate(-50%, 50%);
+     -moz-transform: rotate(-90deg) translate(-50%, 50%);
+      -ms-transform: rotate(-90deg) translate(-50%, 50%);
+       -o-transform: rotate(-90deg) translate(-50%, 50%);
+          transform: rotate(-90deg) translate(-50%, 50%);
+}
+
+
+.left2 {
+  left: 0;
+  -webkit-transform-origin: 0 50%;
+     -moz-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+       -o-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transform: rotate(-90deg) translate(-50%, 50%);
+     -moz-transform: rotate(-90deg) translate(-50%, 50%);
+      -ms-transform: rotate(-90deg) translate(-50%, 50%);
+       -o-transform: rotate(-90deg) translate(-50%, 50%);
+          transform: rotate(-90deg) translate(-50%, 50%);
+}
+
+
+ .right {
+   right: 0;
+   -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+       -ms-transform-origin: 100% 50%;
+        -o-transform-origin: 100% 50%;
+           transform-origin: 100% 50%;
+   -webkit-transform: rotate(90deg) translate(50%, 50%);
+      -moz-transform: rotate(90deg) translate(50%, 50%);
+       -ms-transform: rotate(90deg) translate(50%, 50%);
+        -o-transform: rotate(90deg) translate(50%, 50%);
+           transform: rotate(90deg) translate(50%, 50%);
+}
+ 

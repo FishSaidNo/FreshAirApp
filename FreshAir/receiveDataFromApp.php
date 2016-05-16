@@ -1,8 +1,8 @@
 <?php
 
-//include_once 'db_utility.php';
-$dbConn = new PDO("mysql:host=localhost;dbname=freshair", 'root', '');
-$dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include_once 'db_utility.php';
+//$mysqli = new PDO("mysql:host=localhost;dbname=freshair", 'root', '');
+$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//use curl() request with the following url format
 	//http://maps.google.com/maps/api/geocode/json?sensor=false&latlng=40.714224,-73.961452
 	
-	$query = "INSERT INTO aqi(Date,Latitude,Longitude,PM25,PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
+	$query = "INSERT INTO aqi(Date,Latitude,Longitude,`PM2.5`,PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
 			:date,
 			:latitude,
 			:longitude,
@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			:AQIcat,
 			:Suburb)";
 			
-	$stmt = $dbConn->prepare($query);
+	$stmt = $mysqli->prepare($query);
 	
 	$stmt->bindParam(':date', $_date, PDO::PARAM_STR);
 	$stmt->bindParam(':latitude', $_latitude, PDO::PARAM_STR);

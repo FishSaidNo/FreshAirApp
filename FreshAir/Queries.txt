@@ -33,3 +33,47 @@ CREATE TABLE `members` (
   UNIQUE KEY `user_name_UNIQUE` (`email_address`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+
+
+ CREATE TABLE `AQI` (
+  `id` mediumint(8) unsigned NOT NULL auto_increment,
+  `PM2.5` varchar(10)  NOT NULL,
+  `PM10` varchar(10) NOT NULL,
+  `O3` varchar(10) NOT NULL,
+  `S02` varchar(10) NOT NULL,
+  `NO2` varchar(10) NOT NULL,
+  `CO` varchar(10) NOT NULL,
+  `Dew` varchar(10) NOT NULL,
+  `Humidity` varchar(10) NOT NULL,
+  `Wind` varchar(10) NOT NULL,
+  `AQIval` varchar(255) NOT NULL,
+  `AQIcat` varchar(255) NOT NULL,
+  `Suburb` varchar(50) NOT NULL,
+  `Longitude` varchar(50) NOT NULL,
+  `Latitude` varchar(50) NOT NULL,
+  `Date` date (50) NOT NULL,
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT=1;
+
+
+
+CREATE TABLE `tbl_sample` (
+  `id` varchar(45) NOT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `pw` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_name_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `Invited_Members` (  
+  `User_Name` varchar(45) DEFAULT NULL,
+  `PW` varchar(100) DEFAULT NULL,
+  `Description` varchar(100) DEFAULT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name_UNIQUE` (`User_Name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+

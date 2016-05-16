@@ -19,8 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";				 
         }
 		if($username==$row['email_address']&&$password=$row['password']){	
-				echo "tessss";
-		   	
+				session_start();
+				$_SESSION['Yes']='Admin';		   
+				echo("<script>location.href = '/statisticsTemp.php?msg=$msg';</script>");		   	
 				
 		  }else {
 			echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	
@@ -58,37 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body class="home">
 	<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
-		<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
-
-					<li><a href="index.php">Home</a></li>
-					<li><a href="statistics.php">Statistics</a></li>
-					<li><a href="aboutus.php">About Us</a></li>
-					<li><a href="facts.php">Facts</a></li>
-					<li><a href="awareness.php">Awareness</a></li>
-					<li><a href="contactus.php">Contact Us</a></li>
-<?php
-if(@$_SESSION['Yes'] || @$_SESSION['No']){
-?>
-<li><a href="logout.php">Logout</a></li>
-<?php
-}else{
-?>
-<li><a class="btn" href="signin.php">Admin Sign In</a></li>
-<?php
-}
-?>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
+	<?php include 'menu.php'; ?>
 	<!-- /.navbar -->
 
 		<header id="head" class="secondary"></header>
@@ -116,7 +87,7 @@ if(@$_SESSION['Yes'] || @$_SESSION['No']){
 														
 							<hr>
 							
-							<form method="post" action="signin.php" >
+							<form method="post" action="signinTemp.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="username">
@@ -149,81 +120,7 @@ if(@$_SESSION['Yes'] || @$_SESSION['No']){
 	</div>	<!-- /container -->
 
 
-	
-	<footer id="footer" class="top-space">
-
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact Us</h3>
-						<div class="widget-body">
-								<p>0421415067
-								<br>
-								<br>
-								<a href="mailto:lzcangmah@gmail.com">lzcangmah@gmail.com</a>
-								<br>
-								<br>
-								2 george st, brisbane QLD 4000
-								</p>	
-						</div>
-					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow Us</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								
-								<a href=""><i class="fa fa-youtube fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">QUT FreshAir</h3>
-						<div class="widget-body">
-							<p>Every day the QUT FreshAir tells you how clean or polluted your outdoor air is, along with associated health effects that may be of concern. The QUT FreshAir translates air quality data into numbers and colors that help people understand when to take action to protect their health.</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="index.php">Home</a> | 
-								<a href="aboutus.php">About</a> |
-								<a href="index.php">Map</a> |
-								<a href="contactus.php">Contact</a> |
-								<b><a href="signup.php">Sign up</a></b>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2016,  Designed by QUT FreshAir</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-	</footer>	
-		
-
+<?php include 'footer.php'; ?>
 
 
 
