@@ -13,7 +13,7 @@ if ( $link->connect_errno ) {
 
 
 // Fetch the data 
-$query = "SELECT Date, AQIval FROM aqi ORDER BY date ASC";
+$query = "SELECT Date, AQIcat  FROM aqi ORDER BY date ASC";
 
 
 $result = $link->query( $query );

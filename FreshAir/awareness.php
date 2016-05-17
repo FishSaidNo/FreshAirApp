@@ -58,7 +58,7 @@ include_once 'db_utility.php';
 					<h1 class="page-title">User awareness</h1>
 				</header>
 				<div class="">
-						<div><img src="images/awareness.jpg" width="1000" class="img-responsive" alt="" /></div>
+						<div><img src="images/awareness.png" width="1000" class="img-responsive" alt="" /></div>
 					</div>
 				<p>
 				<ol>

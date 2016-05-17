@@ -54,7 +54,7 @@ include_once 'db_utility.php';
 					<h1 class="page-title">Facts</h1>
 				</header>
 					<div class="">
-						<div><img src="images/facts.jpg" width="1000" class="img-responsive" alt="" /></div>
+						<div><img src="images/facts.JPG" width="1000" class="img-responsive" alt="" /></div>
 					</div>
 		
 		</div>

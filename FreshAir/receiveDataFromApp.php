@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//To be computed by this script
 	$_AQIval;
 	$_AQIcat;
-	$_Suburb = 'test';
+	$_Suburb = 'Suburb';
 	
 	$AQI_categories = array(
 							'Good'=>array(0,50),
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//use curl() request with the following url format
 	//http://maps.google.com/maps/api/geocode/json?sensor=false&latlng=40.714224,-73.961452
 	
-	$query = "INSERT INTO aqi(Date,Latitude,Longitude,`PM2.5`,PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
+	$query = "INSERT INTO aqi(Date,Latitude,Longitude,PM25,PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
 			:date,
 			:latitude,
 			:longitude,
@@ -144,10 +144,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	// $data = array('success' => 'true'); /** whatever you're serializing **/
 	// header('Content-Type: application/json');
 	// echo json_encode($data);
-	echo 'pizza!!!';
-	print_r($_GET);
-	print_r($_AQIval);
-	print_r($_AQIcat);
+	//print_r($_GET);
+	//print_r($_AQIval);
+	//print_r($_AQIcat);
+	
+	echo 'The server has processed your data and stored the following entry:'  . PHP_EOL . PHP_EOL;
+	echo 'Date: ' . $_date . PHP_EOL;
+	echo 'Lat: ' . $_latitude . PHP_EOL;
+	echo 'Long' . $_longitude . PHP_EOL;
+	echo 'PM2.5: ' . $_pm25 . PHP_EOL;
+	echo 'PM10: ' . $_pm10 . PHP_EOL; 
+	echo 'O3: ' . $_o3 . PHP_EOL; 
+	echo 'SO2: ' . $_so2 . PHP_EOL; 
+	echo 'NO2: ' . $_no2 . PHP_EOL; 
+	echo 'CO: ' . $_co . PHP_EOL; 
+	echo 'Dew: ' . $_dew . PHP_EOL;
+	echo 'Humidity: ' . $_humidity . PHP_EOL;
+	echo 'Wind: ' . $_wind . PHP_EOL;
+	echo 'AQLval: ' . $_AQIval . PHP_EOL;
+	echo 'AQIcat: ' . $_AQIcat . PHP_EOL;
+	echo 'Suburb: ' . $_Suburb . PHP_EOL;
+	
 	
 }
 

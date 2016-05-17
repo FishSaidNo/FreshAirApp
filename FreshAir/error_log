@@ -335,3 +335,35 @@ Stack trace:
 [16-May-2016 01:11:48 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signinTemp.php on line 22
 [16-May-2016 06:45:57 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/index.php on line 47
 [16-May-2016 06:46:00 America/Chicago] PHP Fatal error:  Call to a member function fetch() on boolean in /home1/freshai1/public_html/index.php on line 47
+[16-May-2016 07:41:49 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/PM_data.php on line 26
+[16-May-2016 07:43:53 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home1/freshai1/public_html/PM_data.php on line 26
+[16-May-2016 08:04:16 America/Chicago] PHP Parse error:  syntax error, unexpected '$row' (T_VARIABLE), expecting ')' in /home1/freshai1/public_html/index.php on line 48
+[16-May-2016 08:04:20 America/Chicago] PHP Parse error:  syntax error, unexpected '$row' (T_VARIABLE), expecting ')' in /home1/freshai1/public_html/index.php on line 48
+[16-May-2016 16:40:46 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PM2.5' in 'field list'' in /home1/freshai1/public_html/receiveDataFromApp.php:141
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(141): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 141
+[16-May-2016 20:59:37 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[16-May-2016 20:59:47 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-May-2016 20:59:47 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[17-May-2016 02:41:30 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home1/freshai1/public_html/menu.php on line 26
+[17-May-2016 03:40:35 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/signin.php on line 22
+[17-May-2016 03:44:40 America/Chicago] PHP Deprecated:  mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 87
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_pconnect(): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/adminData.php on line 87
+[17-May-2016 03:44:40 America/Chicago] PHP Deprecated:  mysql_select_db(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:44:40 America/Chicago] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:44:40 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/freshai1/public_html/adminData.php on line 123
+[17-May-2016 03:45:34 America/Chicago] PHP Deprecated:  mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 87
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_pconnect(): Access denied for user 'root'@'localhost' (using password: YES) in /home1/freshai1/public_html/adminData.php on line 87
+[17-May-2016 03:45:34 America/Chicago] PHP Deprecated:  mysql_select_db(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home1/freshai1/public_html/adminData.php on line 88
+[17-May-2016 03:45:34 America/Chicago] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'freshai1'@'localhost' (using password: NO) in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home1/freshai1/public_html/adminData.php on line 89
+[17-May-2016 03:45:34 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/freshai1/public_html/adminData.php on line 123

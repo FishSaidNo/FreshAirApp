@@ -4,11 +4,6 @@ session_start();
 * index page
 * default page for user
 */
-include_once 'db_utility.php';
-if (!isset($_POST['suburb'])){
-	$query = "select * from aqi order by Suburb ASC";
-}
-$result = $mysqli->query($query);
 ?>
 <!DOCTYPE html>
 
@@ -20,8 +15,6 @@ $result = $mysqli->query($query);
 			<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 			<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 			<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-			
-			
 
 			<!-- Custom styles for our template -->
 			<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
@@ -35,137 +28,8 @@ $result = $mysqli->query($query);
 		          		
 </head>
 <body class="home">   
-	
- <script>
-                function initialize() {
-<?php
-/**
- *  following is to generate a markers from php code     
- */
-$data = array();
-$data_array = array();
-while ($row = $result->fetch(PDO::FETCH_ASSOC)){
-	$item = array($row["Suburb"], (float) $row["Latitude"], (float) $row["Longitude"], (int) $row["AQIval"]);
-	array_push($data, $item);
-	$data_array[] = $row;
-	}
-echo "var markers = " . json_encode($data) . ";\n";
-?>
 
-                    var myLatlng = new google.maps.LatLng(-27.470125,153.021072);
-                    var mapOptions = {
-                        zoom: 12,
-                        center: myLatlng
-                    };
-
-google.maps.event.addDomListener(window, "resize", function() {
-   var center = map.getCenter();
-   google.maps.event.trigger(map, "resize");
-   map.setCenter(center); 
-});
-						
-		
-
-                    var bounds = new google.maps.LatLngBounds();
-                    var element = document.getElementById('map-canvas');
-                    var map = new google.maps.Map(element, mapOptions);
-                    map.setTilt(45);
-                    for (i = 0; i < markers.length; i++) {
-						
-						if (markers[i][3] <= "50"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png",
-                            title: markers[i][0]
-                        });
-						
-						}
-						
-						if (markers[i][3] >= "51" && markers[i][3] <= "100"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png',
-                            title: markers[i][0]
-                        });
-							
-												
-						}		
-
-						if (markers[i][3] >= "101" && markers[i][3] <= "150"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/orange-dot.png',
-                            title: markers[i][0]
-                        });
-							
-												
-						}
-
-						if (markers[i][3] >= "151" && markers[i][3] <= "200"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png',
-                            title: markers[i][0]
-                        });
-							
-												
-						}							
-						
-						if (markers[i][3] >= "201" && markers[i][3] <= "300"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png',
-                            title: markers[i][0]
-                        });
-							
-												
-						}	
-						
-						if (markers[i][3] >= "301" && markers[i][3] <= "500"){
-						
-						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-							bounds.extend(position);
-							marker = new google.maps.Marker({		
-							
-							position: position,
-                            map: map,
-                            icon: 'http://labs.google.com/ridefinder/images/mm_20_brown.png',
-                            title: markers[i][0]
-                        });
-							
-												
-						}	
-                        
-                    }
-                }
-                google.maps.event.addDomListener(window, 'load', initialize);
-
-            </script>
+ 
     <br/>
     <br/>
    
@@ -173,34 +37,32 @@ google.maps.event.addDomListener(window, "resize", function() {
 <?php include 'menu.php'; ?>
 			
 			<div id="location">
-                        </div>
-		 
-					 <div id="map-canvas"></div>
-<img src="images/aqiLevels.jpg" width="450" class="img-responsive" alt="" />
+          
+        </div>        
 
-
-
-				</div>
-     
+<div style="text-align:center"> 
+      
+		 <video width="800" controls><source src="images/video.mp4" type="video/mp4"></video>
+		  </div> 
 				<div class="container">
-				
-					<div class="row">
+
+
+								
+					<div class="row" style="text-align:center">
 						<h1 class="lead">Air Quality Directly Affects Our Quality of Life.</h1>
 						<p class="tagline">&nbsp;</p>
 						<p><a class="btn btn-default btn-lg" href="statistics.php" role="button">View Statistics</a> </p>
+						<p><a class="btn btn-default btn-lg" href="hotspots.php" role="button">View HostSpots</a> </p>
 					</div>
 				</div>
 				
 			<!-- Intro -->
 			<div class="container text-center">
 				<br> <br>
-				<h2 class="thin">Why Brisbane's air quality matters? </h2>
-				<p class="text-muted"> "Good outdoor air quality is fundamental to our well-being. On average, a person inhales about 14,000 litres of air every day, and the presence of contaminants in this air can adversely affect people’s health (see figure 4). People with pre-existing respiratory and heart conditions, diabetes, the young, and older people are particularly vulnerable.
-Overseas studies have shown poor air quality can also adversely affect the natural environment. Ecological damage may occur when air pollutants come into direct contact with vegetation or when animals inhale them. Pollutants can also settle out of the air onto land and water bodies. From the soil, they can wash into waterways, or be taken up by plants and animals. Poor air quality can also affect our climate: some pollutants have a warming effect while others contribute to cooling (European Environment Agency, 2013). There have been limited studies conducted in New Zealand to explore these impacts.
-
-These effects of poor air quality on human health and the environment can, in turn, have negative economic impacts. We incur major costs, for example, for hospitalisation and medical treatment, premature deaths, and lost work days. Damage to soils, vegetation, and waterways may reduce the productivity of our agriculture and forestry industries. In urban areas, air pollution can be costly when, for example, transport is disrupted (due to large-scale events like volcanic eruptions), or corroded buildings need to be repaired.
-
-The sources of some of these pollutants also have positive effects. For example, having a warm home (from burning wood or coal, or other heating sources) has health benefits, while transport provides people with mobility and the distribution of goods and services." </p>
+				<h2 class="thin">The best place to tell people why they are here</h2>
+				<p class="text-muted">
+					The quality of our air directly impacts our health and the natural environment<br> so we want our air to be as clean as possible.
+				</p>
 			</div>
 			<!-- /Intro-->
 				
@@ -208,10 +70,14 @@ The sources of some of these pollutants also have positive effects. For example,
 			<div class="jumbotron top-space">
 				<div class="container">
 					
-					<h3 class="text-center thin">Fresh Air Goals</h3>
+					<h3 class="text-center thin">Reasons to know Fresh Air</h3>
 					
 					<div class="row">
-
+						<div class="col-md-3 col-sm-6 highlight">
+							<div class="h-caption"><h4><i class="fa fa-truck fa-5"></i> Air Pollution</h4></div>
+							<div class="h-body text-center">
+								<p>There are many different types of air pollutants from a wide range of sources. The pollutants that most affect health are the gases and particles that contribute to cardiovascular and respiratory disease. These pollutants are often lumped together under the term “smog”.</p>
+							</div>
 						</div>
 						<div class="col-md-3 col-sm-6 highlight">
 							<div class="h-caption"><h4><i class="fa fa-users fa-5"></i>Do I know if I am at risk?</h4></div>
@@ -271,26 +137,14 @@ The sources of some of these pollutants also have positive effects. For example,
 				</div> <!-- /row -->
 
 				<div class="jumbotron top-space">
-				<h2 class="text-center top-space">How to contrbute to our site?</h2>
+				<h2 class="text-center top-space">How is Air Quality Measured?</h2>
 				<br>
-					<p>   Now we have an application to use on smart phones and tablets whereby users can retrieve their data and visualise pollution ‘hot-spots’. This will be vital as access to this information will be used to help people be aware of, and adjust their exposure to air pollution both at home and their workplaces. The apps accept sms messages, and Airbeam readings, and store data at QUT Database in real-time, a data portal where SMS messages and Airbeam readings are collected at a secure storage location at QUT. Also the functionality within the data portal for access restricted visualization and sending summary data back to the users, moreover the system provide an ability to be accessed and visualised on all smart device. 
-
-Simply click download our apps and you will have a freshairapps on your smartphone in no time. The apps is very simple and easy to use especially for old people and disability people since the apps has only two functions to use. The colour of the apps and all the information added in the apps is short, simple and easy to read. 
-  </p>
-					<p class="text-right"><a class="btn btn-primary btn-large">Download our App »</a></p>
+					<p>ACT Health operates the Territory's air quality monitoring network, which comprises two NEPM Performance Monitoring Stations (PMS) in Monash and Florey, and a smaller station in Civic. The Monash PMS is approximately 300 metres west of Cockcroft Avenue and the Florey PMS is in Neumann Place.<br>ACT Health monitors carbon monoxide (CO), nitrogen dioxide (NO2), photochemical oxidants as ozone (O3), particulate matter less than 10 micrometres (PM10) and particulate matter less than 2.5 micrometres (PM2.5).<br>PM10 and PM2.5 are the pollutants of most concern in the ACT. Elevated levels of particulate matter can arise, for example, in colder months due to wood smoke emitted from the use of wood heaters. They may also occur from bushfire and burn-off events in and around the ACT.<br>Photochemical oxidants, such as ozone, are generally not directly emitted. They are formed by the reaction of pollutants in the atmosphere. Ozone is formed when nitrogen oxides react with a group of air pollutants known as Reactive Organic Compounds (ROC) in the presence of sunlight.<br>Emissions from motor vehicles are the primary source of carbon monoxide and oxides of nitrogen pollution in the ACT.<br>Due to a lack of heavy industry the ACT does not monitor sulfur dioxide for the NEPM. following the phase out of leaded fuel on 1 January 2002, the ACT ceased monitoring lead in July 2002.</p>
+					<p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>
 				</div>
 
 			</div>	<!-- /container -->     
-		</div>	
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	
-	<script src="assets/js/headroom.min.js"></script> 	
-<script src="assets/js/jQuery.headroom.min.js"></script> 	
-<script src="assets/js/template.js"></script>
-
-	
+		</div>		
 		<?php include 'footer.php'; ?>
 	
 	
