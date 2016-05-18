@@ -23,6 +23,8 @@
 session_start();
 include_once 'db_utility.php';
 if(!isset($_SESSION['Yes'])){
+echo("<script>location.href = '/index.php?msg=$msg';</script>");
+echo("<script>alert('Admin permission needed');</script>");
 }
 ?>
 -->
@@ -54,31 +56,7 @@ if(!isset($_SESSION['Yes'])){
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
 	
-	<!-- MINI NAVIGATION BAR-->
-	<style>
-	#topbar {
- 	 background: #006666;
- 	 padding: 10px 0 10px 0;
- 	 text-align: center;
- 	 height: 36px;
- 	 overflow: hidden;
- 	 -webkit-transition: height 0.5s linear;
- 	 -moz-transition: height 0.5s linear;
- 	 transition: height 0.5s linear;
-	}
-	#topbar a {
- 	 color: #FFFFFF;
- 	 font-size:1.3em;
-  	line-height: 1.25em;
-  	text-decoration: none;
- 	 opacity: 1;
- 	 font-weight: bold;
-	}
-	#topbar a:hover {
- 	 color: #000000;
-         opacity: 0.6;
-	}
-	</style>
+	
 	
 	 <!-- table js and css --> 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/jq-2.2.0,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,b-1.1.2,b-colvis-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,r-2.0.2/datatables.min.css"/>
@@ -109,17 +87,8 @@ if(!isset($_SESSION['Yes'])){
 	
 	
 		<!-- mini navigation to profile/website/table -->		
-  <div id="topbar">
-  <a href="http://freshairbrisbane.com">Back to the website</a>
-  </div>
-  <div id="topbar">
-  <a href="adminProfile.php">Go to Profile</a>
-  </div>
 
-
-
-
-<h2> Welcome Admin </h2>
+<h2> Welcome </h2>
 <p>This table contains all the data we have received. </p>
 
 

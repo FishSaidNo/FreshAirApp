@@ -35,10 +35,9 @@ include_once 'db_utility.php';
 
 <body class="home">
 		<?php include 'menu.php'; ?>
-				</ul>
-			</div><!--/.nav-collapse -->
+							</div><!--/.nav-collapse -->
 		</div>
-	</div> 
+	
 	<!-- /.navbar -->
 
 	<!-- Header -->
@@ -57,17 +56,17 @@ include_once 'db_utility.php';
 				<header class="page-header">
 					<h1 class="page-title">User awareness</h1>
 				</header>
-				<div class="">
-						<div><img src="images/awareness.png" width="1000" class="img-responsive" alt="" /></div>
-					</div>
+				
+               
+                    
 				<p>
-				<ol>
+				<ol align="justify">
 					
 						Important cases of air pollution in Brisbane
 						One of the major highlighted problems arisen to industrial cities around the world wide is 
 						air pollution during past few decades. According to Zivkovic (2013), biggest economic cities 
 						are categories in the first raw of air polluted cities as well. In the same way, significant 
-						cases around air pollution facts are mentioned over all of this description.
+						cases around air pollution facts are mentioned over all of this description.</br></br>
 					
 						Consequently, 
 						(Brisbane city Council & The South East Queensland Air Emissions Inventory, 2004) articulate that,
@@ -75,7 +74,7 @@ include_once 'db_utility.php';
 						minimize the releasing pollutants to the air and also to minimize the impact from air pollution on 
 						public. In addition, city council is building an environmental program to increase the air pollution quality.
 						Pursuing this further, “Fresh air app” is recommending how to innovate this idea further in order to reach
-						the accepted goals established by relevant authorities. 
+						the accepted goals established by relevant authorities. </br></br>
 						
 					In order to develop the user awareness tracking progress, 
 						evaluation and monitoring the fresh air app would represent the possibilities with relevant functions on their website,
@@ -83,7 +82,7 @@ include_once 'db_utility.php';
 						available on city council website. Instead of this method,  Green IT solutions are implementing a new source of plan
 						to track the progress of the users by establishing sms method linked with air beam.  However, users’ digital identity
 						would be essential to download the data through the website. So the users need to sign up with their email verification
-						in order to check the air pollution level around their area. 
+						in order to check the air pollution level around their area. </br></br>
 					
 					Additionally, (Queensland Government, 2006) argues that, 
 						public users who live in indoors reduce the pollution level by improving such habits as cleaning (using lemon or vanilla 
@@ -95,12 +94,15 @@ include_once 'db_utility.php';
 						as a new step of the Brisbane air quality strategy a significant number of natural gas buses are planning to join the translink service 
 						in order to deliver a meaningful message to potential users how the government is taking action against the air pollution. Overall, 
 						all these cases are significant to motivate the users  to aware about the current situation and what are the steps they need to follow 
-						to make the air Brisbane city clean and fresh. 
+						to make the air Brisbane city clean and fresh. </br></br>
 					
 				</ol>
 				</p>
-				
-			</article>
+				</article></br></br></br>
+                            <div class="">
+						<div margin="auto"><img src="images/awareness.png" width="1000" class="img-responsive" alt="" /></div>
+					</div>
+			
 			<!-- /Article -->
 			
 		
@@ -108,18 +110,28 @@ include_once 'db_utility.php';
 	</div>	<!-- /container -->
 	
 
-
 	<?php include 'footer.php'; ?>
 		
-
-
-
-
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
+<script src="js/readmore.js"></script>
+
+  <script>
+    $('#info').readmore({
+      moreLink: '<a href="#">Usage, examples, and options</a>',
+      collapsedHeight: 350,
+      afterToggle: function(trigger, element, expanded) {
+        if(! expanded) { // The "Close" link was clicked
+          $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
+        }
+      }
+    });
+
+    $('article').readmore({speed: 500});
+  </script>
 </body>
 </html>

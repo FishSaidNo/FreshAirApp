@@ -49,36 +49,46 @@ include_once 'db_utility.php';
 		<div class="row">
 			
 			<!-- Article main content -->
-			<article class="col-sm-8 maincontent">
 				<header class="page-header">
-					<h1 class="page-title">About QUT FreshAir</h1>
+					<h1 class="page-title">About QUT freshair</h1><br>
 				</header>
-				<h3>QUT FreshAir offers daily AQI conditions for all suburbs and cities of Queensland:</h3>
-				<p>
+                <h3>Who are we?</h3>
+				<p align="justify">This website is a project conducted by Queensland University of Technology (Science and Engineering faculty) students for INB302 IT Capstone unit 2016 semester 1. The project team is known as “Green IT Solutions” supervised by Dr. Matthew Dunbabin. Our main goal is to update the real world users daily how clean and polluted the air is around Brisbane Suburbs, and to illustrate the real time air quality data in to numbers and colours that help public to understand and to take action against air pollution.
+                </br></br><div style="text-align:center"><img src="assets/images/team.png"/></div></br></br>
+				
+				
+				<h3>What we offer on this website</h3></br>
+				<p align="justify">
 				<ol>
 					<li>
-						Air Quality Forecasts - Queensland Nationwide daily forecasts.
+						Air Quality Forecasts - Queensland Nationwide daily forecasts. 
 					</li>
 					<li>
-						Current Air Quality Conditions - Nationwide and regional real-time ozone and particle pollution air quality maps covering all Queensland states. The maps are updated hourly.
+						Current Air Quality Conditions - Nationwide and regional real-time ozone and particle pollution air quality maps covering all Queensland states. 
 					</li>
 					<li>
-						Flag Program: Schools, organizations, and the community know the daily air quality conditions by using colored flags.
+						Maps are updated hourly. Program: Schools, organizations, and the community know the daily air quality conditions by using colored indicator on the map.
 					</li>
 
 				</ol>
 				</p>
 
-				<h3>About the Data</h3>
-				<p>Map and forecast data are collected using federal reference or equivalent monitoring techniques or techniques approved by the state, local or tribal monitoring agencies. To maintain "real-time" maps, the data are displayed after the end of each hour. Although preliminary data quality assessments are performed, the data in QUT FreshAir are not fully verified and validated through the quality assurance procedures monitoring organizations used to officially submit and certify data on the EPA Air Quality System (AQS).
-				<br>
-				This data sharing and centralization creates a one-stop source for real-time and forecast air quality data. The benefits include quality control, national reporting consistency, access to automated mapping methods, and data distribution to the public and other data systems.
-				
+				<h3>About the data</h3></br>
+				<p align="justify">
+				<ol>
+					<li>
+						Map and forecast data are collected using federal reference  
+					</li>
+					<li>
+						Although preliminary data quality assessments are performed, the data in QUT Fresh Air are not fully verified and validated through the quality assurance procedures monitoring organizations used to officially submit and certify data on the EPA Air Quality System (AQS). 
+					</li>
+					<li>
+						This data sharing and centralization creates a one-stop source for real-time and forecast air quality data. The benefits include quality control, national reporting consistency, access to automated mapping methods, and data distribution to the public and other data systems. 
+					</li>
 
-				
-			</article>
-			<!-- /Article -->
-	
+				</ol>
+				</p>
+
 		</div>
 	</div>	<!-- /container -->
 

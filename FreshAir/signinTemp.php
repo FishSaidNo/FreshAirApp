@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 		if($username==$row['email_address']&&$password=$row['password']){	
 				session_start();
-				$_SESSION['Yes']='Admin';		   
-				echo("<script>location.href = '/statisticsTemp.php?msg=$msg';</script>");		   	
+				$_SESSION['Invited']='Invited';		   
+				echo("<script>location.href = '/dataInvited.php?msg=$msg';</script>");		   	
 				
 		  }else {
 			echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	

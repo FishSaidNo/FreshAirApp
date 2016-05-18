@@ -1,9 +1,9 @@
 <?php 
 /* connection: host, user, password, & db schema */ 
-include_once 'db_utility.php';
+ $connect = mysqli_connect("localhost", "freshai1_root", "admin123456", "freshai1_freshair"); 
  $output = '';  
- $query = "SELECT * FROM tbl_sample";  
-$result = $mysqli->query($query);
+ $sql = "SELECT * FROM tbl_sample";  
+ $result = mysqli_query($connect, $sql);  
  $output .= '  
       <div class="table-responsive">  
            <table class="table table-bordered">  
@@ -14,8 +14,9 @@ $result = $mysqli->query($query);
                      <th width="20%">Email</th>  
                      <th width="10%">Password</th>                       
                 </tr>';  
-
-      while ($row = $result->fetch())
+ if(mysqli_num_rows($result) > 0)  
+ {  
+      while($row = mysqli_fetch_array($result))  
       {  
            $output .= '  
                 <tr>  
@@ -36,9 +37,14 @@ $result = $mysqli->query($query);
                 <td id="pw" contenteditable></td>
            </tr>  
       ';  
-
-  
+ }  
+ else  
+ {  
+      $output .= '<tr>  
+                          <td colspan="5">Data not Found</td>  
+                   </tr>';  
+ }  
  $output .= '</table>  
       </div>';  
  echo $output;  
- ?>  
+ ?> 

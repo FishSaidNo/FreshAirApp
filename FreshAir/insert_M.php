@@ -1,5 +1,8 @@
  <?php  
-include_once 'db_utility.php';
- $sql = "INSERT INTO invited_members(user_name, pw, description, user_id) VALUES('".$_POST["User_Name"]."', '".$_POST["PW"]."','".$_POST["Description"]."','".$_POST["id"]."')";  
-      echo 'Data Inserted';   
+ $connect = mysqli_connect("localhost", "freshai1_root", "admin123456", "freshai1_freshair");
+ $sql = "INSERT INTO invited_members(User_Name, PW, Description, user_id ) VALUES('".$_POST["User_Name"]."', '".$_POST["PW"]."','".$_POST["Description"]."','".$_POST["id"]."')";  
+ if(mysqli_query($connect, $sql))  
+ {  
+      echo 'Data Inserted';  
+ }  
  ?>

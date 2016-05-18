@@ -30,67 +30,49 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 }									
 				
   </style> 
-  
-<title>Fresh Air - Create Your Own Reality</title>
+    <head>
+        	<link rel="shortcut icon" href="assets/images/gt_favicon.png">			
+		<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
-<link rel="shortcut icon" href="assets/images/gt_favicon.png">
-
-<!-- Custom styles for our template -->
-<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script src="assets/js/html5shiv.js"></script>
-<script src="assets/js/respond.min.js"></script>
-<![endif]-->
+			<!-- Custom styles for our template -->
+			<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+			<link rel="stylesheet" href="assets/css/main.css">	
+		
+            <title>Fresh Air - Create Your Own Reality</title> 	    
+			<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+			<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+			<meta charset="UTF-8">	 
+			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
+			<script src="amcharts/amcharts.js"></script>
+			<script src="http://www.amcharts.com/lib/3/serial.js"></script>
+			<link rel="stylesheet" href="http://www.amcharts.com/lib/style.css" type="text/css">
+			<script src="http://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+			<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+			<script src="amcharts/plugins/responsive/responsive.min.js" type="text/javascript"></script>
+			<script src="https://www.amcharts.com/lib/3/plugins/export/export.js" type="text/javascript"></script>
+			<link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css">
+			
+		          		
 </head>
-
-<body class="home">
-
-
-<script async src="//jsfiddle.net/wjcgLu5e/embed/"></script>
-
-<!-- Fixed navbar -->
+<script>
+function alertConstruction() {
+    alert("Data shown it is for testing purposes ONLY, Site under construction");
+}
+</script>
+<body onload="alertConstruction()" class="home">   			
 <?php include 'menu.php'; ?>
-<!-- /.navbar -->
 
-<!-- Header -->
-<header id="head" class="secondary"></header>
-<div class="container">
-
-<ol class="breadcrumb">
-<li><a href="index.php">Home</a></li>
-<li class="active">Statistics</li>
-</ol>
-
-<div class="row">
-
-<html>
-<head>
-
-  <script src="amcharts/amcharts.js"></script>
-  <script src="http://www.amcharts.com/lib/3/serial.js"></script>
-  <link rel="stylesheet" href="http://www.amcharts.com/lib/style.css" type="text/css">
-  <script src="http://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
-  <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-  
-  <script src="amcharts/plugins/responsive/responsive.min.js" type="text/javascript"></script>
-  
- <script src="https://www.amcharts.com/lib/3/plugins/export/export.js" type="text/javascript"></script>
- <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css">
-
- </script>
-
-  
-</head>
-<body>
+	
+	<!-- /.navbar -->
+    <!-- Header -->
+	<header id="head" class="secondary"></header>
+	<div class="container">
+	<ol class="breadcrumb">
+			<li><a href="index.php">Home</a></li>
+			<li class="active">Statistics</li>
+		</ol>	      
 
 			<h1> Air quality (AQI) Readings </h1> 
 
@@ -486,22 +468,18 @@ var chart = AmCharts.makeChart("chartdiv", {
   } );
   
   
-  </script>
-</body>
-</html>
+</script>
 
-</div>
-</div>	<!-- /container -->
-
-
-<?php include 'footer.php'; ?>
-
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+		
+				
+			</div>	<!-- /container -->     
+	
+		<?php include 'footer.php'; ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="assets/js/headroom.min.js"></script>
 <script src="assets/js/jQuery.headroom.min.js"></script>
 <script src="assets/js/template.js"></script>
-</body>
+</body>	
 </html>
+

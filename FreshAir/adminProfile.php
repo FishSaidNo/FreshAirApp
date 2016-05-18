@@ -4,10 +4,39 @@ session_start();
  * index page
  * default page for user
  */
-include_once 'db_utility.php';
 if(!isset($_SESSION['Yes'])){
 echo("<script>location.href = '/index.php?msg=$msg';</script>");
+echo("<script>alert('Admin permission needed');</script>");
 }
+include_once 'db_utility.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_POST['password'] && $_POST['email']) {
+        $username = $_POST['email'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $text = $_POST['message'];
+        $id= $_POST['text'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $query = "INSERT INTO invited_members (User_Name,PW, Description, user_id) "
+                . " VALUES ( '" . $firstname . "','" . md5($password) . "','" . $text. "','" . $id. "')";
+        $mysqli->query($query);
+        echo("<script>alert('Data Sent');</script>");
+    }
+
+    $to = $_POST['email']; // this is your Email address
+    $from = "freshairbne@gmail.com"; // this is the sender's Email address
+    $first_name = $_POST['firstname'];  
+    $link = "http://freshairbrisbane.com/signinTemp.php";
+    $last_name = $_POST['lastname'];
+    $subject = "Data Access Invitation";
+    $message = "Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $text;
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +70,31 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
+<!-- MINI NAVIGATION BAR-->
+	<style>
+	#topbar {
+ 	 background: #006666;
+ 	 padding: 10px 0 10px 0;
+ 	 text-align: center;
+ 	 height: 36px;
+ 	 overflow: hidden;
+ 	 -webkit-transition: height 0.5s linear;
+ 	 -moz-transition: height 0.5s linear;
+ 	 transition: height 0.5s linear;
+	}
+	#topbar a {
+ 	 color: #FFFFFF;
+ 	 font-size:1.3em;
+  	line-height: 1.25em;
+  	text-decoration: none;
+ 	 opacity: 1;
+ 	 font-weight: bold;
+	}
+	#topbar a:hover {
+ 	 color: #000000;
+         opacity: 0.6;
+	}
+	</style>
 <script type="text/javascript">
 $(function(){
   $('#profiletabs ul li a').on('click', function(e){
@@ -58,8 +112,6 @@ $(function(){
   });
 });
 </script>
-</body>
-</html>
 
 <!-- Admin Profile updating -->
  <script>  
@@ -133,7 +185,7 @@ $(function(){
                 url:"edit_M.php",  
                 method:"POST",  
                 //id IS STABLE PK ID, text is the value for the columns and column is the stable header
-                data:{id:id, text:text, column_name:column_name},  
+                data:{id: user_id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
                      alert(data);  
@@ -216,18 +268,16 @@ $(function(){
 				</header>
 					<div class="">
 						
-						 <div id="topbar">
-  <a href="http://freshairbrisbane.com">Back to the website</a>
-  </div>
-    <div id="topbar">
-  <a href="adminData.php">Back to the Table</a>
-  </div>
-  
-   <!-- profile body -->
-  
-		  <div id="w">
-			<div id="content" class="clearfix">
-			  <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
+		<!-- mini navigation to profile/website/table -->		
+			  <div id="topbar">
+			  <a href="http://freshairbrisbane.com">Back to the website</a>
+			  </div>
+			  <div id="topbar">
+			  <a href="adminProfile.php">Go to Profile</a>
+			  </div></br></br></br>
+					 <div id="w">
+						<div id="content" class="clearfix">
+						  <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
 			  <h1>Admin Profile</h1>
 
 			  <nav id="profiletabs">
@@ -255,47 +305,56 @@ $(function(){
 							 <div id="Members_data"></div> 
 							 <!-- form -->
 		 
-		  <!-- establish php connection -->
-
-		 <?php
-				 
-		 $sql = "INSERT INTO invited_members(User_Name, PW, Description, user_id)
-		  VALUES
-		  ('$_POST[User_Name]','$_POST[PW]','$_POST[Description]','$_POST[id]')";  
-
-		
-		
-		?>                     
-							<!-- Implment form -->
+				<!-- Implment form -->
 												 
 					   <!-- Note: we need to send users name, password to the intered email? -->  
-				<h3 align="center">Invite New Members</h3><br />                                 
-				<div>
-			  <form  action="profile.php#members" method="post" >
-			  <label for="id">ID</label>
-			  <span style="color:blue;font-weight:bold" > Type unique ID</span> 
-			  <input type="text" id="id" name="id" required>
+					<h3 align="center">Invite New Members</h3><br />                                 
+					<div class="panel-body">
 
-			  <label for="User_Name">User Name</label>
-			  <input type="text" id="User_Name" name="User_Name" required>
+									<form method="post" name="form" action="" onsubmit="return validateForm()">
+										<div class="top-margin">
+											<label>First Name</label>
+											<input type="text" class="form-control" name="firstname">
+										</div>
+										<div class="top-margin">
+											<label>Last Name</label>
+											<input type="text" class="form-control" name="lastname">
+										</div>
+										<div class="top-margin">
+											<label>Email Address <span class="text-danger">*</span></label>
+											<input type="text" class="form-control" name="email">
+										</div>
 
-			  <label for="PW">Password</label>
-			  <span style="color:blue;font-weight:bold" id="passstrength"></span><br>
-			  <input type="text" id="PW" name="PW" required>
-			  
-			  <label for="Description">Description</label>
-			  <input type="text" id="Description" name="Description">
-			  
-			  <label for="Message">Message</label>
-			  <input type="text" id="Message" name="Message" >
-			  
-			  <label for="email">Email</label>
-			  <input type="email" name="email" required>
-		  
-			 <input type="submit" name="submit_form" value="Invite Member">
-			 </form>
-			 </div>
-			   </section>
+										<div class="top-margin">
+												<label>Password <span class="text-danger">*</span></label>
+												<input type="password" id="pwd" class="form-control" name="password">
+										</div>
+										
+										<!--<div class="col-sm-6"> -->
+										<div class="top-margin">									
+												<label>User ID: <span class="text-danger">*</span></label>
+												<input type="text" id="cpwd" class="form-control"  name="id">
+										</div>
+                                                                                <div class="top-margin">
+                                                                                   <label> Message:<span class="text-danger">*</span></label>
+                                                                                         <br><textarea rows="4" name="message" cols="30"></textarea><br>
+							                        </div>
+										<hr>
+
+										<div class="row">
+											<div class="col-lg-8">
+												 <button class="btn btn-action" type="submit" onclick="return CheckPasswordNew();">Register</button>                     
+											</div>
+											
+										</div>
+									</form>
+					</div>
+				</section>
+			</div>
+
+		</div>
+	
+	 
 			   
 			   <!-- Tab:3 Manage Admins -->     
 			  <section id="Admins" class="hidden">
@@ -312,7 +371,7 @@ $(function(){
 							 <div id="Admin_data"></div>         
 			  </section>
 
-			   <!-- Tab: 4 Admin settings -->          
+						   <!-- Tab: 4 Admin settings -->          
 			  <section id="settings" class="hidden">
 			  <br><br>
 				<p>Edit your user settings:</p>
@@ -334,8 +393,8 @@ $(function(){
 					
 					</div>
 		
-		</div>
-	</div>	<!-- /container -->
+	
+	<!-- /container -->
 	
 <?php include 'footer.php'; ?>
 
@@ -347,3 +406,4 @@ $(function(){
 	<script src="assets/js/template.js"></script>
 </body>
 </html>
+		

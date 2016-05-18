@@ -4,7 +4,6 @@ session_start();
  * index page
  * default page for user
  */
-include_once 'db_utility.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +35,7 @@ include_once 'db_utility.php';
 	<![endif]-->
 </head>
 
-<script>  
+ <script>  
  //This function will upload the data from our db
  $(document).ready(function(){  
       function fetch_data()  
@@ -107,27 +106,18 @@ include_once 'db_utility.php';
 				</header>
 					<div class="">
 						
-						  <br />  
-							<br />  
-							<br />  
-							<div class="table-responsive">  
-								 <h3 align="center">Admins Table</h3><br />  
-								  <!-- Call table -->
-								 <div id="Admin_data"></div>                 
-							</div>  
-					
+					   <br />  
+                <br />  
+                <br />  
+                <div class="table-responsive">  
+                     <h3 align="center">Admins Table</h3><br />  
+                      <!-- Call table -->
+                     <div id="Admin_data"></div>                 
+                </div>  
 					</div>
 		
 		</div>
 	</div>	<!-- /container -->
-	
-<?php include 'footer.php'; ?>
 
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="assets/js/headroom.min.js"></script>
-	<script src="assets/js/jQuery.headroom.min.js"></script>
-	<script src="assets/js/template.js"></script>
 </body>
 </html>

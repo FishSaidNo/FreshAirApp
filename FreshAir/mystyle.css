@@ -1,9 +1,17 @@
 #map-canvas {
 background-repeat: no-repeat;
-	background-size: 60% 60%;
-	width: 500px;
+	background-size: 100% 100%;
+	width: 90%;
 	height: 500px;
-	margin-top: 50px;
-	padding-top: 0px;
+	margin: auto;
+	padding: auto;
+
  }
 
+.map_container .map-canvas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -4,7 +4,32 @@ session_start();
  * index page
  * default page for user
  */
-include_once 'db_utility.php';
+//establish connection only when form is submitted
+if (isset ($_POST['submit_form'])){
+
+
+$con = mysql_connect("localhost","freshai1_root", "admin123456", "freshai1_freshair");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+ 
+mysql_select_db("root", $con);
+ 
+ $sql = "INSERT INTO invited_members(user_id, User_Name, PW, Description)
+  VALUES
+  ('$_POST[id]','$_POST[User_Name]','$_POST[PW]','$_POST[Description]')";  
+
+//mysql_query($sql,$con);
+
+if (!mysql_query($sql,$con))
+  {
+  die('Error: ' . mysql_error());
+ }
+echo "1 member account added";
+ 
+mysql_close($con);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +65,6 @@ include_once 'db_utility.php';
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-
 <script>  
  //This function will upload the data from our db
  $(document).ready(function(){  
@@ -59,13 +83,13 @@ include_once 'db_utility.php';
 
       
       //Live update 
-      function edit_data(id, text, column_name)  
+      function edit_data(user_id, text, column_name)  
       {  
            $.ajax({  
                 url:"edit_M.php",  
                 method:"POST",  
                 //id IS STABLE PK ID, text is the value for the columns and column is the stable header
-                data:{id:id, text:text, column_name:column_name},  
+                data:{user_id:user_id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
                      alert(data);  
@@ -82,7 +106,7 @@ include_once 'db_utility.php';
                 alert("Please Enter User Name");  
                 return false;  
            } else {
-                edit_data(id, User_Name, "User_Name");  
+                edit_data(user_id, User_Name, "User_Name");  
                 }
       }); 
       
@@ -95,7 +119,7 @@ include_once 'db_utility.php';
                 alert("Please Enter Password");  
                 return false;  
            }  else {
-                 edit_data(id, PW, "PW");  
+                 edit_data(user_id, PW, "PW");  
            }
       });  
       
@@ -114,7 +138,7 @@ include_once 'db_utility.php';
                 $.ajax({  
                      url:"delete_M.php",  
                      method:"POST",  
-                     data:{id:id},  
+                     data:{user_id:user_id},  
                      dataType:"text",  
                      success:function(data){  
                           alert(data);  
@@ -151,33 +175,17 @@ include_once 'db_utility.php';
                      <div id="Members_data"></div> 
                      
 
-                                           <!-- establish php connection -->
-
- 
- <?php
-//establish connection only when form is submitted
-if (isset ($_POST['submit_form'])){
-include_once 'db_utility.php';
-
- $sql = "INSERT INTO freshair.invited_members(User_Name, PW, Description, user_id )
-  VALUES 
-  ($_POST[User_Name]','$_POST[PW]','$_POST[Description]','$_POST[id]')";  
-
-
- 
-mysql_close($con);
-}
-?>
+                                        
  
                     <!-- Implment form -->
                                          
-               <!-- Note: we need to send users name, password to the intered email? -->  
+               <!-- Note: we need to send users name, password to the entered email? -->  
         <h3 align="center">Invite New Members</h3><br />                                 
 		<div>
-	  <form  action="managmembers.php" method="post" >
-	  <label for="id">ID</label>
+	  <form  action="adminManagement.php" method="post" >
+	  <label for="user_id">ID</label>
 	  <span style="color:blue;font-weight:bold">blue</span> 
-      <input type="text" id="id" name="id">
+      <input type="text" id="user_id" name="user_id">
 
 	  <label for="User_Name">User Name</label>
       <input type="text" id="User_Name" name="User_Name">

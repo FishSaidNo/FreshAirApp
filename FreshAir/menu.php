@@ -7,26 +7,37 @@
                     
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav pull-right">
-				<li class="active"><a href="index.php">Home</a></li>
-                                <li><a href="hostspots.php">Map</a></li>
+				<ul class="nav navbar-nav pull-right">
+				<li><a href="index.php">Home</a></li>
+                <li><a href="hotspots.php">Map</a></li>
 				<li><a href="statistics.php">Statistics</a></li>
 				<li><a href="aboutus.php">About Us</a></li>
 				<li><a href="facts.php">Facts</a></li>
 				<li><a href="awareness.php">Awareness</a></li>
 				<?php
-				if(@$_SESSION['No'] || @$_SESSION['Yes']){
-				?>
-				<li><a href="logout.php">Logout</a></li>
-				<?php
-				}else{
-				?>
-				<li><a class="btn" href="signin.php">Admin Sign In</a></li>
-				<?php
-				}
-				?>
+				if(@$_SESSION['No'] || @$_SESSION['Yes']){					
+					?>	
+						<li><a href="adminData.php">Data Table</a></li>
+						<li><a href="logout.php">Logout</a></li>
+					<?php
+					} else {								
+						if(!@$_SESSION['Invited']){
+						?>
+						<li><a class="btn" href="signin.php">Admin Sign In</a></li>
+						<?php
+						} else {
+						?>
+							<li><a href="dataInvited.php">Data Table</a></li>
+							<li><a href="logout.php">Logout</a></li>
+						<?php
+						} 
+					}
+				
+						?>
+		
 			</ul>
+              
 		</div><!--/.nav-collapse -->
-  <h6 style="color:#FFFFFF">Data shown it is for testing purposes ONLY, Site under construction</h6>
+<h6 style="color:white;"> Beta Version (Under Constrution) </h6>
 	</div>
 </div> 

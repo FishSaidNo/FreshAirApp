@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
+       <script src="js/registervalidation.js"></script>
 	<![endif]-->
 </head>
 
@@ -91,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							
 							<hr>
 							
-							<form method="post" action="signin.php" >
+							<form onsubmit="validateForm()" method="post" action="signin.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="username">
