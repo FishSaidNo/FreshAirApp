@@ -80,7 +80,7 @@ function alertConstruction() {
 						</div></br></br></br>
 					</div></br></br></br> <!-- /row  -->
 					
-					</br></br></br><div style="text-align:center"><img src="images/indexImg.jpeg" width="1280" height="5758" alt="" /></div> <br/>
+					</br></br></br><div style="text-align:center"><img class="img-responsive" src="images/indexImg.jpeg" width="1280" height="5758" alt="" /></div> <br/>
 					
 						
 				</div>

@@ -1,3 +1,9 @@
+<?PHP
+/**
+ * index page
+ * default page for user
+ */
+?>
 <div class="navbar navbar-inverse navbar-fixed-top headroom" >
 	<div class="container">
 		<div class="navbar-header">
@@ -15,29 +21,29 @@
 				<li><a href="facts.php">Facts</a></li>
 				<li><a href="awareness.php">Awareness</a></li>
 				<?php
-				if(@$_SESSION['No'] || @$_SESSION['Yes']){					
+				if(!(@$_SESSION['Admin'] || @$_SESSION['Invited'])) {
+				?>					
+					<li><a class="btn" href="signin.php">Sign In</a></li>
+				<?php
+				} 
+				if(@$_SESSION['Invited']){				
 					?>	
-						<li><a href="adminData.php">Data Table</a></li>
+						<li><a href="dataInvited.php">Data Table</a></li>						
 						<li><a href="logout.php">Logout</a></li>
 					<?php
-					} else {								
-						if(!@$_SESSION['Invited']){
-						?>
-						<li><a class="btn" href="signin.php">Admin Sign In</a></li>
-						<?php
-						} else {
-						?>
-							<li><a href="dataInvited.php">Data Table</a></li>
-							<li><a href="logout.php">Logout</a></li>
-						<?php
-						} 
-					}
-				
-						?>
-		
+					}			
+				if(@$_SESSION['Admin']){
+				?>
+					<li><a href="adminData.php">Data Table</a></li>
+					<li><a href="logout.php">Logout</a></li>
+				<?php
+				}
+									
+				?>
 			</ul>
               
 		</div><!--/.nav-collapse -->
-<h6 style="color:white;"> Beta Version (Under Constrution) </h6>
+<h6 style="color:white;"> Beta Version (Under Construction) </h6>
 	</div>
 </div> 
+

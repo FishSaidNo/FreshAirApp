@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 /**
  * login page for user to login
  */
@@ -10,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         /**
          * we use md5 to hash password, so here we use md5 hashed password to compare
          */
-        $query="select * from  tempmembers where email_address='$username' and password='".md5($password)."'"; 
+        $query="select * from invited_members where User_Name='$username' and PW='".md5($password)."'"; 
         $result = $mysqli->query($query); 
         $row=$result->fetch(PDO::FETCH_ASSOC);          
         $row_cnt = $result->rowCount();
@@ -18,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($row_cnt!=1){
              echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";				 
         }
-		if($username==$row['email_address']&&$password=$row['password']){	
+		if($username==$row['User_Name']&&$password=$row['PW']){	
 				session_start();
 				$_SESSION['Invited']='Invited';		   
-				echo("<script>location.href = '/dataInvited.php?msg=$msg';</script>");		   	
+				echo("<script>location.href = '/dataInvited.php';</script>");	   	
 				
 		  }else {
 			echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	

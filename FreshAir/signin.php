@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 /**
  * login page for user to login
  */
@@ -20,14 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		  if($username==$row['email_address']&&$password=$row['password']){	
 		   if($username=='admin'){
 				session_start();
-				$_SESSION['Yes']='admin';		   
-				echo("<script>location.href = '/adminData.php?msg=$msg';</script>");
-			}
-			else {
-			session_start();			
-			$_SESSION['No']=$row['first_name']; 
-			echo("<script>location.href = '/index.php?msg=$msg';</script>");
-		   }
+				$_SESSION['Admin']='Admin';		   
+				echo("<script>location.href = '/adminData.php';</script>");
+			}			
       } 
 	}
 }

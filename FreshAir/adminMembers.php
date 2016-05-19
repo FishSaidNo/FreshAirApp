@@ -1,9 +1,16 @@
 <?PHP
-session_start();
+
 /**
  * index page
  * default page for user
  */
+session_start();
+include_once 'db_utility.php';
+if(!isset($_SESSION['Admin'])){
+echo("<script>location.href = '/index.php?msg=$msg';</script>");
+echo("<script>alert('Admin permission needed');</script>");
+}
+
 //establish connection only when form is submitted
 if (isset ($_POST['submit_form'])){
 
@@ -18,7 +25,7 @@ mysql_select_db("root", $con);
  
  $sql = "INSERT INTO invited_members(user_id, User_Name, PW, Description)
   VALUES
-  ('$_POST[id]','$_POST[User_Name]','$_POST[PW]','$_POST[Description]')";  
+  ('$_POST[id]','$_POST[email]','$_POST[PW]','$_POST[Description]')";  
 
 //mysql_query($sql,$con);
 
@@ -193,7 +200,7 @@ mysql_close($con);
       <label for="PW">Password</label>
       <input type="text" id="PW" name="PW">
       
-      <label for="PW">Email</label>
+      <label for="email">Email</label>
       <input type="email" name="email">
       
       <label for="Description">Description</label>

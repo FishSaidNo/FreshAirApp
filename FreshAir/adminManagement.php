@@ -1,10 +1,16 @@
 <?PHP
-session_start();
 /**
  * index page
  * default page for user
  */
+session_start();
+include_once 'db_utility.php';
+if(!isset($_SESSION['Admin'])){
+echo("<script>location.href = '/index.php?msg=$msg';</script>");
+echo("<script>alert('Admin permission needed');</script>");
+}
 ?>
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

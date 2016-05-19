@@ -1,13 +1,16 @@
 <?PHP
-session_start();
+
 /**
  * index page
  * default page for user
  */
-if(!isset($_SESSION['Yes'])){
+session_start();
+include_once 'db_utility.php';
+if(!isset($_SESSION['Admin'])){
 echo("<script>location.href = '/index.php?msg=$msg';</script>");
 echo("<script>alert('Admin permission needed');</script>");
 }
+
 include_once 'db_utility.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['password'] && $_POST['email']) {
@@ -19,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $query = "INSERT INTO invited_members (User_Name,PW, Description, user_id) "
-                . " VALUES ( '" . $firstname . "','" . md5($password) . "','" . $text. "','" . $id. "')";
+                . " VALUES ( '" . $email . "','" . md5($password) . "','" . $text. "','" . $id. "')";
         $mysqli->query($query);
         echo("<script>alert('Data Sent');</script>");
     }
