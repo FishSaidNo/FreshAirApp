@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row=$result->fetch(PDO::FETCH_ASSOC);          
         $row_cnt = $result->rowCount();
         if($row_cnt!=1){
-             echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";				 
+                echo "<script>alert('Invalid Username or password'); location.href='signin.php'</script>";      			 
         }
 		  if($username==$row['email_address']&&$password=$row['password']){	
 		   if($username=='admin'){
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							
 							<hr>
 							
-							<form onsubmit="validateForm()" method="post" action="signin.php" >
+							<form onsubmit="return validateForm()" method="post" action="signin.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="username">
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 								<div class="row">
 									<div class="col-lg-8">
-										<b><a href="">Forgot password?</a></b>
+										<b><a href="forgotPassword.php">Forgot password?</a></b>
 									</div>
 									<div class="col-lg-4 ">
 										<button class="btn btn-action" type="submit">Sign in</button>

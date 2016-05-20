@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row_cnt = $result->rowCount();
 
         if($row_cnt!=1){
-             echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";				 
-        }
+              echo "<script>alert('Invalid Username or password'); location.href='signinTemp.php'</script>";				 
+       }
 		if($username==$row['User_Name']&&$password=$row['PW']){	
 				session_start();
 				$_SESSION['Invited']='Invited';		   
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 														
 							<hr>
 							
-							<form method="post" action="signinTemp.php" >
+							<form onsubmit="return validateForm()" method="post" action="signinTemp.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="username">
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 								<div class="row">
 									<div class="col-lg-8">
-										<b><a href="">Forgot password?</a></b>
+										<b><a href="forgotPasswordTemp.php">Forgot password?</a></b>
 									</div>
 									<div class="col-lg-4 ">
 										<button class="btn btn-action" type="submit">Sign in</button>
