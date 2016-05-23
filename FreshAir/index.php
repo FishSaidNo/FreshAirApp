@@ -40,7 +40,7 @@ function alertConstruction() {
 	<header id="head" class="secondary"></header>
 	<div class="container">
 
-		<h3 style="text-align:center"> Welcome to Brisbane Fresh Air Web Site, Breath Fresh </h3></br>
+		<h3 style="text-align:center"> Welcome to Brisbane Fresh Air Web Site, Breathe Fresh </h3></br>
                <h5 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h5>
 
     

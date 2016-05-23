@@ -17,13 +17,14 @@
 			* Enable inline JS: add 'unsafe-inline' to default-src
 	-->
 	
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://192.168.178.30:80/ http://freshairbrisbane.com">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="msapplication-tap-highlight" content="no">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/nav_menu.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<meta charset=utf-8 />
 	<title>Fresh Air</title>
 	
@@ -49,23 +50,24 @@
 			</div>
 			<div id="slidemenu">
      
-				<form class="navbar-form navbar-right" role="form">
+<!-- 				<form class="navbar-form navbar-right" role="form">
 					<div class="form-group">
 						<input type="search" placeholder="search" class="form-control">
 					</div>
 					<button type="submit" class="btn btn-primary">Search</button>
-				</form>
+				</form>			 -->
+				<form class="navbar-form navbar-right" role="form">				
+					<button id="openWebsite" type="button" class="btn btn-primary">Open FreshAir Website</button>
+				</form>	
 
-				<!-- @@@Need to implement chaning the active list item when navigating... -->
-				<!-- @@@Need to implement chaning the active list item when navigating... -->
-				<!-- @@@Need to implement chaning the active list item when navigating... -->
 				<ul id="navMenuList" class="nav navbar-nav">
 					<!-- <li class="active"><a href="#">Home</a></li> -->
-					<li class="active"><a class="appLink" href="#geolocationDataPage">Home</a></li>
-					<li><a class="appLink" href="#sampleContentPage">Sample Content</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<li class="active"><a class="appLink" href="#homePage">Home</a></li>
+					<li><a class="appLink" href="#submitDataSamplePage">Submit Data Sample</a></li>
+					<!-- <li><a class="appLink" href="#sampleContentPage">Sample Content</a></li> -->
+					<li><a class="appLink" href="fakeLink">About the Project</a></li>
+					<li><a class="appLink" href="fakeLink">Contact the Team</a></li>
+					<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Options <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Action</a></li>
 							<li><a href="#">Another action</a></li>
@@ -101,15 +103,55 @@
 	<!--Place content for seperate pages inside this div and set display:none when not needed...-->
 	<div id="pageContentWrapper">
 	
-		<div id="geolocationDataPage" class="pageContent container">
-			<h1 class="no-margin-top">Geolocation Data</h1>
-			<a class="appLink" href="#sampleContentPage">Sample Link</a>
-			</br></br><button id="btnGeoGet" type="button" class="btn btn-info">Get Geolocation Data</button></br></br>
-			<div id="geolocationData">
-
+		<div id="homePage" class="pageContent container">
+			<span style="text-align:center">
+			<h1 class="no-margin-top" style="margin-bottom:0;">Fresh Air Brisbane</h1>
+			<h3 class="no-margin-top">Mobile Application</h3>
+			<img src="img/awareness1.png" style="width:100%" class="centeredContent">
+			<img src="img/awareness2.png" style="width:100%" class="centeredContent">
+			</span>
+		</div><!-- /#homePage -->	
+	
+		<div id="submitDataSamplePage" class="pageContent container" style="display:none;">
+			<h2 class="no-margin-top" style="text-align:center">Submit A Data Sample</h2>
+			<!-- <a class="appLink" href="#sampleContentPage">Sample Link</a> -->
+			<!-- </br> -->
+			
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
+				<button id="btnGenerateSample" type="button" class="btn btn-info">Generate Data</button>
+			</span>
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
+				<button id="btnGeoSend" type="button" class="btn btn-success">Send To Server</button>
+				<button id="btnShowSms" type="button" class="btn btn-warning">Submit Via Sms?</button>
+			<div id="smsOptions" style="display:none;margin-top:7px;">
+				<input id="sendSmsTo" placeholder="Enter mobile number" value="" type="tel" min="10" max="10"></input>
+				<button id="btnSendSms" type="button" class="btn btn-warning">Send Sms</button>
 			</div>
-			</br></br><button id="btnGeoSend" type="button" class="btn btn-success">Send Geolocation Data to Server</button></br>
-		</div><!-- /#geolocationDataPage -->	
+			</span>
+			</br>
+			<div id="dataSampleResults">
+			
+				<p><strong>Date</strong>: <span id="dataDate"></span></p>
+				<p><strong>Time</strong>: <span id="dataTime"></span></p>
+				<p><strong>Latitude</strong>: <span id="dataLat"></span></p>
+				<p><strong>Longitude</strong>: <span id="dataLong"></span></p>
+				<!-- <p><strong>PM2.5</strong>: <span id="dataPM25"></span> <div class="editContainer"><input placeholder="New Val" value="" type="number" min="1" max="4"></input><button class="editBtn" type="button"><i class="fa fa-pencil-square"></i></button></div>             </p> -->
+				<p><strong>PM2.5</strong>: <span id="dataPM25"></span></p>
+				<p><strong>PM10</strong>: <span id="dataPM10"></span></i></p>
+				<p><strong>Surface Ozone </strong>: <span id="dataO3"></span></p>
+				<p><strong>Sulfur Dioxide</strong>: <span id="dataSO2"></span></p>
+				<p><strong>Nitrogen Dioxide</strong>: <span id="dataNO2"></span></p>
+				<p><strong>Carbon Monoxide</strong>: <span id="dataCO"></span></p>
+				<p><strong>Dew</strong>: <span id="dataDew"></span></p>
+				<p><strong>Humidity</strong>: <span id="dataHumidity"></span></p>
+				<p><strong>Temperature</strong>: <span id="dataTemperature"></span></p>
+				
+			</div>
+		
+			
+		</div><!-- /#submitDataSamplePage -->			
+		
+
 
 		<div id="sampleContentPage" class="pageContent container" style="display:none;">
 			<h1 class="no-margin-top">Bootstrap starter template</h1>

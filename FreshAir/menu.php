@@ -20,6 +20,7 @@
 				<li><a href="aboutus.php">About Us</a></li>
 				<li><a href="facts.php">Facts</a></li>
 				<li><a href="awareness.php">Awareness</a></li>
+				<li><a href="downloads/android-debug.apk" download>Download App</a></li>
 				<?php
 				if(!(@$_SESSION['Admin'] || @$_SESSION['Invited'])) {
 				?>					

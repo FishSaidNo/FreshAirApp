@@ -12,6 +12,12 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.greenit.freshair"
+        },
+        "com.cordova.plugins.sms": {
+            "PACKAGE_NAME": "com.greenit.freshair"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.greenit.freshair"
         }
     },
     "dependent_plugins": {}
