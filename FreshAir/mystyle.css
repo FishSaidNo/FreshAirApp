@@ -15,3 +15,33 @@ background-repeat: no-repeat;
     bottom: 0;
     left: 0;
 }
+
+ #iw-container {
+   max-width:250px;
+   max-height:350px;
+   text-align:center;
+   padding:0px 20px 10px;
+   margin: 0px;
+}
+
+#iw-container .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+	text-align: center;
+    font-weight: 600;
+    padding-top: 10px; 
+    color: black;
+    margin: 0;
+}
+
+#iw-container .iw-content {
+    font-size: 14px;
+	text-align: center;
+	background-color: white;
+    line-height: 12px;
+    font-weight: 400;
+    margin-right: 1px;
+	margin-top: 15px;
+    padding: 10px 10px 10px 10px;
+    max-height: 140px;
+}

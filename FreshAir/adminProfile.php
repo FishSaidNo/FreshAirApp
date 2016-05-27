@@ -1,3 +1,7 @@
+
+<!-- note the problem with hidden tabs is with the dives there is a div missing after members table, 
+but since we are replacing it i left that -->
+
 <?PHP
 
 /**
@@ -26,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mysqli->query($query);
         echo("<script>alert('Data Sent');</script>");
     }
-
     $to = $_POST['email']; // this is your Email address
     $from = "freshairbne@gmail.com"; // this is the sender's Email address
     $first_name = $_POST['firstname'];  
@@ -39,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $headers2 = "From:" . $to;
     mail($to,$subject,$message,$headers);
    }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,11 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	
 	  <script type="text/javascript" src="js/jquery-profile.min.js"></script>
-  <script src="js/password-strength.js"></script>
+          <script src="js/password-strength.js"></script>
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
+	
+	<!-- Custom styles for the profile -->
+	<link rel="stylesheet" href="css/profilestyle.css">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -73,31 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-<!-- MINI NAVIGATION BAR-->
-	<style>
-	#topbar {
- 	 background: #006666;
- 	 padding: 10px 0 10px 0;
- 	 text-align: center;
- 	 height: 36px;
- 	 overflow: hidden;
- 	 -webkit-transition: height 0.5s linear;
- 	 -moz-transition: height 0.5s linear;
- 	 transition: height 0.5s linear;
-	}
-	#topbar a {
- 	 color: #FFFFFF;
- 	 font-size:1.3em;
-  	line-height: 1.25em;
-  	text-decoration: none;
- 	 opacity: 1;
- 	 font-weight: bold;
-	}
-	#topbar a:hover {
- 	 color: #000000;
-         opacity: 0.6;
-	}
-	</style>
 <script type="text/javascript">
 $(function(){
   $('#profiletabs ul li a').on('click', function(e){
@@ -269,18 +249,11 @@ $(function(){
 				<header class="page-header">
 					<h1 class="page-title">Profile</h1>
 				</header>
-					<div class="">
-						
-		<!-- mini navigation to profile/website/table -->		
-			  <div id="topbar">
-			  <a href="http://freshairbrisbane.com">Back to the website</a>
-			  </div>
-			  <div id="topbar">
-			  <a href="adminProfile.php">Go to Profile</a>
-			  </div></br></br></br>
-					 <div id="w">
-						<div id="content" class="clearfix">
-						  <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
+										
+		
+			
+			  <div id="content" class="clearfix">
+			  <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
 			  <h1>Admin Profile</h1>
 
 			  <nav id="profiletabs">
@@ -294,7 +267,7 @@ $(function(){
 			  
 			  <!-- Tab: 1 Bio -->
 			  <section id="bio">
-				<p> This is Fresh Air's main admin account.  </p>
+				<p> This is Fresh Air main admin account.  </p>
 				<p> Holder has the authority to manage members and other admins.    </p>
 			  </section>
 			  
@@ -363,18 +336,12 @@ $(function(){
 			  <section id="Admins" class="hidden">
 				<h3 align="center">Admins Table</h3><br />  
 				<p>Tab to update</p>
-				<!--
-				<ul id="friendslist" class="clearfix">
-				  <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Username</a></li>
-				  <li><a href="#"><img src="images/avatar.png" width="22" height="22"> SomeGuy123</a></li>
-				  <li><a href="#"><img src="images/avatar.png" width="22" height="22"> PurpleGiraffe</a></li>
-				</ul>
-				-->
+
 							  <!-- Call table -->
 							 <div id="Admin_data"></div>         
 			  </section>
 
-						   <!-- Tab: 4 Admin settings -->          
+			  <!-- Tab: 4 Admin settings -->          
 			  <section id="settings" class="hidden">
 			  <br><br>
 				<p>Edit your user settings:</p>

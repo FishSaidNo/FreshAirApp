@@ -4,7 +4,6 @@ session_start();
  * index page
  * default page for user
  */
-include_once 'db_utility.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

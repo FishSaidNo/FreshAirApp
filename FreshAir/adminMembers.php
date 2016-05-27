@@ -15,7 +15,7 @@ echo("<script>alert('Admin permission needed');</script>");
 if (isset ($_POST['submit_form'])){
 
 
-$con = mysql_connect("localhost","freshai1_root", "admin123456", "freshai1_freshair");
+$con = mysql_connect("localhost","freshai1_admin", "Admin123456", "freshai1_freshair");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

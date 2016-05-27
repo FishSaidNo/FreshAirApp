@@ -22,19 +22,12 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 <meta name="description" content="">
 <meta name="author"      content="">
 
-	   <style>
-  	
-#chartdiv {
-	width	: 100%;
-	height	: 500px;
-}									
-				
-  </style> 
+ 
     <head>
-        	<link rel="shortcut icon" href="assets/images/gt_favicon.png">			
-		<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+               <link rel="shortcut icon" href="assets/images/gt_favicon.png">			
+	       <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	       <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
 			<!-- Custom styles for our template -->
 			<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
@@ -56,12 +49,8 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 			
 		          		
 </head>
-<script>
-function alertConstruction() {
-    alert("Data shown it is for testing purposes ONLY, Site under construction");
-}
-</script>
-<body onload="alertConstruction()" class="home">   			
+
+<body class="home">   			
 <?php include 'menu.php'; ?>
 
 	
@@ -76,7 +65,7 @@ function alertConstruction() {
 
 			<h1> Air quality (AQI) Readings </h1> 
 
-<div id="chartdiv"></div>																					
+<div id="chartdiv" style="width: 100%; height: 500px;"></div>																					
 </br><br>
 <script>
 var chart = AmCharts.makeChart("chartdiv", {
@@ -114,7 +103,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "lineThickness": 2,
         "title": "red line",
         "useLineColorForBulletBorder": true,
-        "valueField": "CO",
+        "valueField": "AQIval",
         "balloonText": "<span style='font-size:18px;'>[[CO]]</span>"
     }],
     "chartScrollbar": {
@@ -157,7 +146,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "enabled": true
     },
         "dataLoader": {
-      "url": "http://freshairbrisbane.com/CO_data.php"
+      "url": "http://freshairbrisbane.com/AQI_data.php"
     }
 });
 
@@ -181,7 +170,6 @@ var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "dataLoader": {
       "url": "http://freshairbrisbane.com/CO_data.php"
-      <!-- http://freshairbrisbane.com/data.php -->
     },
     "pathToImages": "http://www.amcharts.com/lib/images/",
     "categoryField": "date",
@@ -201,7 +189,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "title": "Carbon monoxide",
       "valueField": "CO",
        "lineAlpha": 0,
-       "fillAlphas": 0.6
+       "fillAlphas": 1
 
     }],
       "export": {
@@ -261,7 +249,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "title": "Nitrogen dioxide",
       "valueField": "NO2",
        "lineAlpha": 0,
-       "fillAlphas": 0.6
+       "fillAlphas": 1
 
     }],
       "export": {
@@ -320,7 +308,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "title": "Sulfur dioxide",
       "valueField": "S02",
        "lineAlpha": 0,
-       "fillAlphas": 0.6
+       "fillAlphas": 1
 
     }],
       "export": {
@@ -378,7 +366,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "title": "Ozone",
       "valueField": "O3",
        "lineAlpha": 0,
-       "fillAlphas": 0.6
+       "fillAlphas": 1
 
     }],
       "export": {
@@ -437,7 +425,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "title": "PM10",
       "valueField": "PM10",
        "lineAlpha": 0,
-       "fillAlphas": 0.6
+       "fillAlphas": 1
 
     }],
       "export": {
@@ -482,4 +470,3 @@ var chart = AmCharts.makeChart("chartdiv", {
 <script src="assets/js/template.js"></script>
 </body>	
 </html>
-

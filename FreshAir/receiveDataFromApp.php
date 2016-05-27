@@ -1,13 +1,14 @@
 <?php
 
 include_once 'db_utility.php';
-//$mysqli = new PDO("mysql:host=localhost;dbname=freshair", 'root', '');
+//$mysqli = new mysqli( 'localhost', 'freshai1_admin', 'Admin123456', 'freshai1_freshair' );
 $mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 	//To be received from app
 	$_date;
+	$_time;
 	$_latitude;
 	$_longitude;
 	$_pm25; //particle matter 2.5
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$_co; //carbon monoxide
 	$_dew;
 	$_humidity;
-	$_wind;
+	$_temperature;
 	//To be computed by this script
 	$_AQIval;
 	$_AQIcat;
@@ -43,10 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 									array(350.5,501,401,500)
 	);
 	
-	if(isset($_GET['date']) && isset($_GET['latitude']) && isset($_GET['longitude']) && isset($_GET['pm25']) && isset($_GET['pm10']) && isset($_GET['o3']) && isset($_GET['so2']) 
-		&& isset($_GET['no2']) && isset($_GET['co']) && isset($_GET['dew']) && isset($_GET['humidity']) && isset($_GET['wind'])) 
+	if(isset($_GET['date']) && isset($_GET['time']) && isset($_GET['latitude']) && isset($_GET['longitude']) && isset($_GET['pm25']) && isset($_GET['pm10']) && isset($_GET['o3']) && isset($_GET['so2']) 
+		&& isset($_GET['no2']) && isset($_GET['co']) && isset($_GET['dew']) && isset($_GET['humidity']) && isset($_GET['temperature'])) 
 		{
 			$_date = $_GET['date'];
+			$_time = $_GET['time'];
 			$_latitude = $_GET['latitude'];
 			$_longitude = $_GET['longitude'];
 			$_pm25 = $_GET['pm25']; //particle matter 2.5
@@ -57,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$_co = $_GET['co']; //carbon monoxide
 			$_dew = $_GET['dew'];
 			$_humidity = $_GET['humidity'];
-			$_wind = $_GET['wind'];
+			$_temperature = $_GET['temperature'];
 				
 		}
 	else {
@@ -101,10 +103,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	//find the suburb of given coordinates
 	//use curl() request with the following url format
-	//http://maps.google.com/maps/api/geocode/json?sensor=false&latlng=40.714224,-73.961452
 	
-	$query = "INSERT INTO aqi(Date,Latitude,Longitude,PM25,PM10,O3,S02,NO2,CO,Dew,Humidity,Wind,AQIval,AQIcat,Suburb) VALUES (
+	$geoURL = 'http://maps.google.com/maps/api/geocode/json?sensor=false&latlng='.$_latitude.','.$_longitude;
+	$rawGeoDetails = file_get_contents($geoURL);
+	$rawGeoDetails = json_decode($rawGeoDetails, true);
+	
+	//set suburb
+	$_Suburb = $rawGeoDetails['results'][0]['address_components'][2]['long_name'];
+	
+	
+	$query = "INSERT INTO aqi(Date,Time,Latitude,Longitude,`PM2.5`,PM10,O3,S02,NO2,CO,Dew,Humidity,Temperature,AQIval,AQIcat,Suburb) VALUES (
 			:date,
+			:time,
 			:latitude,
 			:longitude,
 			:pm25,
@@ -115,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			:co,
 			:dew,
 			:humidity,
-			:wind,
+			:temperature,
 			:AQIval,
 			:AQIcat,
 			:Suburb)";
@@ -123,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$stmt = $mysqli->prepare($query);
 	
 	$stmt->bindParam(':date', $_date, PDO::PARAM_STR);
+	$stmt->bindParam(':time', $_time, PDO::PARAM_STR);
 	$stmt->bindParam(':latitude', $_latitude, PDO::PARAM_STR);
 	$stmt->bindParam(':longitude', $_longitude, PDO::PARAM_STR);
 	$stmt->bindParam(':pm25', $_pm25, PDO::PARAM_STR);
@@ -133,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$stmt->bindParam(':co', $_co, PDO::PARAM_STR);
 	$stmt->bindParam(':dew', $_dew, PDO::PARAM_STR);
 	$stmt->bindParam(':humidity', $_humidity, PDO::PARAM_STR);
-	$stmt->bindParam(':wind', $_wind, PDO::PARAM_STR);
+	$stmt->bindParam(':temperature', $_temperature, PDO::PARAM_STR);
 	$stmt->bindParam(':AQIval', $_AQIval, PDO::PARAM_STR);
 	$stmt->bindParam(':AQIcat', $_AQIcat, PDO::PARAM_STR);
 	$stmt->bindParam(':Suburb', $_Suburb, PDO::PARAM_STR);
@@ -150,8 +161,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 	echo 'The server has processed your data and stored the following entry:'  . PHP_EOL . PHP_EOL;
 	echo 'Date: ' . $_date . PHP_EOL;
+	echo 'Time: ' . $_time . PHP_EOL;
 	echo 'Lat: ' . $_latitude . PHP_EOL;
-	echo 'Long' . $_longitude . PHP_EOL;
+	echo 'Long: ' . $_longitude . PHP_EOL;
 	echo 'PM2.5: ' . $_pm25 . PHP_EOL;
 	echo 'PM10: ' . $_pm10 . PHP_EOL; 
 	echo 'O3: ' . $_o3 . PHP_EOL; 
@@ -160,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	echo 'CO: ' . $_co . PHP_EOL; 
 	echo 'Dew: ' . $_dew . PHP_EOL;
 	echo 'Humidity: ' . $_humidity . PHP_EOL;
-	echo 'Wind: ' . $_wind . PHP_EOL;
+	echo 'Temperature: ' . $_temperature . PHP_EOL;
 	echo 'AQLval: ' . $_AQIval . PHP_EOL;
 	echo 'AQIcat: ' . $_AQIcat . PHP_EOL;
 	echo 'Suburb: ' . $_Suburb . PHP_EOL;

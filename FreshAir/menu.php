@@ -15,11 +15,11 @@
 		<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 				<li><a href="index.php">Home</a></li>
-                <li><a href="hotspots.php">Map</a></li>
+                                <li><a href="hotspots.php">Map</a></li>
 				<li><a href="statistics.php">Statistics</a></li>
 				<li><a href="aboutus.php">About Us</a></li>
 				<li><a href="facts.php">Facts</a></li>
-				<li><a href="awareness.php">Awareness</a></li>
+				<li><a href="awareness.php">Awareness</a></li>                                
 				<?php
 				if(!(@$_SESSION['Admin'] || @$_SESSION['Invited'])) {
 				?>					
@@ -35,6 +35,7 @@
 				if(@$_SESSION['Admin']){
 				?>
 					<li><a href="adminData.php">Data Table</a></li>
+                                        <li><a href="adminProfile.php">Profile</a></li>
 					<li><a href="logout.php">Logout</a></li>
 				<?php
 				}

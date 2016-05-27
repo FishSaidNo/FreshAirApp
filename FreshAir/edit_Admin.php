@@ -1,5 +1,5 @@
  <?php  
- $connect = mysqli_connect("localhost", "freshai1_root", "admin123456", "freshai1_freshair");  
+ $connect = mysqli_connect("localhost", "freshai1_admin", "Admin123456", "freshai1_freshair");  
  $id = $_POST["id"];  
  $text = $_POST["text"];  
  $column_name = $_POST["column_name"];  

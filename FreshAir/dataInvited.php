@@ -75,8 +75,7 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 			<li class="active">Data</li>
 		</ol></br></br>
 	
-	
-		<!-- mini navigation to profile/website/table -->		
+		
 
 <h2> Welcome </h2>
 <p>This table contains all the data we have received. </p>

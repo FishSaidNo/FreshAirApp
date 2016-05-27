@@ -1,6 +1,6 @@
 <?php 
 /* connection: host, user, password, & db schema */ 
- $connect = mysqli_connect("localhost", "freshai1_root", "admin123456", "freshai1_freshair"); 
+ $connect = mysqli_connect("localhost", "freshai1_admin", "Admin123456", "freshai1_freshair"); 
  $output = '';  
  $sql = "SELECT * FROM tbl_sample";  
  $result = mysqli_query($connect, $sql);  

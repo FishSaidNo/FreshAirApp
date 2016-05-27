@@ -4,7 +4,7 @@ session_start();
 * index page
 * default page for user
 */
-include_once 'db_utility.php';
+include_once 'db_utilityClients.php';
 if (!isset($_POST['suburb'])){
 	$query = "select * from aqi order by Suburb ASC";
 }
@@ -32,13 +32,8 @@ $result = $mysqli->query($query);
 			
 		          		
 </head>
-<script>
-function alertConstruction() {
-    alert("Data shown it is for testing purposes ONLY, Site under construction");
-}
-</script>
-<body onload="alertConstruction()" class="home">  
- <script>
+<body  class="home">  
+  <script>
                 function initialize() {
 <?php
 /**
@@ -47,7 +42,7 @@ function alertConstruction() {
 $data = array();
 $data_array = array();
 while ($row = $result->fetch(PDO::FETCH_ASSOC)){
-	$item = array($row["Suburb"], (float) $row["Latitude"], (float) $row["Longitude"], (float) $row["AQIval"], (string) $row["Date"], $row["AQIcat"]);
+	$item = array($row["Suburb"], (float) $row["Latitude"], (float) $row["Longitude"], (float) $row["AQIval"], (string) $row["Date"], $row["AQIcat"], $row["Time"]);
 	array_push($data, $item);
 	$data_array[] = $row;
 	}
@@ -72,8 +67,8 @@ google.maps.event.addDomListener(window, "resize", function() {
                     var map = new google.maps.Map(element, mapOptions);
                     map.setTilt(45);
                     for (i = 0; i < markers.length; i++) {
-						var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];     
-					
+						var content = '<div id="iw-container" style="background-color:green;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						if (markers[i][3] <= "50"){
 												
 						
@@ -102,7 +97,8 @@ google.maps.event.addDomListener(window, "resize", function() {
 						
 						if (markers[i][3] >= "51" && markers[i][3] <= "100"){
 							
-							var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];  
+							var content = '<div id="iw-container" style="background-color:yellow;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						
 						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
 							bounds.extend(position);
@@ -127,7 +123,8 @@ google.maps.event.addDomListener(window, "resize", function() {
 
 						if (markers[i][3] >= "101" && markers[i][3] <= "150"){
 							
-							var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];  
+							var content = '<div id="iw-container" style="background-color:orange;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						
 						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
 							bounds.extend(position);
@@ -152,7 +149,8 @@ google.maps.event.addDomListener(window, "resize", function() {
 
 						if (markers[i][3] >= "151" && markers[i][3] <= "200"){
 							
-							var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];  
+							var content = '<div id="iw-container" style="background-color:red;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						
 						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
 							bounds.extend(position);
@@ -177,8 +175,8 @@ google.maps.event.addDomListener(window, "resize", function() {
 						
 						if (markers[i][3] >= "201" && markers[i][3] <= "300"){
 							
-							var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];  
-						
+							var content = '<div id="iw-container" style="background-color:purple;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
 							bounds.extend(position);
 							marker = new google.maps.Marker({		
@@ -202,7 +200,8 @@ google.maps.event.addDomListener(window, "resize", function() {
 						
 						if (markers[i][3] >= "301" && markers[i][3] <= "500"){
 							
-							var content = "Date: " + markers[i][4] +  '</br>' + "Category: " + markers[i][5];  
+							var content = '<div id="iw-container" style="background-color:maroon;">' + '<div class="iw-title">' + 'Suburb: ' + markers[i][0] + '</div><div class="iw-content">' + '<b>Date:</b> ' + markers[i][4] +  '</br></br>' + '<b>Time:</b>  ' + markers[i][6] +  '</br></br>' + '<b>AQI Category:</b> ' + markers[i][5] + '</br></br>' + '<b>AQI Value:</b> ' + markers[i][3] + '</div></div>' ;     
+					 
 						
 						var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
 							bounds.extend(position);
@@ -229,7 +228,7 @@ google.maps.event.addDomListener(window, "resize", function() {
                 }
                 google.maps.event.addDomListener(window, 'load', initialize);
 
-            </script> 			
+            </script>		
 <?php include 'menu.php'; ?>
 
 			<!-- /.navbar -->
@@ -242,16 +241,16 @@ google.maps.event.addDomListener(window, "resize", function() {
 			<li class="active">Map</li>
 		</ol>	       
 
-			<h5 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h5>
+			<h2 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h2>
 
 		<div style="text-align:center"> 
       
 
 			<div style="text-align:center"> 
 
-				<div id="map-canvas" class="img-responsive"></div></BR
+				<div id="map-canvas" class="img-responsive"></div></br>
 
-						   <h2 style="text-align:center"> AQI Category Table</h2>
+						   <h1 style="text-align:center"> AQI Category Table</h1>
 
 				<div style="text-align:center"><img src="images/AQItable.gif" width="640" height="433" alt="" /></div> <br/>
 			</div> 
@@ -264,7 +263,7 @@ google.maps.event.addDomListener(window, "resize", function() {
 						<h1 class="lead">Air Quality Directly Affects Our Quality of Life.</h1>
 						<p class="tagline">&nbsp;</p>
 						<p><a class="btn btn-default btn-lg" href="statistics.php" role="button">View Statistics</a> </p>
-						<p><a class="btn btn-default btn-lg" href="hotspots.php" role="button">View HostSpots</a> </p>
+						<p><a class="btn btn-default btn-lg" href="airbeamApp.php" role="button">About the App</a> </p>
 					</div>
 				</div>
 							

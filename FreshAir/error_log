@@ -919,3 +919,127 @@ Stack trace:
 [18-May-2016 23:04:34 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
 [19-May-2016 22:30:11 America/Chicago] PHP Fatal error:  Call to a member function execute() on string in /home1/freshai1/public_html/passwordCreationAdmin.php on line 26
 [19-May-2016 22:37:32 America/Chicago] PHP Fatal error:  Call to a member function execute() on string in /home1/freshai1/public_html/passwordCreationAdmin.php on line 31
+[20-May-2016 07:10:44 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:10:44 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:19 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:19 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:38 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:38 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:41 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:41 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:42 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:11:42 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:20:10 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:20:10 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:21:12 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[20-May-2016 07:21:12 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[22-May-2016 19:52:11 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[22-May-2016 19:52:11 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[22-May-2016 20:12:14 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[22-May-2016 20:12:14 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[23-May-2016 02:39:07 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PM25' in 'field list'' in /home1/freshai1/public_html/receiveDataFromApp.php:141
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(141): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 141
+[23-May-2016 15:48:37 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PM25' in 'field list'' in /home1/freshai1/public_html/receiveDataFromApp.php:152
+Stack trace:
+#0 /home1/freshai1/public_html/receiveDataFromApp.php(152): PDOStatement->execute()
+#1 {main}
+  thrown in /home1/freshai1/public_html/receiveDataFromApp.php on line 152
+[23-May-2016 21:41:12 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[23-May-2016 21:41:12 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 02:27:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/freshai1/public_html/db_utility.php:1) in /home1/freshai1/public_html/dataf.php on line 9
+[24-May-2016 06:15:02 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 06:15:02 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:02:02 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:02:02 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:04:36 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:04:36 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:07:23 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:07:23 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:11:47 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2016 09:11:47 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2016 20:50:30 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[25-May-2016 20:50:32 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2016 20:50:32 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2016 20:51:25 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[25-May-2016 20:51:37 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2016 20:51:38 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:02 America/Chicago] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/NO_data.php on line 9
+[26-May-2016 21:05:02 America/Chicago] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/PM_data.php on line 9
+[26-May-2016 21:05:02 America/Chicago] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/O3_data.php on line 9
+[26-May-2016 21:05:34 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 21:05:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:35 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_M.php on line 3
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_M.php on line 6
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_M.php on line 17
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_Admin.php on line 3
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_Admin.php on line 6
+[26-May-2016 21:05:35 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_Admin.php on line 17
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 21:05:38 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:38 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_Admin.php on line 3
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_Admin.php on line 6
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_Admin.php on line 17
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_M.php on line 3
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_M.php on line 6
+[26-May-2016 21:05:38 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_M.php on line 17
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 21:05:39 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:39 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_Admin.php on line 3
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_Admin.php on line 6
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_Admin.php on line 17
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'freshai1_admin'@'localhost' (using password: YES) in /home1/freshai1/public_html/select_M.php on line 3
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/freshai1/public_html/select_M.php on line 6
+[26-May-2016 21:05:39 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/freshai1/public_html/select_M.php on line 17
+[26-May-2016 21:06:23 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 21:06:23 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/adminProfile.php(12): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:07:58 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 21:07:58 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/adminProfile.php(12): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:07:59 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/adminData.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:08:03 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/adminData.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:15:02 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/adminData.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:15:11 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/statistics.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 21:16:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'freshai1_root'@'localhost' (using password: YES)' in /home1/freshai1/public_html/db_utility.php:2
+Stack trace:
+#0 /home1/freshai1/public_html/db_utility.php(2): PDO->__construct('mysql:host=loca...', 'freshai1_root', 'Admin123456')
+#1 /home1/freshai1/public_html/statistics.php(7): include_once('/home1/freshai1...')
+#2 {main}
+  thrown in /home1/freshai1/public_html/db_utility.php on line 2
+[26-May-2016 22:03:45 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/freshai1/public_html/adminProfile.php:5) in /home1/freshai1/public_html/adminProfile.php on line 11
+[26-May-2016 22:03:45 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2016 22:03:45 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0

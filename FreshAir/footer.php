@@ -10,6 +10,10 @@
 								<p>
 								<br>
 								<a href="mailto:freshairbne@gmail.com">freshairbne@gmail.com</a>
+<br>
+<br>
+
+                                                                <a href="airbeamApp.php">Download App</a>
 								<br>
 								
 								</p>	
@@ -20,8 +24,7 @@
 						<h3 class="widget-title">Follow Us</h3>
 						<div class="widget-body">
 							<p class="follow-me-icons">
-								<a target="_blank"href="https://twitter.com/FreshairBrisban"><i class="fa fa-twitter fa-2"></i></a>
-								
+								<a target="_blank"href="https://twitter.com/FreshairBrisban"><i class="fa fa-twitter fa-2"></i></a>								
 								<a href=""><i class="fa fa-youtube fa-2"></i></a>
 								<a target="_blank"href= "https://www.facebook.com/freshairbrisbane/?fref=ts"><i class="fa fa-facebook fa-2"></i></a>
 <a target="_blank"href="https://plus.google.com/u/0/b/118168023304835611674/118168023304835611674/posts"><i class="fa fa-google-plus  fa-2"></i></a>
@@ -63,6 +66,7 @@
 								<a href="index.php">Home</a> | 
 								<a href="aboutus.php">About</a> |
 								<a href="index.php">Map</a> |
+                                                                <a href="airbeamApp.php">About Our App</a>
 							</p>
 						</div>
 					</div>

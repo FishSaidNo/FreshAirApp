@@ -6,14 +6,14 @@
 //include_once 'db_utility.php'; whyyyy
 
 // Connect to MySQL
-$link = new mysqli( 'localhost', 'freshai1_root', 'admin123456', 'freshai1_freshair' );
+$link = new mysqli( 'localhost', 'freshai1_admin', 'Admin123456', 'freshai1_freshair' );
 if ( $link->connect_errno ) {
   die( "Failed to connect to MySQL: (" . $link->connect_errno . ") " . $link->connect_error );
 }
 
 
 // Fetch the data 
-$query = "SELECT Date, AQIcat  FROM aqi ORDER BY date ASC";
+$query = "SELECT date, AQIcat FROM aqi ORDER BY date ASC";
 
 
 $result = $link->query( $query );
