@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.greenit.freshair" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>FreshAir</name>
+    <name>FreshAir Brisbane</name>
     <description>
         An app for monitoring pollution levels and hotspots.
     </description>
@@ -17,6 +17,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+	<icon src="icon3.png" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>

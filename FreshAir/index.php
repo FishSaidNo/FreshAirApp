@@ -42,7 +42,12 @@ $result = $mysqli->query($query);
 	<div class="container">
        
 
+<<<<<<< HEAD
 			<h2 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h2>
+=======
+		<h3 style="text-align:center"> Welcome to Brisbane Fresh Air Web Site, Breathe Fresh </h3></br>
+               <h5 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h5>
+>>>>>>> origin/master
 
 		<div style="text-align:center"> 
       
