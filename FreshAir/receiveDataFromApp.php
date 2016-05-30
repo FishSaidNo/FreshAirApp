@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$_Suburb = $rawGeoDetails['results'][0]['address_components'][2]['long_name'];
 	
 	
-	$query = "INSERT INTO aqi(Date,Time,Latitude,Longitude,`PM2.5`,PM10,O3,S02,NO2,CO,Dew,Humidity,Temperature,AQIval,AQIcat,Suburb) VALUES (
+	$query = "INSERT INTO aqireadings(Date,Time,Latitude,Longitude,`PM2.5`,PM10,O3,S02,NO2,CO,Dew,Humidity,Temperature,AQIval,AQIcat,Suburb) VALUES (
 			:date,
 			:time,
 			:latitude,
