@@ -1,15 +1,14 @@
 <?PHP
 session_start();
 /**
-* index page
-* default page for user
+* App and Airbeam page
+* information about how to use the Airbeam and the App, also the link to download the mobile app.
 */
 ?>
 <!DOCTYPE html>
 
 <html>
     <head>
-            <link rel="stylesheet" href="mystyle.css">
 			<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 			
 			<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
@@ -19,47 +18,79 @@ session_start();
 			<!-- Custom styles for our template -->
 			<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 			<link rel="stylesheet" href="assets/css/main.css">			
-            <title>Fresh Air - Create Your Own Reality</title> 	    
+            <title>Fresh Air - Airbeam & App</title> 	    
 			<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 			<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 			<meta charset="UTF-8">	 
-			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
 			
 		          		
 </head>
 <body  class="home">  
-<?php include 'menu.php'; ?>
+	<!-- Menu Insertion (see Menu.php) -->
+	<?php include 'menu.php'; ?>
 
-			<!-- /.navbar -->
+			
     <!-- Header -->
 	<header id="head" class="secondary"></header>
 	
+	<!-- container -->	
 	<div class="container">
 
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">App</li>
-		</ol>	       
+		</ol>	
+		<!-- End Page Indicators -->
 
-			<h2 style="text-align:center"> Get to know the AIRBEAM</h2>
+				<!-- Page Title -->
+				<header class="page-header">
+					<h1 class="page-title">Mobile App and Airbeam</h1>
+				</header>
+				<!-- End Page Title -->
 
 		
 				<div class="container">
 				
-					<div class="jumbotron top-space">
-					<br>
-					<div style="text-align:center"><img src="assets/images/airbeam.jpg" width="650" height="720" alt="" /></div> <br/>
-						<p>ACT Health operates the Territory's air quality monitoring network, which comprises two NEPM Performance Monitoring Stations (PMS) in Monash and Florey, and a smaller station in Civic. The Monash PMS is approximately 300 metres west of Cockcroft Avenue and the Florey PMS is in Neumann Place.<br>ACT Health monitors carbon monoxide (CO), nitrogen dioxide (NO2), photochemical oxidants as ozone (O3), particulate matter less than 10 micrometres (PM10) and particulate matter less than 2.5 micrometres (PM2.5).<br>PM10 and PM2.5 are the pollutants of most concern in the ACT. Elevated levels of particulate matter can arise, for example, in colder months due to wood smoke emitted from the use of wood heaters. They may also occur from bushfire and burn-off events in and around the ACT.<br>Photochemical oxidants, such as ozone, are generally not directly emitted. They are formed by the reaction of pollutants in the atmosphere. Ozone is formed when nitrogen oxides react with a group of air pollutants known as Reactive Organic Compounds (ROC) in the presence of sunlight.<br>Emissions from motor vehicles are the primary source of carbon monoxide and oxides of nitrogen pollution in the ACT.<br>Due to a lack of heavy industry the ACT does not monitor sulfur dioxide for the NEPM. following the phase out of leaded fuel on 1 January 2002, the ACT ceased monitoring lead in July 2002.</p>
+					<div class="jumbotron top-space"></br>
+					
+						<p style="text-align:justify">The air quality is in your hand so get up and start using the apps to see the quality of the air in the area you are living. 
+						The best thing about these apps is that it’s very simple and easy to use. All mobile user have to do is download them on their mobile devices, launch and 
+						use them wherever they go and whenever they want. You want to make sure you live in a healthy place and live a healthy life style so download the apps and
+						check the air quality in where you are living. The app is designed to make it easier for people to send the data through sms message. The air quality is in 
+						your hand so get up and start using the apps to see the quality of the air and data. The app can report air pollution levels directly to the database. 
+						You can send the data to website server and via sms through the apps. The first data source is Airbeam, which is a sensor created by HabitatMap in 2014. 
+						The sensor reports information such; "temperature, humidity, carbon monoxide (CO) and nitrogen dioxide" (Aircasting, n.d.). The data is then sent to users 
+						phones via sms messages. This is selected to expand the circle of users to those who are far from Internet connection. This information will be used to help 
+						people be aware of, and adjust their exposure to air pollution both at home and their workplaces. </p></br></br>
+
+						<p style="text-align:justify">HabitatMap worked with a community of scientists, educators, engineers, and other non-profits to create the AirBeam. 
+						The AirBeam measures fine particulate matter (PM2.5), temperature, and relative humidity. The AirBeam uses a light scattering method to measure PM2.5. 
+						Air is drawn through a sensing chamber wherein light from an LED bulb scatters off particles in the airstream. This light scatter is registered by a detector 
+						and converted into a measurement that estimates the number of particles in the air. Via Bluetooth, these measurements are communicated approximately once a second 
+						to the AirCasting Android app, which maps and graphs the data in real time on your smartphone. At the end of each AirCasting session, the collected data is sent to
+						the AirCasting website, where the data is crowdsourced with data from other AirCasters to generate heat maps indicating where PM2.5 concentrations are highest and lowest.
+						As an open-source platform, modifying our components to take other measurements and or transmit the data to other websites or apps is easy and encouraged. We’ve even
+						included Add-on Sensor Pins on the AirBeam to make adding sensors simple.
+						</p></br></br>
+
+
+						<div style="text-align:center"><img src="assets/images/airbeamWorks.jpg" width="650" height="1280" alt="" /></div></br>
+
 						<p class="text-right"><a href="downloads/android-debug.apk" class="btn btn-primary btn-large">Download App</a></p>
+					
 					</div>				
 				
 				</div>						
 			
-	</div>	<!-- /container -->     
+	</div>	
+	<!-- /container -->  
+	
 				
-		<?php include 'footer.php'; ?>
+	<!-- Footer Insertion (see Menu.php) -->
+	<?php include 'footer.php'; ?>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
 	

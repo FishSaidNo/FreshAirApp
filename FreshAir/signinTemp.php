@@ -1,7 +1,7 @@
 <?PHP
 session_start();
 /**
- * login page for user to login
+ * login page for Guests user to login
  */
 include_once 'db_utilityClients.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,24 +12,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * we use md5 to hash password, so here we use md5 hashed password to compare
          */
         $query="select * from invited_members where User_Name='$username' and PW='".md5($password)."'"; 
-        $result = $mysqli->query($query); 
+		
+		$result = $mysqli->prepare($query);
+		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$result->execute();
         $row=$result->fetch(PDO::FETCH_ASSOC);          
         $row_cnt = $result->rowCount();
+		
+		 /**
+         * Check if there is any matching.
+         */
+		
 
         if($row_cnt!=1){
               echo "<script>alert('Invalid Username or password'); location.href='signinTemp.php'</script>";				 
        }
 		if($username==$row['User_Name']&&$password=$row['PW']){	
-				session_start();
-				$_SESSION['Invited']='Invited';		   
-				echo("<script>location.href = '/dataInvited.php';</script>");	   	
+			 /**
+			 * start a session if user is found and match the password
+			 */
+			session_start();
+			$_SESSION['Invited']='Invited';		   
+			echo("<script>location.href = '/dataInvited.php';</script>");	   	
 				
-		  }else {
-			echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	
-		   }
+			}else {
+				echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	
+			}
 	}
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Sign In</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -55,40 +65,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
+       <script src="js/registervalidation.js"></script>
 	<![endif]-->
 </head>
 
 <body class="home">
-	<!-- Fixed navbar -->
+
+	<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
-		<header id="head" class="secondary"></header>
+	<header id="head" class="secondary"></header>
 
-	<!-- container -->
+	<!-- Content -->
 	<div class="container">
-
+		
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
-			<li class="active">Temporal User access</li>
+			<li class="active">Guest User Access</li>
 		</ol>
 
 		<div class="row">
 			
 			<!-- Article main content -->
-			<article class="col-xs-12 maincontent">
+			<article class="col-xs-12 maincontent">			
+				<!-- Page Title -->
 				<header class="page-header">
-					<h1 class="page-title">Temporal User Login<h1>
+					<h1 class="page-title">Sign in</h1>
 				</header>
 				
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h3 class="thin text-center">Temporal User Login</h3>
-														
+							<h3 class="thin text-center">Sign in to your account</h3>
+							<p class="text-center text-muted">If you are an invited User please, <a href="signinTemp.php">Login</a> </p>
+							
+							
 							<hr>
 							
-							<form onsubmit="return validateForm()" method="post" action="signinTemp.php" >
+							<form onsubmit="return validateForm()" method="post" action="signin.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="username">
@@ -99,10 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								</div>
 
 								<hr>
-
 								<div class="row">
 									<div class="col-lg-8">
-										<b><a href="forgotPasswordTemp.php">Forgot password?</a></b>
+										<b><a href="forgotPassword.php">Forgot password?</a></b>
 									</div>
 									<div class="col-lg-4 ">
 										<button class="btn btn-action" type="submit">Sign in</button>
@@ -111,19 +125,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							</form>
 						</div>
 					</div>
-
-				</div>
-				
+				</div>				
 			</article>
 			<!-- /Article -->
 
 		</div>
 	</div>	<!-- /container -->
 
-
-<?php include 'footer.php'; ?>
-
-
+	<!-- Footer Insertion (see footer.php) -->
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

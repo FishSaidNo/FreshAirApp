@@ -1,14 +1,9 @@
-
-<!-- note the problem with hidden tabs is with the dives there is a div missing after members table, 
-but since we are replacing it i left that -->
-
 <?PHP
-
-/**
- * index page
- * default page for user
- */
 session_start();
+/**
+ * Admin Profile
+ * 
+ */
 include_once 'db_utility.php';
 if(!isset($_SESSION['Admin'])){
 echo("<script>location.href = '/index.php?msg=$msg';</script>");
@@ -16,32 +11,41 @@ echo("<script>alert('Admin permission needed');</script>");
 }
 
 include_once 'db_utility.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+if(isset($_POST['invite'])){  
     if ($_POST['password'] && $_POST['email']) {
-        $username = $_POST['email'];
+        $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $text = $_POST['message'];
-        $id= $_POST['text'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $query = "INSERT INTO invited_members (User_Name,PW, Description, user_id) "
-                . " VALUES ( '" . $email . "','" . md5($password) . "','" . $text. "','" . $id. "')";
+        $description = $_POST['description'];
+		$messageToSend = $_POST['message'];
+        $query = "INSERT INTO guest_members (Email, Name, Password, Description) "
+                . " VALUES ( '" . $email . "','" . $name . "','" . md5($password) . "','" . $description. "')";
         $mysqli->query($query);
-        echo("<script>alert('Data Sent');</script>");
+        echo("<script>alert('User Invited');</script>");
     }
     $to = $_POST['email']; // this is your Email address
-    $from = "freshairbne@gmail.com"; // this is the sender's Email address
-    $first_name = $_POST['firstname'];  
+    $from = "freshairbne@gmail.com"; // this is the sender's Email address   
     $link = "http://freshairbrisbane.com/signinTemp.php";
-    $last_name = $_POST['lastname'];
     $subject = "Data Access Invitation";
-    $message = "Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $text;
+    $message = "Hi," . $name . ".\n\n Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $messageToSend;
 
     $headers = "From:" . $from;
     $headers2 = "From:" . $to;
     mail($to,$subject,$message,$headers);
    }
+
+if(isset($_POST['update'])){    
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $description = $_POST['description'];
+        $query = "UPDATE admin_members SET Name='$name', Password='". md5($password) ."', Description=' $description' WHERE Email='$email'";            
+        $mysqli->query($query);
+        echo("<script>alert('Data Updated');</script>");
+ 
+ }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Profile</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -62,15 +66,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	
-	  <script type="text/javascript" src="js/jquery-profile.min.js"></script>
-          <script src="js/password-strength.js"></script>
+	<script type="text/javascript" src="js/jquery-profile.min.js"></script>
+    <script src="assets/js/password-strength.js"></script>
+	<script src="assets/js/registervalidation.js"></script>
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
 	
 	<!-- Custom styles for the profile -->
-	<link rel="stylesheet" href="css/profilestyle.css">
+	<link rel="stylesheet" href="assets/css/profilestyle.css">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -124,21 +129,21 @@ $(function(){
                 }  
            });  
       }  
-      $(document).on('blur', '.first_name', function(){  
+      $(document).on('blur', '.Email', function(){  
            var id = $(this).data("id1");  
-           var first_name = $(this).text();  
-           edit_data(id, first_name, "first_name");  
+           var email = $(this).text();  
+           edit_data(id, email, "Email");  
       });  
-      $(document).on('blur', '.last_name', function(){  
+      $(document).on('blur', '.Name', function(){  
            var id = $(this).data("id2");  
-           var last_name = $(this).text();  
-           edit_data(id,last_name, "last_name");  
+           var name = $(this).text();  
+           edit_data(email, name, "Name");  
       }); 
        
-      $(document).on('blur', '.pw', function(){  
+      $(document).on('blur', '.Description', function(){  
            var id = $(this).data("id3");  
-           var pw = $(this).text();  
-           edit_data(id, pw, "pw");  
+           var description = $(this).text();  
+           edit_data(id, description, "Description");  
       });  
  });  
  </script> <!-- End Admin Profile updating -->
@@ -168,7 +173,7 @@ $(function(){
                 url:"edit_M.php",  
                 method:"POST",  
                 //id IS STABLE PK ID, text is the value for the columns and column is the stable header
-                data:{id: user_id, text:text, column_name:column_name},  
+                data:{id: id, text: text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
                      alert(data);  
@@ -177,41 +182,41 @@ $(function(){
       }  
       
       //UPDATE User_name field replace the entered w the exist in the db
-      $(document).on('blur', '.User_Name', function(){  
+      $(document).on('blur', '.Email', function(){  
            var id = $(this).data("id1");  
-           var User_Name = $(this).text();  
-           if(User_Name == '')  
+           var email = $(this).text();  
+           if(email == '')  
            {  
-                alert("Please Enter User Name");  
+                alert("Please Enter User Email");  
                 return false;  
            } else {
-                edit_data(id, User_Name, "User_Name");  
+                edit_data(id, email, "Email");  
                 }
       }); 
       
      //UPDATE PASSWORD (PW) 
-      $(document).on('blur', '.PW', function(){  
+      $(document).on('blur', '.Password', function(){  
            var id = $(this).data("id2");  
-           var PW = $(this).text();  
-           if(PW == '')  
+           var password = $(this).text();  
+           if(password == '')  
            {  
                 alert("Please Enter Password");  
                 return false;  
            }  else {
-                 edit_data(id, PW, "PW");  
+                 edit_data(id, password, "Password");  
            }
       });  
       
      //UPDATE Description
       $(document).on('blur', '.Description', function(){  
            var id = $(this).data("id3");  
-           var Description = $(this).text();  
-           edit_data(id, Description, "Description");  
+           var description = $(this).text();  
+           edit_data(id, description, "Description");  
       });  
       
       //Delete data
       $(document).on('click', '.btn_delete', function(){  
-           var id=$(this).data("id4");  
+           var id = $(this).data("id4");  
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
@@ -243,130 +248,182 @@ $(function(){
 			<li class="active">Admin Profile</li>
 		</ol>
 
-		<div class="row">
-			
+		<div class="row">			
 		
-				<header class="page-header">
-					<h1 class="page-title">Profile</h1>
-				</header>
+			<header class="page-header">
+				<h1 class="page-title">Profile</h1>
+			</header>
 										
 		
 			
-			  <div id="content" class="clearfix">
-			  <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
-			  <h1>Admin Profile</h1>
-
-			  <nav id="profiletabs">
-				<ul class="clearfix">
-				  <li><a href="#bio" >Bio</a></li>
-				  <li><a href="#members">Members</a></li>
-				  <li><a href="#Admins">Admins</a></li>
-				  <li><a href="#settings">Settings</a></li>
-				</ul>
-			  </nav>
+			<div id="content" class="clearfix">
+			
+				<div id="userphoto"><img src="assets/images/avatar.png" alt="default avatar"></div>
+				
+				<h2 class="page-title">Welcome, Admin</h2></br></br>
+			
+				 <nav id="profiletabs">
+					<ul class="clearfix">
+					  <li><a href="#bio" >Bio</a></li>
+					  <li><a href="#members">Members</a></li>
+					  <li><a href="#Admins">Admins</a></li>
+					  <li><a href="#settings">Settings</a></li>
+					</ul>
+				  </nav>
 			  
-			  <!-- Tab: 1 Bio -->
-			  <section id="bio">
-				<p> This is Fresh Air main admin account.  </p>
-				<p> Holder has the authority to manage members and other admins.    </p>
-			  </section>
-			  
-
-			  <!-- Tab: 2 Manage members -->
-			  <section id="members" class="hidden">
-
-
-							 <h3 align="center">Manage Members</h3><br />  
-							  <!-- Call table -->
-							 <div id="Members_data"></div> 
-							 <!-- form -->
-		 
-				<!-- Implment form -->
-												 
-					   <!-- Note: we need to send users name, password to the intered email? -->  
-					<h3 align="center">Invite New Members</h3><br />                                 
-					<div class="panel-body">
-
-									<form method="post" name="form" action="" onsubmit="return validateForm()">
-										<div class="top-margin">
-											<label>First Name</label>
-											<input type="text" class="form-control" name="firstname">
-										</div>
-										<div class="top-margin">
-											<label>Last Name</label>
-											<input type="text" class="form-control" name="lastname">
-										</div>
-										<div class="top-margin">
-											<label>Email Address <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" name="email">
-										</div>
-
-										<div class="top-margin">
-												<label>Password <span class="text-danger">*</span></label>
-												<input type="password" id="pwd" class="form-control" name="password">
-										</div>
-										
-										<!--<div class="col-sm-6"> -->
-										<div class="top-margin">									
-												<label>User ID: <span class="text-danger">*</span></label>
-												<input type="text" id="cpwd" class="form-control"  name="id">
-										</div>
-                                                                                <div class="top-margin">
-                                                                                   <label> Message:<span class="text-danger">*</span></label>
-                                                                                         <br><textarea rows="4" name="message" cols="30"></textarea><br>
-							                        </div>
-										<hr>
-
-										<div class="row">
-											<div class="col-lg-8">
-												 <button class="btn btn-action" type="submit" onclick="return CheckPasswordNew();">Register</button>                     
-											</div>
-											
-										</div>
-									</form>
-					</div>
+				  <!-- Tab: 1 Bio -->
+				<section id="bio">
+					</br></br><h3> This is Fresh Air main admin account.  </h3></br>
+					<h4> Holder has the authority to manage members and other admins.</h4>
 				</section>
-			</div>
+			  
 
-		</div>
-	
-	 
-			   
-			   <!-- Tab:3 Manage Admins -->     
-			  <section id="Admins" class="hidden">
-				<h3 align="center">Admins Table</h3><br />  
-				<p>Tab to update</p>
+				<!-- Tab: 2 Manage members -->
+				<section id="members" class="hidden">
 
-							  <!-- Call table -->
-							 <div id="Admin_data"></div>         
-			  </section>
 
-			  <!-- Tab: 4 Admin settings -->          
-			  <section id="settings" class="hidden">
-			  <br><br>
-				<p>Edit your user settings:</p>
-				  <!-- This admin ? -->
-				
-				<p class="setting"><span>E-mail Address <img src="images/edit.png" alt="*Edit*"></span> lolno@gmail.com</p>
-				
-				<p class="setting"><span>First Name <img src="images/edit.png" alt="*Edit*"></span> Admin_first</p>
-				
-				<p class="setting"><span>Last Name <img src="images/edit.png" alt="*Edit*"></span> Admin_last</p>
-				
-				<p class="setting"><span>Password <img src="images/edit.png" alt="*Edit*"></span> Password</p>
+					 <h3 align="center">Manage Members</h3><br />  
+					  <!-- Call table -->
+					 <div id="Members_data"></div> 
+					 <!-- form -->
+			 
+					<!-- Implment form -->
+													 
+						   <!-- Note: we need to send users name, password to the intered email? -->  
+						<h3 align="center">Invite New Members</h3><br />                                 
+						<div class="panel-body">
 
-				
-			  </section>
-			</div><!-- @end #content -->
-		  </div><!-- @end #w -->
-							
+							<form method="post" name="form" action="" onsubmit="return validateForm()">
+								<div class="top-margin">
+									<label>Name</label>
+									<input id="name" type="text" class="form-control" name="name">
+								</div>					
+								<div class="top-margin">
+									<label>Email Address <span class="text-danger">*</span></label>
+									<input id="email" type="text" class="form-control" name="email">
+								</div>
+
+								<div class="top-margin">
+										<label>Password <span class="text-danger">*</span></label>
+										<input id="password" type="password" id="pwd" class="form-control" name="password">
+								</div>
+								
+								<!--<div class="col-sm-6"> -->
+								<div class="top-margin">
+								   <label> User Description: <span class="text-danger">*</span></label>
+									<input id="description" type="text" class="form-control" name="description">
+								</div>
+								
+								<div class="top-margin">
+								   <label> Message:<span class="text-danger">*</span></label>
+								<br><textarea rows="4" name="message" class="form-control" cols="30"></textarea><br>
+								</div>
+								<hr>
+
+								<div class="row">
+									<div class="col-lg-8">
+										 <button class="btn btn-action" type="submit" name="invite">Register</button>                     
+									</div>
+									
+								</div>
+							</form>
+						</div>
+				</section>
+					   
+				<!-- Tab:3 Manage Admins -->     
+				<section id="Admins" class="hidden">
+					<h3 align="center">Admins Table</h3><br />  
 					
-					</div>
-		
+					<!-- Call table -->
+					<div id="Admin_data"></div>    
+
+					<h3 align="center">Add New Admin Members</h3><br />                                 
+						<div class="panel-body">
+
+							<form method="post" name="form" action="" >
+								<div class="top-margin">
+									<label>Name</label>
+									<input id="name" type="text" class="form-control" name="name">
+								</div>					
+								<div class="top-margin">
+									<label>Email Address <span class="text-danger">*</span></label>
+									<input id="email" type="text" class="form-control" name="email">
+								</div>
+
+								<div class="top-margin">
+										<label>Password <span class="text-danger">*</span></label>
+										<input id="password" type="password" class="form-control" name="password">
+								</div>
+								
+								<!--<div class="col-sm-6"> -->
+								<div class="top-margin">
+								   <label> User Description: <span class="text-danger">*</span></label>
+									<input id="description" type="text" class="form-control" name="description">
+								</div>
+								
+								<div class="top-margin">
+								   <label> Message:<span class="text-danger">*</span></label>
+								<br><textarea rows="4" name="message" class="form-control" cols="30"></textarea><br>
+								</div>
+								<hr>
+
+								<div class="row">
+									<div class="col-lg-8">
+										 <button class="btn btn-action" type="submit" name="invite">Register</button>                     
+									</div>
+									
+								</div>
+							</form>
+						</div>					
+				</section>
+
+				<!-- Tab: 4 Admin settings -->          
+				<section id="settings" class="hidden"></br></br>				
+				
+					  <!-- This admin ? -->
+					  
+					  <h3 align="center">Update Details:</h3><br />                                 
+						<div class="panel-body">
+
+							<form method="post" name="form" action="adminProfile.php">
+								<div class="top-margin">
+									<label>Name</label>
+									<input id="name" type="text" class="form-control" name="name">
+								</div>					
+								<div class="top-margin">
+									<label>Email Address <span class="text-danger">*</span></label>
+									<input id="email" type="text" class="form-control" name="email">
+								</div>
+
+								<div class="top-margin">
+										<label>Password <span class="text-danger">*</span></label>
+										<input id="password" type="password" class="form-control" name="password">
+								</div>
+								
+								<!--<div class="col-sm-6"> -->
+								<div class="top-margin">
+								   <label> User Description: <span class="text-danger">*</span></label>
+									<input id="description" type="text" class="form-control" name="description">
+								</div>
+								<hr>
+
+								<div class="row">
+									<div class="col-lg-8">
+										 <button class="btn btn-action" type="submit" name="update">Update</button>                     
+									</div>
+									
+								</div>
+							</form>
+						</div>	
+					
+				  </section>
+			</div>
+		</div>
+	</div>
 	
 	<!-- /container -->
 	
-<?php include 'footer.php'; ?>
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

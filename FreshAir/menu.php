@@ -1,7 +1,7 @@
 <?PHP
 /**
- * index page
- * default page for user
+ * Menu utility
+ * this page is to show the navigation bar 
  */
 ?>
 <div class="navbar navbar-inverse navbar-fixed-top headroom" >
@@ -15,17 +15,16 @@
 		<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 				<li><a href="index.php">Home</a></li>
-                                <li><a href="hotspots.php">Map</a></li>
+                <li><a href="hotspots.php">Map</a></li>
 				<li><a href="statistics.php">Statistics</a></li>
 				<li><a href="aboutus.php">About Us</a></li>
 				<li><a href="facts.php">Facts</a></li>
-<<<<<<< HEAD
 				<li><a href="awareness.php">Awareness</a></li>                                
-=======
-				<li><a href="awareness.php">Awareness</a></li>
-				<li><a href="downloads/android-debug.apk" download>Download App</a></li>
->>>>>>> origin/master
 				<?php
+				/**
+				 * Code to show different buttons depending on the session running. As admins has different access rights
+				 * Important information to aware people about air pollution and how they can help
+				 */
 				if(!(@$_SESSION['Admin'] || @$_SESSION['Invited'])) {
 				?>					
 					<li><a class="btn" href="signin.php">Sign In</a></li>
@@ -49,7 +48,7 @@
 			</ul>
               
 		</div><!--/.nav-collapse -->
-<h6 style="color:white;"> Beta Version (Under Construction) </h6>
+	<h6 style="color:white;"> Beta Version (Under Construction) </h6>
 	</div>
 </div> 
 

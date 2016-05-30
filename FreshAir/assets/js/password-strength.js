@@ -5,7 +5,7 @@
 */
 
 $(document).ready(function() {
-    $('#PW').keyup(function() {
+    $('#password').keyup(function() {
          var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
          var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
          var enoughRegex = new RegExp("(?=.{6,}).*", "g");

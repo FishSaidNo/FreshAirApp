@@ -10,33 +10,6 @@ if(!isset($_SESSION['Admin'])){
 echo("<script>location.href = '/index.php?msg=$msg';</script>");
 echo("<script>alert('Admin permission needed');</script>");
 }
-
-//establish connection only when form is submitted
-if (isset ($_POST['submit_form'])){
-
-
-$con = mysql_connect("localhost","freshai1_admin", "Admin123456", "freshai1_freshair");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
- 
-mysql_select_db("root", $con);
- 
- $sql = "INSERT INTO invited_members(user_id, User_Name, PW, Description)
-  VALUES
-  ('$_POST[id]','$_POST[email]','$_POST[PW]','$_POST[Description]')";  
-
-//mysql_query($sql,$con);
-
-if (!mysql_query($sql,$con))
-  {
-  die('Error: ' . mysql_error());
- }
-echo "1 member account added";
- 
-mysql_close($con);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +29,11 @@ mysql_close($con);
 	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
           
 	
-	  <script type="text/javascript" src="js/jquery-profile.min.js"></script>
-  <script src="js/password-strength.js"></script>
+	<script type="text/javascript" src="js/jquery-profile.min.js"></script>
+	<script src="assets/js/password-strength.js"></script>
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
@@ -72,7 +45,7 @@ mysql_close($con);
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-<script>  
+ <script>  
  //This function will upload the data from our db
  $(document).ready(function(){  
       function fetch_data()  
@@ -87,54 +60,95 @@ mysql_close($con);
       }  
       fetch_data();  
       
+ //This function will insert data and test for null 
+      $(document).on('click', '#btn_add', function(){  
+           var email = $('#email').text();  
+           var password = $('#password').text();  
+		   var name = $('#name').text(); 
+           var description = $('#description').text();  
+//Test and show appropriate msg (FOR ONLY NAME & PW, DESCRIPITION CAN BE NULL
+           if(email == '')  
+           {  
+                alert("Please Enter User Email");  
+                return false;  
+           }  
+           if(password == '')  
+           {  
+                alert("Please Enter Password");  
+                return false;  
+           }  
+           $.ajax({  
+                url:"insert_M.php",  
+                method:"POST",  
+                data:{id:id, text:text, column_name:column_name},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     fetch_data();  
+                }  
+           })  
+      });  
 
       
       //Live update 
-      function edit_data(user_id, text, column_name)  
+      function edit_data(id, text, column_name)  
       {  
            $.ajax({  
                 url:"edit_M.php",  
                 method:"POST",  
                 //id IS STABLE PK ID, text is the value for the columns and column is the stable header
-                data:{user_id:user_id, text:text, column_name:column_name},  
+                data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
                      alert(data);  
                 }  
            });  
       }  
-      
-      //UPDATE User_name field replace the entered w the exist in the db
-      $(document).on('blur', '.User_Name', function(){  
+	    //UPDATE name field replace the entered w the exist in the db
+      $(document).on('blur', '.Name', function(){  
            var id = $(this).data("id1");  
-           var User_Name = $(this).text();  
-           if(User_Name == '')  
+           var name = $(this).text();  
+           if(name == '')  
            {  
                 alert("Please Enter User Name");  
                 return false;  
            } else {
-                edit_data(user_id, User_Name, "User_Name");  
+                edit_data(id, name, "Name");  
                 }
       }); 
       
-     //UPDATE PASSWORD (PW) 
-      $(document).on('blur', '.PW', function(){  
+      //UPDATE email field replace the entered w the exist in the db
+      $(document).on('blur', '.Email', function(){  
            var id = $(this).data("id2");  
-           var PW = $(this).text();  
-           if(PW == '')  
+           var email = $(this).text();  
+           if(email == '')  
+           {  
+                alert("Please Enter User Email");  
+                return false;  
+           } else {
+                edit_data(id, email, "Email");  
+                }
+      }); 
+      
+     //UPDATE PASSWORD (password) 
+      $(document).on('blur', '.Password', function(){  
+           var id = $(this).data("id2");  
+           var password = $(this).text();  
+           if(password == '')  
            {  
                 alert("Please Enter Password");  
                 return false;  
            }  else {
-                 edit_data(user_id, PW, "PW");  
+                 edit_data(id, password, "Password");  
            }
       });  
       
      //UPDATE Description
       $(document).on('blur', '.Description', function(){  
            var id = $(this).data("id3");  
-           var Description = $(this).text();  
-           edit_data(id, Description, "Description");  
+           var description = $(this).text();  
+           edit_data(id, description, "Description");  
       });  
       
       //Delete data
@@ -145,7 +159,7 @@ mysql_close($con);
                 $.ajax({  
                      url:"delete_M.php",  
                      method:"POST",  
-                     data:{user_id:user_id},  
+                     data:{id:id},  
                      dataType:"text",  
                      success:function(data){  
                           alert(data);  
@@ -171,58 +185,44 @@ mysql_close($con);
 			<li class="active">Facts</li>
 		</ol>
 
-		<div class="row">
-			
-		  <br />  
-                <br />  
-                <br />  
-                <div class="table-responsive">  
-                     <h3 align="center">Manage Members</h3><br />  
-                      <!-- Call table -->
-                     <div id="Members_data"></div> 
-                     
+		<div class="row"> <br /><br /><br />  
+			<div class="table-responsive">  
+								 <h3 align="center">Manage Members</h3><br />  
+								  <!-- Call table -->
+								 <div id="Members_data"></div> 
+																		 
+			 
+				<!-- Implment form -->
+														 
+				<!-- Note: we need to send users name, password to the entered email? -->  
+					<h3 align="center">Invite New Members</h3><br />                                 
+				<div>
+					<form  action="adminManagement.php" method="post" >
+						<label for="name">Name</label>
+						<span style="color:blue;font-weight:bold">blue</span> 
+						<input type="text" id="name" name="name">
 
-                                        
- 
-                    <!-- Implment form -->
-                                         
-               <!-- Note: we need to send users name, password to the entered email? -->  
-        <h3 align="center">Invite New Members</h3><br />                                 
-		<div>
-	  <form  action="adminManagement.php" method="post" >
-	  <label for="user_id">ID</label>
-	  <span style="color:blue;font-weight:bold">blue</span> 
-      <input type="text" id="user_id" name="user_id">
+						<label for="email">Email</label>
+						<input type="text" id="email" name="email">
 
-	  <label for="User_Name">User Name</label>
-      <input type="text" id="User_Name" name="User_Name">
+						<label for="password">Password</label>
+						<input type="text" id="password" name="password">					
 
-      <label for="PW">Password</label>
-      <input type="text" id="PW" name="PW">
-      
-      <label for="email">Email</label>
-      <input type="email" name="email">
-      
-      <label for="Description">Description</label>
-      <input type="text" id="Description" name="Description">
-      
-      <label for="Message">Message</label>
-      <input type="text" id="Message" name="Message">
-  
-     <input type="submit" name="submit_form" value="Submit">
-     </form>
-     </div>
-     </section>
+						<label for="description">Description</label>
+						<input type="text" id="description" name="description">
+
+						<label for="message">Message</label>
+						<input type="text" id="message" name="message">
+
+						<input type="submit" name="submit_form" value="Submit">
+					 </form>
+				 </div>
              
-                </div>  
-           </div>  
-				
-							
+            </div>  
+          </div> 						
 					
-		</div>
-		
-		</div>
-	</div>	<!-- /container -->
+	</div>
+	<!-- /container -->
 	
 <?php include 'footer.php'; ?>
 

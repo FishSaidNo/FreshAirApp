@@ -1,8 +1,8 @@
 <?PHP
 session_start();
 /**
- * index page
- * default page for user
+ * Guests data table
+ * Information that can be printed, downloaded or saved.
  */
 if(!isset($_SESSION['Invited'])){
 echo("<script>alert('Admin permission needed');</script>");
@@ -21,11 +21,8 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 
 *The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */-->
-<head>
-
-	
+<head>	
 	<title> Fresh Air </title>
-
 	
         <!-- mobile/ipad view  --> 
         <meta charset="utf-8">
@@ -33,7 +30,7 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Brisbane's air quality in your hands </title>
+	<title>Fresh Air - Data Table </title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -44,8 +41,7 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 	
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="assets/css/main.css">
-	
+	<link rel="stylesheet" href="assets/css/main.css">	
 	
 	
 	 <!-- table js and css --> 
@@ -62,15 +58,18 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 </head>
 
 <body class="home">
-	<!-- Fixed navbar -->
+
+<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
 	<!-- Header -->
 	<header id="head" class="secondary"></header>
+	
+	<!-- Content -->
 	<div class="container">
 
-		<ol class="breadcrumb">
+		
+		<!-- Page Indicators -->
 			<li><a href="index.php">Home</a></li>
 			<li class="active">Data</li>
 		</ol></br></br>
@@ -85,7 +84,11 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
   <?php
 include_once 'db_utility.php';
 $query = "select * from aqi";
-$result = $mysqli->query($query);
+$result = $mysqli->prepare($query);
+$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+ // execute the query
+$result->execute();
 
     $data = array();
     $data_array = array();
@@ -149,9 +152,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)){
 echo  '</tbody>
     </table>';
 ?>
-</div>
-
-  
+</div>  
     <script>   
   $(document).ready(function() {
     $('#AirData').DataTable( {
@@ -194,7 +195,10 @@ echo  '</tbody>
 } );
   </script>
 	
-<?php include 'footer.php'; ?>
+
+	
+	<!-- Footer Insertion (see footer.php) -->
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

@@ -1,9 +1,5 @@
 <?php
 
-// so PHP does not complain about deprectaed functions
-//error_reporting( 0 );
-
-//include_once 'db_utility.php'; whyyyy
 
 // Connect to MySQL
 $link = new mysqli( 'localhost', 'freshai1_admin', 'Admin123456', 'freshai1_freshair' );

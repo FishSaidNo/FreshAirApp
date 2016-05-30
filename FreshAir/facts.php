@@ -1,8 +1,8 @@
 <?PHP
 session_start();
 /**
- * index page
- * default page for user
+ * Facts Page
+ * Page to give information about air pollution, and some important facts to make users aware about the problems.
  */
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ session_start();
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Facts</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -33,33 +33,39 @@ session_start();
 </head>
 
 <body class="home">
-	<!-- Fixed navbar -->
+	<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
 	<!-- Header -->
 	<header id="head" class="secondary"></header>
+	
+	<!-- container -->
 	<div class="container">
-
+	
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">Facts</li>
 		</ol>
+		<!-- End Page Indicators -->
 
-		<div class="row">
-			
-		
-				<header class="page-header">
+		<div class="row">		
+				<!-- Page Title -->		
+				<header class="page-header">				
 					<h1 class="page-title">Facts</h1>
-				</header>
-					<div class="">
-						<div><img src="images/facts.JPG" width="1000" class="img-responsive" alt="" /></div>
-					</div>
+				</header>				
+				<!-- End Page Title -->
+					
+				<div class="">
+					<div><img src="assets/images/facts.JPG" width="1000" class="img-responsive" alt="" /></div>
+				</div>
 		
 		</div>
-	</div>	<!-- /container -->
+	</div>	
+	<!-- /container -->
 	
-<?php include 'footer.php'; ?>
+	<!-- Footer Insertion (see footer.php) -->
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

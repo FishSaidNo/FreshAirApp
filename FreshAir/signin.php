@@ -1,7 +1,7 @@
 <?PHP
 session_start();
 /**
- * login page for user to login
+ * Login page for administrators
  */
 include_once 'db_utilityClients.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,19 +12,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * we use md5 to hash password, so here we use md5 hashed password to compare
          */
         $query="select * from  members where email_address='$username' and password='".md5($password)."'"; 
-        $result = $mysqli->query($query); 
+		$result = $mysqli->prepare($query);
+		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$result->execute();
         $row=$result->fetch(PDO::FETCH_ASSOC);          
         $row_cnt = $result->rowCount();
+		
+		 /**
+         * Check if there is any matching.
+         */
+		
         if($row_cnt!=1){
                 echo "<script>alert('Invalid Username or password'); location.href='signin.php'</script>";      			 
         }
-		  if($username==$row['email_address']&&$password=$row['password']){	
-		   if($username=='admin'){
-				session_start();
-				$_SESSION['Admin']='Admin';		   
-				echo("<script>location.href = '/adminData.php';</script>");
-			}			
-      } 
+			if($username==$row['email_address']&&$password=$row['password']){	
+			   if($username=='admin'){
+					 /**
+					 * start a session if user is found and match the password
+					 */
+					session_start();
+					$_SESSION['Admin']='Admin';		   
+					echo("<script>location.href = '/adminData.php';</script>");
+				}			
+			} 
 	}
 }
 ?>
@@ -36,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Sign In</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -57,15 +67,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class="home">
-	<!-- Fixed navbar -->
+
+	<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
-		<header id="head" class="secondary"></header>
+	<header id="head" class="secondary"></header>
 
-	<!-- container -->
+	<!-- Content -->
 	<div class="container">
-
+		
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">User access</li>
@@ -74,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<div class="row">
 			
 			<!-- Article main content -->
-			<article class="col-xs-12 maincontent">
+			<article class="col-xs-12 maincontent">			
+				<!-- Page Title -->
 				<header class="page-header">
 					<h1 class="page-title">Sign in</h1>
 				</header>
@@ -99,7 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								</div>
 
 								<hr>
-
 								<div class="row">
 									<div class="col-lg-8">
 										<b><a href="forgotPassword.php">Forgot password?</a></b>
@@ -111,17 +122,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							</form>
 						</div>
 					</div>
-
-				</div>
-				
+				</div>				
 			</article>
 			<!-- /Article -->
 
 		</div>
 	</div>	<!-- /container -->
 
-
-	
+	<!-- Footer Insertion (see footer.php) -->
 	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->

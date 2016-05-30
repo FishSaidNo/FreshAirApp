@@ -1,17 +1,22 @@
 <?PHP
-
-/**
- * index page
- * default page for user
- */
 session_start();
+/**
+ * Password Recovery page
+ * page to create a new password after users confirmation of password loss
+ */
 include_once 'db_utility.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['email'] && $_POST['password'] && $_POST['newPassword']) {
+		
+		/**
+		 * Reading from DB and adding values to variables
+		 */
         $email = $_POST['email'];  
-	$password = $_POST['password'];
-	$newPassword = $_POST['newPassword'];
+		$password = $_POST['password'];
+		$newPassword = $_POST['newPassword'];
         $query="SELECT * FROM members where email_address='$email'"; 
+		
         $result = $mysqli->query($query); 
         $row=$result->fetch(PDO::FETCH_ASSOC); 	
 		$row_cnt = $result->rowCount();		
@@ -19,21 +24,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              echo "<script>alert('Email is not Registered'); location.href='forgotPassword.php'</script>";				 
         } else {     
 
-// set the PDO error mode to exception
+		// set the PDO error mode to exception
 
-          $mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-			$query = "UPDATE members SET password='".md5($password)."' where email_address='$email'";  
+        $query = "UPDATE members SET password='".md5($password)."' where email_address='$email'";  
 			 
- $stmt = $mysqli->prepare($query);
+		$stmt = $mysqli->prepare($query);
+		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // execute the query
-             $stmt->execute();
+         // execute the query
+         $stmt->execute();
 
            echo("<script>alert('Password has been changed'); location.href='signinTemp.php';</script>");
 			 
-			$to = $_POST['email']; // this is your Email address
-			$from = "freshairbne@gmail.com"; // this is the sender's Email address
+			$to = $_POST['email']; // this is Users Email address
+			$from = "freshairbne@gmail.com"; // this is the Fresair's Email address
 			$subject = "Password has been Changed";
 			$message = "Your password has been changed. If you did not do it please contact us ASAP.";
 			$headers = "From:" . $from;
@@ -50,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Password Recovery</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -61,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	
-	<script src="js/regitervalidation.js"></script>
+	<script src="assets/js/regitervalidation.js"></script>
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
@@ -75,76 +79,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class="home">
-	<!-- Fixed navbar -->
+
+	<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
 	<!-- Header -->
 	<header id="head" class="secondary"></header>
+	
+	<!-- Content -->
 	<div class="container">
-
+	
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">New Password Creationd</li>
 		</ol>
 
-		<div class="row">
-			
+		<div class="row">			
 		
-				<header class="page-header">
-					<h1 class="page-title">New Password Creation</h1>
-				</header>
-					<div class="">	
-					 <div id="w">
-						<div id="content" class="clearfix">
-		
-				<!-- Implment form -->
-                              
-					<div class="panel-body">
+			<header class="page-header">
+				<h1 class="page-title">New Password Creation</h1>
+			</header>
+				
+			<div id="content" class="clearfix">
+	
+			<!-- Implment form -->
+						  
+				<div class="panel-body">
 
-									<form method="post" name="form" action="" onsubmit="return validateForm()">										
-										
-										<div class="top-margin">
-											<label>Email Address <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" name="email">
-										</div>
-										
-										<div class="top-margin">
-											<label>New Password <span class="text-danger">*</span></label>
-											<input type="password" class="form-control" name="password">
-										</div>
-										
-										<div class="top-margin">
-											<label>Confirm Password<span class="text-danger">*</span></label>
-											<input type="password" class="form-control" name="newPassword">
-										</div>
-																			
-										<hr>
+					<form method="post" name="form" action="" onsubmit="return validateForm()">										
+						
+						<div class="top-margin">
+							<label>Email Address <span class="text-danger">*</span></label>
+							<input type="text" class="form-control" name="email">
+						</div>
+						
+						<div class="top-margin">
+							<label>New Password <span class="text-danger">*</span></label>
+							<input type="password" class="form-control" name="password">
+						</div>
+						
+						<div class="top-margin">
+							<label>Confirm Password<span class="text-danger">*</span></label>
+							<input type="password" class="form-control" name="newPassword">
+						</div>
+															
+						<hr>
 
-										<div class="row">
-											<div class="col-lg-8">
-												 <button class="btn btn-action" type="submit">Change Password</button>                     
-											</div>
-										</div>
-									
-									</form>
-					</div>
-				</section>
+						<div class="row">
+							<div class="col-lg-8">
+								 <button class="btn btn-action" type="submit">Change Password</button>                     
+							</div>
+						</div>
+					
+					</form>
+				</div>
 			</div>
 
 		</div>	
-	 
-
-		</div><!-- @end #content -->
-		  </div><!-- @end #w -->
-							
-					
-	</div>
-		
-	
+	</div>		
 	<!-- /container -->
 	
-<?php include 'footer.php'; ?>
+	<!-- Footer Insertion (see footer.php) -->
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

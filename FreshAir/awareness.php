@@ -1,8 +1,8 @@
 <?PHP
 session_start();
 /**
- * index page
- * default page for user
+ * Awareness page
+ * Important information to aware people about air pollution and how they can help
  */
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ session_start();
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - Awareness</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -31,36 +31,38 @@ session_start();
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-
 <body class="home">
-		<?php include 'menu.php'; ?>
-							</div><!--/.nav-collapse -->
-		</div>
-	
-	<!-- /.navbar -->
 
+	<!-- Menu Insertion (see Menu.php) -->
+	<?php include 'menu.php'; ?>
+					
 	<!-- Header -->
 	<header id="head" class="secondary"></header>
+	
+	<!-- Content -->
 	<div class="container">
 
+		
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">Awareness</li>
 		</ol>
+		<!-- End Page Indicators -->
 
 		<div class="row">
 			
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
+				<!-- Page Title -->
 				<header class="page-header">
 					<h1 class="page-title">User awareness</h1>
 				</header>
-				
-               
+				<!-- End Page Title -->
                     
-				<p>
-				<ol align="justify">
-					
+					<p>
+						<ol align="justify">
+							
 						Important cases of air pollution in Brisbane
 						One of the major highlighted problems arisen to industrial cities around the world wide is 
 						air pollution during past few decades. According to Zivkovic (2013), biggest economic cities 
@@ -75,7 +77,7 @@ session_start();
 						Pursuing this further, “Fresh air app” is recommending how to innovate this idea further in order to reach
 						the accepted goals established by relevant authorities. </br></br>
 						
-					In order to develop the user awareness tracking progress, 
+						In order to develop the user awareness tracking progress, 
 						evaluation and monitoring the fresh air app would represent the possibilities with relevant functions on their website,
 						app and on air beam. Moreover, the tracking progress of the users were by following their report cards which was 
 						available on city council website. Instead of this method,  Green IT solutions are implementing a new source of plan
@@ -83,7 +85,7 @@ session_start();
 						would be essential to download the data through the website. So the users need to sign up with their email verification
 						in order to check the air pollution level around their area. </br></br>
 					
-					Additionally, (Queensland Government, 2006) argues that, 
+						Additionally, (Queensland Government, 2006) argues that, 
 						public users who live in indoors reduce the pollution level by improving such habits as cleaning (using lemon or vanilla 
 						air fresheners ) inside the houses, renovating, using wood heaters during winter period, pest control and etc. Brisbane city
 						council provides an active transport strategy in cycling and walking around urban areas to reduce the traffic jam and air pollution as well. 
@@ -94,21 +96,19 @@ session_start();
 						in order to deliver a meaningful message to potential users how the government is taking action against the air pollution. Overall, 
 						all these cases are significant to motivate the users  to aware about the current situation and what are the steps they need to follow 
 						to make the air Brisbane city clean and fresh. </br></br>
-					
-				</ol>
-				</p>
-				</article></br></br></br>
-                            <div class="">
-						<div margin="auto"><img src="images/awareness.png" width="1000" class="img-responsive" alt="" /></div>
-					</div>
+							
+						</ol>
+					</p>
+			</article></br></br></br>			
+                           
+			<div  style="margin:auto;"><img src="assets/images/awareness.png" width="1000" class="img-responsive" alt="" /></div>				
 			
-			<!-- /Article -->
-			
+			<!-- /Article -->			
 		
 		</div>
 	</div>	<!-- /container -->
 	
-
+	<!-- Footer Insertion (see footer.php) -->
 	<?php include 'footer.php'; ?>
 		
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
@@ -117,20 +117,21 @@ session_start();
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
-<script src="js/readmore.js"></script>
+	<script src="js/readmore.js"></script>
 
-  <script>
-    $('#info').readmore({
-      moreLink: '<a href="#">Usage, examples, and options</a>',
-      collapsedHeight: 350,
-      afterToggle: function(trigger, element, expanded) {
-        if(! expanded) { // The "Close" link was clicked
-          $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
-        }
-      }
-    });
+	<!-- Script to hide text and show More -->
+    <script>
+		$('#info').readmore({
+		  moreLink: '<a href="#">Usage, examples, and options</a>',
+		  collapsedHeight: 350,
+		  afterToggle: function(trigger, element, expanded) {
+			if(! expanded) { // The "Close" link was clicked
+			  $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
+			}
+		  }
+		});
 
-    $('article').readmore({speed: 500});
-  </script>
+		$('article').readmore({speed: 500});
+    </script>
 </body>
 </html>

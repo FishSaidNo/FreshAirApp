@@ -1,10 +1,9 @@
 <?PHP
 session_start();
 /**
- * index page
- * default page for user
+ * About us page
+ * Information about the team and what we do.
  */
-include_once 'db_utility.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +13,7 @@ include_once 'db_utility.php';
 	<meta name="description" content="">
 	<meta name="author"      content="">
 	
-	<title>Fresh Air - Create Your Own Reality</title>
+	<title>Fresh Air - About Us</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -34,13 +33,16 @@ include_once 'db_utility.php';
 </head>
 
 <body class="home">
+	<!-- Menu Insertion (see Menu.php) -->
 	<?php include 'menu.php'; ?>
-	<!-- /.navbar -->
 
 	<!-- Header -->
 	<header id="head" class="secondary"></header>
+	
+	<!-- Content -->
 	<div class="container">
-
+	
+		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">About Us</li>
@@ -53,8 +55,13 @@ include_once 'db_utility.php';
 					<h1 class="page-title">About QUT freshair</h1><br>
 				</header>
                 <h3>Who are we?</h3>
-				<p align="justify">This website is a project conducted by Queensland University of Technology (Science and Engineering faculty) students for INB302 IT Capstone unit 2016 semester 1. The project team is known as “Green IT Solutions” supervised by Dr. Matthew Dunbabin. Our main goal is to update the real world users daily how clean and polluted the air is around Brisbane Suburbs, and to illustrate the real time air quality data in to numbers and colours that help public to understand and to take action against air pollution.
-                </br></br><div style="text-align:center"><img src="assets/images/team.png"/></div></br></br>
+				<p align="justify">This website is a project conducted by Queensland University of Technology (Science and Engineering faculty) students 
+				for INB302 IT Capstone unit 2016 semester 1. The project team is known as “Green IT Solutions” supervised by Dr. Matthew Dunbabin. Our main 
+				goal is to update the real world users daily how clean and polluted the air is around Brisbane Suburbs, and to illustrate the real time air 
+				quality data in to numbers and colours that help public to understand and to take action against air pollution.
+                </br></br>
+				
+				<div style="text-align:center"><img src="assets/images/team.png"/></div></br></br>
 				
 				
 				<h3>What we offer on this website</h3></br>
@@ -80,10 +87,12 @@ include_once 'db_utility.php';
 						Map and forecast data are collected using federal reference  
 					</li>
 					<li>
-						Although preliminary data quality assessments are performed, the data in QUT Fresh Air are not fully verified and validated through the quality assurance procedures monitoring organizations used to officially submit and certify data on the EPA Air Quality System (AQS). 
+						Although preliminary data quality assessments are performed, the data in QUT Fresh Air are not fully verified and validated 
+						through the quality assurance procedures monitoring organizations used to officially submit and certify data on the EPA Air Quality System (AQS). 
 					</li>
 					<li>
-						This data sharing and centralization creates a one-stop source for real-time and forecast air quality data. The benefits include quality control, national reporting consistency, access to automated mapping methods, and data distribution to the public and other data systems. 
+						This data sharing and centralization creates a one-stop source for real-time and forecast air quality data. The benefits include 
+						quality control, national reporting consistency, access to automated mapping methods, and data distribution to the public and other data systems. 
 					</li>
 
 				</ol>
@@ -91,10 +100,9 @@ include_once 'db_utility.php';
 
 		</div>
 	</div>	<!-- /container -->
-
-<?php include 'footer.php'; ?>
-
-
+	
+	<!-- Footer Insertion (see footer.php) -->
+	<?php include 'footer.php'; ?>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

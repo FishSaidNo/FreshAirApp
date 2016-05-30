@@ -2,17 +2,17 @@
 /* connection: host, user, password, & db schema */ 
  $connect = mysqli_connect("localhost", "freshai1_admin", "Admin123456", "freshai1_freshair"); 
  $output = '';  
- $sql = "SELECT * FROM invited_members ORDER BY user_id ASC";  
+ $sql = "SELECT * FROM guest_members ORDER BY Name ASC";  
  $result = mysqli_query($connect, $sql);  
  $output .= '  
       <div class="table-responsive">  
            <table class="table table-bordered">  
                 <tr>  
-                     <th width="10%">ID</th>  
-                     <th width="26%">Members</th>  
-                     <th width="26%">Password</th>  
-                     <th width="28%">Description</th>  
-                     <th width="10%">Delete</th>  
+					 <th width="20%">Email</th>  
+                     <th width="25%">Name</th>                      
+                     <th width="20%">Password</th>  
+                     <th width="25%">Description</th>
+                     <th width="10%">Add/Delete</th>  
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -21,14 +21,24 @@
       //using html5 contenteditable attribute 
            $output .= '  
                 <tr>  
-                     <td>'.$row["id"].'</td>  
-                     <td class="User_Name" data-id1="'.$row["id"].'" contenteditable>'.$row["User_Name"].'</td> 
-                     <td class="PW" data-id2="'.$row["id"].'" contenteditable>'.$row["PW"].'</td>  
-                     <td class="Description" data-id3="'.$row["id"].'" contenteditable>'.$row["Description"].'</td>  
-                     <td><button type="button" name="delete_btn" data-id4="'.$row["id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
+					<td class="Email" data-id2="'.$row["Email"].'" contenteditable>'.$row["Email"].'</td>                      
+                     <td class="Name" data-id1="'.$row["Email"].'" contenteditable>'.$row["Name"].'</td>                      
+                     <td class="Password" data-id3="'.$row["Email"].'" contenteditable>'.$row["Password"].'</td>  
+                     <td class="Description" data-id4="'.$row["Email"].'" contenteditable>'.$row["Description"].'</td>  
+                     <td><button type="button" name="delete_btn" data-id4="'.$row["Email"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  
            ';  
       } 
+	  //Insert data
+            $output .= '  
+           <tr>  
+               	<td id="Email" contenteditable></td>  
+                <td id="Name" contenteditable></td>  
+                <td id="Password" contenteditable></td>  
+                <td id="Description" contenteditable></td>  
+                <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
+           </tr>  
+      ';   
  
  } 
  // o rows 
