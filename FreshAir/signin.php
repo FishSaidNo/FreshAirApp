@@ -5,13 +5,13 @@ session_start();
  */
 include_once 'db_utilityClients.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['username'] && $_POST['password']) {
-        $username=$_POST['username'];
+    if ($_POST['email'] && $_POST['password']) {
+        $username=$_POST['email'];
         $password=$_POST['password'];                
         /**
          * we use md5 to hash password, so here we use md5 hashed password to compare
          */
-        $query="select * from  members where email_address='$username' and password='".md5($password)."'"; 
+        $query="select * from admin_members where Email='$username' and Password='".md5($password)."'"; 
 		$result = $mysqli->prepare($query);
 		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$result->execute();
@@ -25,17 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($row_cnt!=1){
                 echo "<script>alert('Invalid Username or password'); location.href='signin.php'</script>";      			 
         }
-			if($username==$row['email_address']&&$password=$row['password']){	
-			   if($username=='admin'){
-					 /**
-					 * start a session if user is found and match the password
-					 */
-					session_start();
-					$_SESSION['Admin']='Admin';		   
-					echo("<script>location.href = '/adminData.php';</script>");
-				}			
+			if($username==$row['Email']&&$password=$row['Password']){	
+			   	 /**
+			         * start a session if user is found and match the password
+				 */
+				session_start();
+				$_SESSION['Admin']=$row['Name'];		   
+				echo("<script>location.href = '/adminData.php';</script>");
+							
 			} 
 	}
+	 echo "<script>alert('Fields are blank or Invalid'); location.href='signin.php'</script>";  
 }
 ?>
 <!DOCTYPE html>
@@ -103,11 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<form onsubmit="return validateForm()" method="post" action="signin.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control" name="username">
+									<input type="text" class="form-control" name="email" required>
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control" name="password">
+									<input type="password" class="form-control" name="password" required>
 								</div>
 
 								<hr>

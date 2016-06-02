@@ -51,7 +51,7 @@ echo("<script>alert('Admin permission needed');</script>");
       function fetch_data()  
       {  
            $.ajax({  
-                url:"select_M.php",  
+                url:"select_A.php",  
                 method:"POST",  
                 success:function(data){  
                      $('#Members_data').html(data);  
@@ -78,7 +78,7 @@ echo("<script>alert('Admin permission needed');</script>");
                 return false;  
            }  
            $.ajax({  
-                url:"insert_M.php",  
+                url:"insert_A.php",  
                 method:"POST",  
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
@@ -106,8 +106,8 @@ echo("<script>alert('Admin permission needed');</script>");
            });  
       }  
 	    //UPDATE name field replace the entered w the exist in the db
-      $(document).on('blur', '.Name', function(){  
-           var id = $(this).data("id1");  
+      $(document).on('blur', '.name', function(){  
+           var id = $(this).data("id2");  
            var name = $(this).text();  
            if(name == '')  
            {  
@@ -119,8 +119,8 @@ echo("<script>alert('Admin permission needed');</script>");
       }); 
       
       //UPDATE email field replace the entered w the exist in the db
-      $(document).on('blur', '.Email', function(){  
-           var id = $(this).data("id2");  
+      $(document).on('blur', '.email', function(){  
+           var id = $(this).data("id1");  
            var email = $(this).text();  
            if(email == '')  
            {  
@@ -129,23 +129,11 @@ echo("<script>alert('Admin permission needed');</script>");
            } else {
                 edit_data(id, email, "Email");  
                 }
-      }); 
-      
-     //UPDATE PASSWORD (password) 
-      $(document).on('blur', '.Password', function(){  
-           var id = $(this).data("id2");  
-           var password = $(this).text();  
-           if(password == '')  
-           {  
-                alert("Please Enter Password");  
-                return false;  
-           }  else {
-                 edit_data(id, password, "Password");  
-           }
-      });  
+      });       
+
       
      //UPDATE Description
-      $(document).on('blur', '.Description', function(){  
+      $(document).on('blur', '.description', function(){  
            var id = $(this).data("id3");  
            var description = $(this).text();  
            edit_data(id, description, "Description");  
@@ -153,11 +141,11 @@ echo("<script>alert('Admin permission needed');</script>");
       
       //Delete data
       $(document).on('click', '.btn_delete', function(){  
-           var id=$(this).data("id4");  
+           var id=$(this).data("id6");  
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
-                     url:"delete_M.php",  
+                     url:"delete_A.php",  
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  

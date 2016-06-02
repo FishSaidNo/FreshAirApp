@@ -1,18 +1,17 @@
 <?PHP
 session_start();
 /**
- * login page for Guests user to login
+ * Login page for administrators
  */
 include_once 'db_utilityClients.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['username'] && $_POST['password']) {
-        $username=$_POST['username'];
+    if ($_POST['email'] && $_POST['password']) {
+        $username=$_POST['email'];
         $password=$_POST['password'];                
         /**
          * we use md5 to hash password, so here we use md5 hashed password to compare
          */
-        $query="select * from invited_members where User_Name='$username' and PW='".md5($password)."'"; 
-		
+        $query="select * from guest_members where Email='$username' and Password='".md5($password)."'"; 
 		$result = $mysqli->prepare($query);
 		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$result->execute();
@@ -23,22 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * Check if there is any matching.
          */
 		
-
         if($row_cnt!=1){
-              echo "<script>alert('Invalid Username or password'); location.href='signinTemp.php'</script>";				 
-       }
-		if($username==$row['User_Name']&&$password=$row['PW']){	
-			 /**
-			 * start a session if user is found and match the password
-			 */
-			session_start();
-			$_SESSION['Invited']='Invited';		   
-			echo("<script>location.href = '/dataInvited.php';</script>");	   	
-				
-			}else {
-				echo "<span id='faillogin'><b><font color='red'>Invalid username/password</font></b></div>";	
-			}
+                echo "<script>alert('Invalid Username or password'); location.href='signinTemp.php'</script>";      			 
+        }
+			if($username==$row['Email']&&$password=$row['Password']){	
+			   	 /**
+			         * start a session if user is found and match the password
+				 */
+				session_start();
+				$_SESSION['Invited']=$row['Name'];		   
+				echo("<script>location.href = '/dataInvited.php';</script>");
+							
+			} 
+			
 	}
+	 echo "<script>alert('Fields are blank or Invalid'); location.href='signin.php'</script>";  
 }
 ?>
 <!DOCTYPE html>
@@ -82,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<!-- Page Indicators -->
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
-			<li class="active">Guest User Access</li>
+			<li class="active">Guest Users Access</li>
 		</ol>
 
 		<div class="row">
@@ -91,26 +89,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<article class="col-xs-12 maincontent">			
 				<!-- Page Title -->
 				<header class="page-header">
-					<h1 class="page-title">Sign in</h1>
+					<h1 class="page-title">Sign in Guest Users</h1>
 				</header>
 				
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Sign in to your account</h3>
-							<p class="text-center text-muted">If you are an invited User please, <a href="signinTemp.php">Login</a> </p>
+							
 							
 							
 							<hr>
 							
-							<form onsubmit="return validateForm()" method="post" action="signin.php" >
+							<form onsubmit="return validateForm()" method="post" action="signinTemp.php" >
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control" name="username">
+									<input type="text" class="form-control" name="email" required>
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control" name="password">
+									<input type="password" class="form-control" name="password" required>
 								</div>
 
 								<hr>

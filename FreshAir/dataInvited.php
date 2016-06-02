@@ -70,20 +70,21 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 
 		
 		<!-- Page Indicators -->
+		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
 			<li class="active">Data</li>
 		</ol></br></br>
 	
 		
 
-<h2> Welcome </h2>
+<h2 class="page-title">Welcome, <?PHP echo $_SESSION['Invited']?></h2></br></br>
 <p>This table contains all the data we have received. </p>
 
 
 <!-- Start Table -->
   <?php
-include_once 'db_utility.php';
-$query = "select * from aqi";
+include_once 'db_utilityClients.php';
+$query = "select * from aqireadings";
 $result = $mysqli->prepare($query);
 $mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

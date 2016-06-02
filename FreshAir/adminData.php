@@ -79,14 +79,14 @@ echo("<script>alert('Admin permission needed');</script>");
 		</ol></br></br>
 	
 	
-<h2> Welcome Admin </h2>
-<p>This table contains all the data we have received. </p>
+		<h2 class="page-title">Hello, <?PHP echo $_SESSION['Admin']?></h2></br></br>
+		<p>This table contains all the data we have received. </p>
 
 
 <!-- Start Table -->
   <?php
 include_once 'db_utility.php';
-$query = "select * from aqi";
+$query = "select * from aqireadings";
 $result = $mysqli->query($query);
 
     $data = array();

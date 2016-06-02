@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['email']) {
         $email = $_POST['email'];  
 		 
-        $query="SELECT * FROM invited_members where User_Name='$email'"; 
+        $query="SELECT * FROM guest_members where Email='$email'"; 
         
 		$result = $mysqli->prepare($query);
 		/** Prepare query, secure procedure **/
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							 
 				<div id="content" class="clearfix">
 
-					<!-- Implment form -->
+					<!-- Implement form -->
 						  
 					<div class="panel-body"></br></br>
 
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							
 							<div class="top-margin">
 								<label>Email Address <span class="text-danger">*</span></label>
-								<input type="text" class="form-control" name="email">
+								<input type="text" class="form-control" name="email" required>
 							</div>
 																
 							<hr>

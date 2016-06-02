@@ -10,7 +10,6 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 echo("<script>alert('Admin permission needed');</script>");
 }
 ?>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,50 +86,8 @@ echo("<script>alert('Admin permission needed');</script>");
                 }  
            });  
       }  
-      fetch_data();  
-      
- //This function will insert data and test for null 
-      $(document).on('click', '#btn_add', function(){  
-           var email = $('#email').text();  
-           var name = $('#name').text();  
-           var password = $('#password').text();  
-           var description = $('#description').text();  
-//Test and show appropriate msg (FOR ONLY NAME & PW, DESCRIPITION CAN BE NULL
-           if(email == '')  
-           {  
-                alert("Please Enter Admin Email");  
-                return false;  
-           }  
-		   
-           if(name == '')  
-           {  
-                alert("Please Enter Admin Name");  
-                return false;  
-           }  
-           
-           if(password == '')  
-           {  
-                alert("Please Enter Admin Password");  
-                return false;  
-           }  
-           
-           if(description == '')  
-           {  
-                alert("Please Enter Description");  
-                return false;  
-           }  
-           $.ajax({  
-                url:"insert_A.php",  
-                method:"POST",  
-                data:{email:email, name:name, password:password, description:description},  
-                dataType:"text",  
-                success:function(data)  
-                {  
-                     alert(data);  
-                     fetch_data();  
-                }  
-           })  
-      });  
+      fetch_data();     
+ 
 
       
       //Live update 
@@ -149,8 +106,8 @@ echo("<script>alert('Admin permission needed');</script>");
       }  
       
       //UPDATE Email field replace the entered w the exist in the db
-      $(document).on('blur', '.Email', function(){  
-           var id = $(this).data("id1");  
+      $(document).on('blur', '.email', function(){  
+           var id = $(this).data("id2");  
            var email = $(this).text();  
            if(email == '')  
            {  
@@ -163,25 +120,17 @@ echo("<script>alert('Admin permission needed');</script>");
       
       
      //UPDATE Name
-      $(document).on('blur', '.Name', function(){  
-           var id = $(this).data("id2");  
+      $(document).on('blur', '.name', function(){  
+           var id = $(this).data("id1");  
            var name = $(this).text();  
-           edit_data(id, lname, "Name");  
+           edit_data(id, name, "Name");  
       });  
+         
       
       
-      
-     //UPDATE email
-      $(document).on('blur', '.Password', function(){  
+     //UPDATE Description (description) 
+      $(document).on('blur', '.description', function(){  
            var id = $(this).data("id3");  
-           var password = $(this).text();  
-           edit_data(id, email, "Password");  
-      });  
-      
-      
-     //UPDATE PASSWORD (description) 
-      $(document).on('blur', '.Description', function(){  
-           var id = $(this).data("id4");  
            var description = $(this).text();  
            if(description == '')  
            {  
@@ -195,11 +144,11 @@ echo("<script>alert('Admin permission needed');</script>");
       
       //Delete data
       $(document).on('click', '.btn_delete', function(){  
-           var id=$(this).data("id5");  
+           var id=$(this).data("id6");  
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
-                     url:"delete_M.php",  
+                     url:"delete_A.php",  
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  

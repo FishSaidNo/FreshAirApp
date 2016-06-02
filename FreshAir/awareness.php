@@ -101,7 +101,7 @@ session_start();
 					</p>
 			</article></br></br></br>			
                            
-			<div  style="margin:auto;"><img src="assets/images/awareness.png" width="1000" class="img-responsive" alt="" /></div>				
+			<div  style="margin:auto;"><img src="assets/images/awareness.jpeg" width="1000" class="img-responsive" alt="" /></div>				
 			
 			<!-- /Article -->			
 		
@@ -117,7 +117,7 @@ session_start();
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
-	<script src="js/readmore.js"></script>
+	<script src="assets/js/readmore.js"></script>
 
 	<!-- Script to hide text and show More -->
     <script>

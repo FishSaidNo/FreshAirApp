@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST['email'];  
 		$password = $_POST['password'];
 		$newPassword = $_POST['newPassword'];
-        $query="SELECT * FROM invited_members where User_Name='$email'"; 
+        $query="SELECT * FROM guest_members where User_Name='$email'"; 
 		
         $result = $mysqli->query($query); 
         $row=$result->fetch(PDO::FETCH_ASSOC); 	
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// set the PDO error mode to exception
 
-        $query = "UPDATE members SET password='".md5($password)."' where email_address='$email'";  
+        $query = "UPDATE guest_members SET Password='".md5($password)."' where Email='$email'";  
 			 
 		$stmt = $mysqli->prepare($query);
 		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -111,17 +111,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						
 						<div class="top-margin">
 							<label>Email Address <span class="text-danger">*</span></label>
-							<input type="text" class="form-control" name="email">
+							<input type="text" class="form-control" name="email" required>
 						</div>
 						
 						<div class="top-margin">
 							<label>New Password <span class="text-danger">*</span></label>
-							<input type="password" class="form-control" name="password">
+							<input type="password" class="form-control" name="password" required>
 						</div>
 						
 						<div class="top-margin">
 							<label>Confirm Password<span class="text-danger">*</span></label>
-							<input type="password" class="form-control" name="newPassword">
+							<input type="password" class="form-control" name="newPassword" required>
 						</div>
 															
 						<hr>
@@ -148,7 +148,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
-	<script src="assets/js/template.js"></script>
+	<script src="assets/js/template.js"></script>	
+	<script src="assets/js/registervalidation.js"></script>
 </body>
 </html>
 		

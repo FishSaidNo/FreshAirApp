@@ -10,7 +10,12 @@ echo("<script>location.href = '/index.php?msg=$msg';</script>");
 echo("<script>alert('Admin permission needed');</script>");
 }
 
-include_once 'db_utility.php';
+					
+$query = "select * from admin_members where Name='{$_SESSION['Admin']}'"; //query to select information
+$result = $mysqli->prepare($query); //prepare statement to make db connection safer
+$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$result->execute();
+$row=$result->fetch(PDO::FETCH_ASSOC);						
 
 if(isset($_POST['invite'])){  
     if ($_POST['password'] && $_POST['email']) {
@@ -19,33 +24,108 @@ if(isset($_POST['invite'])){
         $email = $_POST['email'];
         $description = $_POST['description'];
 		$messageToSend = $_POST['message'];
-        $query = "INSERT INTO guest_members (Email, Name, Password, Description) "
-                . " VALUES ( '" . $email . "','" . $name . "','" . md5($password) . "','" . $description. "')";
-        $mysqli->query($query);
-        echo("<script>alert('User Invited');</script>");
-    }
-    $to = $_POST['email']; // this is your Email address
-    $from = "freshairbne@gmail.com"; // this is the sender's Email address   
-    $link = "http://freshairbrisbane.com/signinTemp.php";
-    $subject = "Data Access Invitation";
-    $message = "Hi," . $name . ".\n\n Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $messageToSend;
+		
+		$query = "SELECT * from admin_members WHERE Email='$email'";
+        $result = $mysqli->prepare($query);
+		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$result->execute();
+		$row=$result->fetch(PDO::FETCH_ASSOC);          
+        $row_cnt = $result->rowCount();
+		
+		if($row_cnt!=0){
+                echo "<script>alert('Email already registered'); location.href='adminProfile.php'</script>";      			 
+        } else {		
+			$query = "INSERT INTO admin_members (Email, Name, Password, Description) "
+					. " VALUES ( '" . $email . "','" . $name . "','" . md5($password) . "','" . $description. "')";
+			$result = $mysqli->prepare($query);
+			$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$result->execute();
+			echo("<script>alert('User Invited');</script>");
+		}
+    
+		$to = $_POST['email']; // this is your Email address
+		$from = "freshairbne@gmail.com"; // this is the sender's Email address   
+		$link = "http://freshairbrisbane.com/signinTemp.php";
+		$subject = "Data Access Invitation";
+		$message = "Hi," . $name . ".\n\n Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $messageToSend;
 
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
+		$headers = "From:" . $from;
+		$headers2 = "From:" . $to;
+		mail($to,$subject,$message,$headers);
    }
+}
+   
+if(isset($_POST['invite2'])){  
+if ($_POST['password'] && $_POST['email']) {
+	$name = $_POST['name'];
+	$password = $_POST['password'];
+	$email = $_POST['email'];
+	$description = $_POST['description'];
+	$messageToSend = $_POST['message'];
+		$query = "SELECT * from guest_members WHERE Email='$email'";
+        $result = $mysqli->prepare($query);
+		$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$result->execute();
+		$row=$result->fetch(PDO::FETCH_ASSOC);          
+        $row_cnt = $result->rowCount();
+		
+		if($row_cnt!=0){
+                echo "<script>alert('Email already registered'); location.href='adminProfile.php'</script>";      			 
+        } else {	
+	$query = "INSERT INTO guest_members (Email, Name, Password, Description) "
+			. " VALUES ( '" . $email . "','" . $name . "','" . md5($password) . "','" . $description. "')";
+	$result = $mysqli->prepare($query);
+	$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$result->execute();
+	echo("<script>alert('User Invited');</script>");
 
-if(isset($_POST['update'])){    
-        $name = $_POST['name'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $description = $_POST['description'];
-        $query = "UPDATE admin_members SET Name='$name', Password='". md5($password) ."', Description=' $description' WHERE Email='$email'";            
-        $mysqli->query($query);
-        echo("<script>alert('Data Updated');</script>");
- 
- }
+	$to = $_POST['email']; // this is your Email address
+	$from = "freshairbne@gmail.com"; // this is the sender's Email address   
+	$link = "http://freshairbrisbane.com/signinTemp.php";
+	$subject = "Data Access Invitation";
+	$message = "Hi," . $name . ".\n\n Please go to this link: " . $link . "\n\n  and log in using the credentials below:\n\n Email: " . $to . "\n\n Password: " . $_POST['password'] . "\n\n Message: " . $messageToSend;
 
+	$headers = "From:" . $from;
+	$headers2 = "From:" . $to;
+	mail($to,$subject,$message,$headers);
+		}
+	}
+}
+
+if(isset($_POST['update'])){     
+	$name = $_POST['name'];
+	$password = $_POST['password'];
+	$newpassword = $_POST['newPassword'];
+	$newpassword1 = $_POST['newPassword1'];
+	$email = $_POST['email'];
+	$description = $_POST['description'];
+	
+	$query = "select * from admin_members where Name='{$_SESSION['Admin']}'"; //query to select information
+	$result = $mysqli->prepare($query); //prepare statement to make db connection safer
+	$mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$result->execute();
+	$row=$result->fetch(PDO::FETCH_ASSOC);		
+	
+	if (($name || $password || $newpassword || $newpassword1 || $email || $description) == '') {
+		echo("<script>alert('Invalid Data');</script>");
+	} else {		
+		if ($_POST['email'] == $row['Email']) {
+			if ($_POST['newPassword'] == $_POST['newPassword1']) {
+				if (md5($password) == $row['Password']) {				
+					$query = "UPDATE admin_members SET Name='$name', Password='". md5($newpassword) ."', Description=' $description' WHERE Email='$email'";            
+					$mysqli->query($query);
+					echo("<script>alert('Data Updated');</script>");
+				} else {
+					echo("<script>alert('Wrong Password');</script>");
+				}
+			} else {
+				echo("<script>alert('New Passwords do not Match');</script>");
+			}
+		} else {
+				echo("<script>alert('Wrong Email');</script>");			
+		}
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,41 +195,31 @@ $(function(){
                 }  
            });  
       }  
-      fetch_data();  
+      fetch_data(); 
+	  
+	  //Delete data
+      $(document).on('click', '.btn_delete', function(){  
+			var id2 =$(this).data("id6"); 			
+           if(confirm("Are you sure you want to delete this?"))  
+           {  
+                $.ajax({  
+                     url:"delete_A.php",  
+                     method:"POST",  
+                     data:{id:id2},  
+                     dataType:"text",  
+                     success:function(data){  
+                          fetch_data();  
+                     }					 
+                });  			
+			}			
+      }); 	  
+ 
       
-      function edit_data(id, text, column_name)  
-      {  
-           $.ajax({  
-                url:"edit_Admin.php",  
-                method:"POST",  
-                data:{id:id, text:text, column_name:column_name},  
-                dataType:"text",  
-                success:function(data){  
-                     alert(data);  
-                }  
-           });  
-      }  
-      $(document).on('blur', '.Email', function(){  
-           var id = $(this).data("id1");  
-           var email = $(this).text();  
-           edit_data(id, email, "Email");  
-      });  
-      $(document).on('blur', '.Name', function(){  
-           var id = $(this).data("id2");  
-           var name = $(this).text();  
-           edit_data(email, name, "Name");  
-      }); 
-       
-      $(document).on('blur', '.Description', function(){  
-           var id = $(this).data("id3");  
-           var description = $(this).text();  
-           edit_data(id, description, "Description");  
-      });  
- });  
+  });  
  </script> <!-- End Admin Profile updating -->
  
 <!-- Start Members Profile updating -->
- <script>  
+  <script>  
  //This function will upload the data from our db
  $(document).ready(function(){  
       function fetch_data()  
@@ -162,61 +232,12 @@ $(function(){
                 }  
            });  
       }  
-      fetch_data();  
-      
+      fetch_data();     
 
-      
-      //Live update 
-      function edit_data(id, text, column_name)  
-      {  
-           $.ajax({  
-                url:"edit_M.php",  
-                method:"POST",  
-                //id IS STABLE PK ID, text is the value for the columns and column is the stable header
-                data:{id: id, text: text, column_name:column_name},  
-                dataType:"text",  
-                success:function(data){  
-                     alert(data);  
-                }  
-           });  
-      }  
-      
-      //UPDATE User_name field replace the entered w the exist in the db
-      $(document).on('blur', '.Email', function(){  
-           var id = $(this).data("id1");  
-           var email = $(this).text();  
-           if(email == '')  
-           {  
-                alert("Please Enter User Email");  
-                return false;  
-           } else {
-                edit_data(id, email, "Email");  
-                }
-      }); 
-      
-     //UPDATE PASSWORD (PW) 
-      $(document).on('blur', '.Password', function(){  
-           var id = $(this).data("id2");  
-           var password = $(this).text();  
-           if(password == '')  
-           {  
-                alert("Please Enter Password");  
-                return false;  
-           }  else {
-                 edit_data(id, password, "Password");  
-           }
-      });  
-      
-     //UPDATE Description
-      $(document).on('blur', '.Description', function(){  
-           var id = $(this).data("id3");  
-           var description = $(this).text();  
-           edit_data(id, description, "Description");  
-      });  
-      
+
       //Delete data
       $(document).on('click', '.btn_delete', function(){  
-           var id = $(this).data("id4");  
+			var id =$(this).data("id5"); 			
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
@@ -227,10 +248,10 @@ $(function(){
                      success:function(data){  
                           alert(data);  
                           fetch_data();  
-                     }  
-                });  
-           }  
-      });  
+                     }					 
+                });  			
+			}			
+      }); 	  
  });  
  </script> 
 
@@ -253,14 +274,13 @@ $(function(){
 			<header class="page-header">
 				<h1 class="page-title">Profile</h1>
 			</header>
-										
-		
+												
 			
 			<div id="content" class="clearfix">
 			
 				<div id="userphoto"><img src="assets/images/avatar.png" alt="default avatar"></div>
 				
-				<h2 class="page-title">Welcome, Admin</h2></br></br>
+				<h2 class="page-title">Hello, <?PHP echo $_SESSION['Admin']?></h2></br></br>
 			
 				 <nav id="profiletabs">
 					<ul class="clearfix">
@@ -282,7 +302,7 @@ $(function(){
 				<section id="members" class="hidden">
 
 
-					 <h3 align="center">Manage Members</h3><br />  
+					 </br><h2 align="center">Current Members</h2></br>  
 					  <!-- Call table -->
 					 <div id="Members_data"></div> 
 					 <!-- form -->
@@ -290,28 +310,28 @@ $(function(){
 					<!-- Implment form -->
 													 
 						   <!-- Note: we need to send users name, password to the intered email? -->  
-						<h3 align="center">Invite New Members</h3><br />                                 
+						</br><h2 align="center">Invite New Members</h2>                                
 						<div class="panel-body">
 
 							<form method="post" name="form" action="" onsubmit="return validateForm()">
 								<div class="top-margin">
 									<label>Name</label>
-									<input id="name" type="text" class="form-control" name="name">
+									<input id="name" type="text" class="form-control" name="name" required>
 								</div>					
 								<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
-									<input id="email" type="text" class="form-control" name="email">
+									<input id="email" type="text" class="form-control" name="email" required>
 								</div>
 
 								<div class="top-margin">
 										<label>Password <span class="text-danger">*</span></label>
-										<input id="password" type="password" id="pwd" class="form-control" name="password">
+										<input id="password" type="password" id="pwd" class="form-control" name="password" required>
 								</div>
 								
 								<!--<div class="col-sm-6"> -->
 								<div class="top-margin">
 								   <label> User Description: <span class="text-danger">*</span></label>
-									<input id="description" type="text" class="form-control" name="description">
+									<input id="description" type="text" class="form-control" name="description" required>
 								</div>
 								
 								<div class="top-margin">
@@ -322,7 +342,7 @@ $(function(){
 
 								<div class="row">
 									<div class="col-lg-8">
-										 <button class="btn btn-action" type="submit" name="invite">Register</button>                     
+										 <button class="btn btn-action" type="submit" name="invite2">Register</button>                     
 									</div>
 									
 								</div>
@@ -332,33 +352,33 @@ $(function(){
 					   
 				<!-- Tab:3 Manage Admins -->     
 				<section id="Admins" class="hidden">
-					<h3 align="center">Admins Table</h3><br />  
+					</br><h2 align="center">Current Administrators</h2></br>
 					
 					<!-- Call table -->
 					<div id="Admin_data"></div>    
 
-					<h3 align="center">Add New Admin Members</h3><br />                                 
+					</br><h2 align="center">Add New Administrator</h2>                                 
 						<div class="panel-body">
 
 							<form method="post" name="form" action="" >
 								<div class="top-margin">
 									<label>Name</label>
-									<input id="name" type="text" class="form-control" name="name">
+									<input id="name" type="text" class="form-control" name="name" required>
 								</div>					
 								<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
-									<input id="email" type="text" class="form-control" name="email">
+									<input id="email" type="text" class="form-control" name="email" required>
 								</div>
 
 								<div class="top-margin">
 										<label>Password <span class="text-danger">*</span></label>
-										<input id="password" type="password" class="form-control" name="password">
+										<input id="password" type="password" class="form-control" name="password" required>
 								</div>
 								
 								<!--<div class="col-sm-6"> -->
 								<div class="top-margin">
 								   <label> User Description: <span class="text-danger">*</span></label>
-									<input id="description" type="text" class="form-control" name="description">
+									<input id="description" type="text" class="form-control" name="description" required>
 								</div>
 								
 								<div class="top-margin">
@@ -382,34 +402,55 @@ $(function(){
 				
 					  <!-- This admin ? -->
 					  
-					  <h3 align="center">Update Details:</h3><br />                                 
-						<div class="panel-body">
+					                                  
+						<div class="panel-body">					
+							<h3 align="left">Your Details:</h3></br> 
+							
+							
+							<p class="setting"><b>Name: </b><?PHP echo $row['Name']; ?></p>
+								
+							<p class="setting"><b>E-mail Address: </b><?PHP echo $row['Email']; ?></p>
+								
+							<p class="setting"><b>Description: </b><?PHP echo $row['Description']; ?></p></br>		
+							
+								
+							<h3 align="left">Update Details:</h3></br>
 
-							<form method="post" name="form" action="adminProfile.php">
+							<form method="post" name="form"  action="adminProfile.php">
 								<div class="top-margin">
 									<label>Name</label>
-									<input id="name" type="text" class="form-control" name="name">
+									<input id="name" type="text" class="form-control" name="name" required>
 								</div>					
 								<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
-									<input id="email" type="text" class="form-control" name="email">
+									<input id="email" type="text" class="form-control" name="email" required>
 								</div>
-
+															
 								<div class="top-margin">
-										<label>Password <span class="text-danger">*</span></label>
-										<input id="password" type="password" class="form-control" name="password">
+										<label>Old Password <span class="text-danger">*</span></label>
+										<input id="password" type="password" class="form-control" name="password" required>
+								</div>
+								
+								<div class="top-margin">
+										<label>New Password <span class="text-danger">*</span></label>
+										<input id="newPassword" type="password" class="form-control" name="newPassword" required>
+								</div>
+								
+								<div class="top-margin">
+										<label>Re-enter New Password <span class="text-danger">*</span></label>
+										<input id="newPassword1" type="password" class="form-control" name="newPassword1" required>
 								</div>
 								
 								<!--<div class="col-sm-6"> -->
 								<div class="top-margin">
 								   <label> User Description: <span class="text-danger">*</span></label>
-									<input id="description" type="text" class="form-control" name="description">
+									<input id="description" type="text" class="form-control" name="description" required>
 								</div>
 								<hr>
 
 								<div class="row">
 									<div class="col-lg-8">
-										 <button class="btn btn-action" type="submit" name="update">Update</button>                     
+										 <button class="btn btn-action" onclick="validateForm()" type="submit" name="update">Update</button>                     
 									</div>
 									
 								</div>

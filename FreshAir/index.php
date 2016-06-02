@@ -17,7 +17,7 @@ session_start();
 			<!-- Custom styles for our template -->
 			<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 			<link rel="stylesheet" href="assets/css/main.css">			
-            <title>Fresh Air - Create Your Own Reality</title> 	    
+            <title>Fresh Air - Keeping Track of Brisbane's Air Quality</title> 	    
 			<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 			<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 			<meta charset="UTF-8">	 
@@ -34,7 +34,7 @@ session_start();
 	<!-- Content -->
 	<div class="container">       
 
-		<h2 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h2>
+		</br></br><h2 style="text-align:center"> THE DATA SHOWN IS FOR TESTING PURPOSES ONLY </h2></br></br>
 
 		     
 		<!-- Div to show video in the middle of the screen and make it responsive -->
@@ -44,8 +44,20 @@ session_start();
 				
 		</div> 
 		
-		<div class="container">
-								
+		<div class="container">								
+					
+
+			<div class="jumbotron top-space">		
+				<h2 class="text-center top-space">How is Air Quality Measured?</h2></br>
+				<p style="text-align:justify">The air qualities we breathe can affect our health even though air quality in Australia is better than any other equal countries,
+				it is very important that we take another step to make sure the air quality is safe for the people in the future. Even small improvement in air quality can get 
+				plenty of benefits for people health and wellbeing.</br></br>AQI air quality index is a digit number used by government agencies. To connect and speak to the people 
+				how the air quality currently is or how it is forecast to become. These monitoring criteria measure the presence of pollutants in the air, such as carbon monoxide 
+				(CO), nitrogen dioxide (NO2), and photochemical oxidants as ozone (O3), particulate matter less than 10 micrometers (PM10) and particulate matter less than 2.5 micrometers 
+				(PM2.5).  
+					
+			</div>
+			
 			<div class="row" style="text-align:center">
 			
 				<h1 class="lead">Air Quality Directly Affects Our Quality of Life.</h1>
@@ -55,21 +67,7 @@ session_start();
 				<p><a class="btn btn-default btn-lg" href="airbeamApp.php" role="button">Check App Out</a> </p>
 				
 			</div>
-		</div>
-				
-
-		<div class="jumbotron top-space">
-		
-			<h2 class="text-center top-space">How is Air Quality Measured?</h2></br>
-			<p style="text-align:justify">ACT Health operates the Territory's air quality monitoring network, which comprises two NEPM Performance Monitoring Stations 
-			(PMS) in Monash and Florey, and a smaller station in Civic. The Monash PMS is approximately 300 metres west of Cockcroft Avenue and the Florey PMS is in Neumann
-			Place.ACT Health monitors carbon monoxide (CO), nitrogen dioxide (NO2), photochemical oxidants as ozone (O3), particulate matter less than 10 micrometres (PM10) 
-			and particulate matter less than 2.5 micrometres (PM2.5).<br>PM10 and PM2.5 are the pollutants of most concern in the ACT. Elevated levels of particulate matter can 
-			arise, for example, in colder months due to wood smoke emitted from the use of wood heaters. They may also occur from bushfire and burn-off events in and around the
-			ACT.</br></br>Photochemical oxidants, such as ozone, are generally not directly emitted. They are formed by the reaction of pollutants in the atmosphere. Ozone is 
-			formed when nitrogen oxides react with a group of air pollutants known as Reactive Organic Compounds (ROC) in the presence of sunlight. Emissions from motor vehicles 
-			are the primary source of carbon monoxide and oxides of nitrogen pollution in the ACT. Due to a lack of heavy industry the ACT does not monitor sulfur dioxide for the NEPM. 
-				
+			
 		</div>
 
 	</div>	

@@ -2,7 +2,7 @@
 /* connection: host, user, password, & db schema */ 
  $connect = mysqli_connect("localhost", "freshai1_admin", "Admin123456", "freshai1_freshair"); 
  $output = '';  
- $sql = "SELECT * FROM admin_members";  
+ $sql = "SELECT * FROM admin_members ORDER BY Name ASC";  
  $result = mysqli_query($connect, $sql);  
  $output .= '  
       <div class="table-responsive">  
@@ -11,7 +11,7 @@
 					<th width="30%">Name</th> 
                      <th width="30%">Email</th>                        
                      <th width="30%">Description</th>  
-					<th width="10%">Add/Delete</th>  
+					<th width="10%">Delete</th>  
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -19,23 +19,14 @@
       {  
            $output .= '  
                 <tr>                                         
-                     <td class="Name" data-id2="'.$row["Email"].'" contenteditable>'.$row["Name"].'</td>  
-					 <td class="Email" data-id1="'.$row["Email"].'" contenteditable>'.$row["Email"].'</td>  
-                     <td class="Description" data-id3="'.$row["Email"].'" contenteditable>'.$row["Description"].'</td>    
-					<td><button type="button" name="delete_btn" data-id5="'.$row["Email"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
-					 
+                     <td class="Name" data-id2="'.$row["Email"].'" >'.$row["Name"].'</td>  
+					 <td class="Email" data-id1="'.$row["Email"].'" >'.$row["Email"].'</td>  
+                     <td class="Description" data-id3="'.$row["Email"].'" >'.$row["Description"].'</td>    
+					<td><button type="button" name="delete_btn" data-id6="'.$row["Email"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  
            ';  
       }  
-      $output .= '  
-           <tr> 
-                <td id="email" contenteditable></td>  
-                <td id="name" contenteditable></td>  
-                <td id="description" contenteditable></td>
-				 <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
-
-           </tr>  
-      ';  
+      
  }  
  else  
  {  

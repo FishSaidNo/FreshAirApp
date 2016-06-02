@@ -57,7 +57,7 @@ session_start();
 				<!-- End Page Title -->
 					
 				<div class="">
-					<div><img src="assets/images/facts.JPG" width="1000" class="img-responsive" alt="" /></div>
+					<div><img src="assets/images/facts.jpeg" width="1000" class="img-responsive" alt="" /></div>
 				</div>
 		
 		</div>

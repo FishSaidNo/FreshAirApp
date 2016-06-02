@@ -54,29 +54,21 @@ session_start();
 				
 					<div class="jumbotron top-space"></br>
 					
-						<p style="text-align:justify">The air quality is in your hand so get up and start using the apps to see the quality of the air in the area you are living. 
-						The best thing about these apps is that it’s very simple and easy to use. All mobile user have to do is download them on their mobile devices, launch and 
-						use them wherever they go and whenever they want. You want to make sure you live in a healthy place and live a healthy life style so download the apps and
-						check the air quality in where you are living. The app is designed to make it easier for people to send the data through sms message. The air quality is in 
-						your hand so get up and start using the apps to see the quality of the air and data. The app can report air pollution levels directly to the database. 
-						You can send the data to website server and via sms through the apps. The first data source is Airbeam, which is a sensor created by HabitatMap in 2014. 
-						The sensor reports information such; "temperature, humidity, carbon monoxide (CO) and nitrogen dioxide" (Aircasting, n.d.). The data is then sent to users 
-						phones via sms messages. This is selected to expand the circle of users to those who are far from Internet connection. This information will be used to help 
-						people be aware of, and adjust their exposure to air pollution both at home and their workplaces. </p></br></br>
-
-						<p style="text-align:justify">HabitatMap worked with a community of scientists, educators, engineers, and other non-profits to create the AirBeam. 
-						The AirBeam measures fine particulate matter (PM2.5), temperature, and relative humidity. The AirBeam uses a light scattering method to measure PM2.5. 
-						Air is drawn through a sensing chamber wherein light from an LED bulb scatters off particles in the airstream. This light scatter is registered by a detector 
-						and converted into a measurement that estimates the number of particles in the air. Via Bluetooth, these measurements are communicated approximately once a second 
-						to the AirCasting Android app, which maps and graphs the data in real time on your smartphone. At the end of each AirCasting session, the collected data is sent to
-						the AirCasting website, where the data is crowdsourced with data from other AirCasters to generate heat maps indicating where PM2.5 concentrations are highest and lowest.
-						As an open-source platform, modifying our components to take other measurements and or transmit the data to other websites or apps is easy and encouraged. We’ve even
-						included Add-on Sensor Pins on the AirBeam to make adding sensors simple.
-						</p></br></br>
-
-
-						<div style="text-align:center"><img src="assets/images/airbeamWorks.jpg" width="650" height="1280" alt="" /></div></br>
-
+						<p style="text-align:justify">Aibeam is air quality sensor; it is air monitor that maps, graphs and crowd source your pollution 
+						contact in real-time. The airbeam use a light spreading method to measure PM2.5.  It’s wearable and handheld live streaming devices 
+						that transfer current live air pollution data to your phone via Bluetooth. The airbeam can give readings on air pollution at your location 
+						every second for up to 10 hours on battery life. It then broadcasts this data, under your permission, to their crowd-sourced dataset, which 
+						forms a map of pollution across the country. You could take the airbeam anywhere you go to see the pollution levels on where you are. </p></br>
+						
+						<p style="text-align:justify">The air quality is in your hand so get up and start using the apps to see the quality of the air and data. 
+						The app can report air pollution levels directly to the database. You can send the data to website server and via sms through the apps.
+						The first data source is Airbeam, which is a sensor created by HabitatMap in 2014. The sensor reports information such; "temperature, humidity,
+						carbon monoxide (CO) and nitrogen dioxide" (Aircasting, n.d.). The data is then sent to users phones via sms messages. 
+						This is selected to expand the circle of users to those who are far from Internet connection. This information will be used 
+						to help people be aware of, and adjust their exposure to air pollution both at home and their workplaces. </p></br></br>
+						
+						<div style="text-align:center"><img src="assets/images/airbeam.jpg" width="650" height="720" alt="" /></div></br>
+						 
 						<p class="text-right"><a href="downloads/android-debug.apk" class="btn btn-primary btn-large">Download App</a></p>
 					
 					</div>				

@@ -6,7 +6,7 @@ session_start();
 */
 include_once 'db_utilityClients.php';
 	
-$query = "select * from aqi order by Suburb ASC"; //query to select information
+$query = "select * from aqireadings order by Suburb ASC"; //query to select information
 $result = $mysqli->prepare($query); //prepare statement to make db connection safer
 $mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $result->execute();
@@ -100,12 +100,17 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
+							};						
 						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
 					
 					}												
 				
@@ -133,14 +138,19 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
-						})(marker,content,infowindow));  						
-											
-					}	
+							};						
+						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
+					
+					}		
 					
 					
 
@@ -167,14 +177,19 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
-						})(marker,content,infowindow));  												
-											
-					}
+							};						
+						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
+					
+					}		
 					
 					<!-- Loops to show the markers depending on their category -->
 
@@ -199,13 +214,18 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
-						})(marker,content,infowindow));  					
-											
+							};						
+						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
+					
 					}		
 						
 					<!-- Loops to show the markers depending on their category -->					
@@ -230,14 +250,19 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
-						})(marker,content,infowindow));  						
-											
-					}	
+							};						
+						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
+					
+					}		
 					
 					<!-- Loops to show the markers depending on their category -->	
 										
@@ -262,14 +287,19 @@ $result->execute();
 						
 						var infowindow = new google.maps.InfoWindow();
 
-						google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+						google.maps.event.addListener(marker,'mouseover', (function(marker,content,infowindow){ 
 							return function() {
 								infowindow.setContent(content);
 								infowindow.open(map,marker);
-							};
-						})(marker,content,infowindow));  						
-											
-					}	
+							};						
+						})(marker,content,infowindow));  
+						google.maps.event.addListener(marker,'mouseout', (function(marker,content,infowindow){
+							return function() {
+							infowindow.close(map,marker);
+						};
+						})(marker,content,infowindow));
+					
+					}		
 					
 				}
 			}
@@ -302,7 +332,7 @@ $result->execute();
 
 			<div id="map-canvas" class="img-responsive"></div></br>
 
-			<h1 style="text-align:center"> AQI Category Table</h1>
+			<h1 style="text-align:center"> Air Quality Levels.</h1>
 
 			<div style="text-align:center"><img src="assets/images/AQItable.gif" width="640" height="433" alt="" /></div> <br/>
 			
