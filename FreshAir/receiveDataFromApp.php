@@ -6,20 +6,23 @@ $mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
+        $nullValue = '-';
+
 	//To be received from app
 	$_date;
 	$_time;
 	$_latitude;
 	$_longitude;
-	$_pm25; //particle matter 2.5
-	$_pm10; //particle matter 10
-	$_o3; //surface ozone 
-	$_so2; //sulfur dioxide
-	$_no2; //nitrogen dioxide
-	$_co; //carbon monoxide
-	$_dew;
-	$_humidity;
 	$_temperature;
+	$_humidity;
+	$_pm25; //particle matter 2.5
+	//$_pm10; //particle matter 10
+	//$_o3; //surface ozone 
+	//$_so2; //sulfur dioxide
+	//$_no2; //nitrogen dioxide
+	//$_co; //carbon monoxide
+	//$_dew;
+
 	//To be computed by this script
 	$_AQIval;
 	$_AQIcat;
@@ -44,20 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 									array(350.5,501,401,500)
 	);
 	
-	if(isset($_GET['date']) && isset($_GET['time']) && isset($_GET['latitude']) && isset($_GET['longitude']) && isset($_GET['pm25']) && isset($_GET['pm10']) && isset($_GET['o3']) && isset($_GET['so2']) 
-		&& isset($_GET['no2']) && isset($_GET['co']) && isset($_GET['dew']) && isset($_GET['humidity']) && isset($_GET['temperature'])) 
+	if(isset($_GET['date']) && isset($_GET['time']) && isset($_GET['latitude']) && isset($_GET['longitude']) && isset($_GET['pm25']) && isset($_GET['humidity']) && isset($_GET['temperature'])) 
 		{
 			$_date = $_GET['date'];
 			$_time = $_GET['time'];
 			$_latitude = $_GET['latitude'];
 			$_longitude = $_GET['longitude'];
 			$_pm25 = $_GET['pm25']; //particle matter 2.5
-			$_pm10 = $_GET['pm10']; //particle matter 10
-			$_o3 = $_GET['o3']; //surface ozone 
-			$_so2 = $_GET['so2']; //sulfur dioxide
-			$_no2 = $_GET['no2']; //nitrogen dioxide
-			$_co = $_GET['co']; //carbon monoxide
-			$_dew = $_GET['dew'];
+			//$_pm10 = $_GET['pm10']; //particle matter 10
+			//$_o3 = $_GET['o3']; //surface ozone 
+			//$_so2 = $_GET['so2']; //sulfur dioxide
+			//$_no2 = $_GET['no2']; //nitrogen dioxide
+			//$_co = $_GET['co']; //carbon monoxide
+			//$_dew = $_GET['dew'];
 			$_humidity = $_GET['humidity'];
 			$_temperature = $_GET['temperature'];
 				
@@ -137,12 +139,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$stmt->bindParam(':latitude', $_latitude, PDO::PARAM_STR);
 	$stmt->bindParam(':longitude', $_longitude, PDO::PARAM_STR);
 	$stmt->bindParam(':pm25', $_pm25, PDO::PARAM_STR);
-	$stmt->bindParam(':pm10', $_pm10, PDO::PARAM_STR);
-	$stmt->bindParam(':o3', $_o3, PDO::PARAM_STR);
-	$stmt->bindParam(':so2', $_so2, PDO::PARAM_STR);
-	$stmt->bindParam(':no2', $_no2, PDO::PARAM_STR);
-	$stmt->bindParam(':co', $_co, PDO::PARAM_STR);
-	$stmt->bindParam(':dew', $_dew, PDO::PARAM_STR);
+	$stmt->bindParam(':pm10', $nullValue, PDO::PARAM_STR);
+	$stmt->bindParam(':o3', $nullValue, PDO::PARAM_STR);
+	$stmt->bindParam(':so2', $nullValue, PDO::PARAM_STR);
+	$stmt->bindParam(':no2', $nullValue, PDO::PARAM_STR);
+	$stmt->bindParam(':co',$nullValue, PDO::PARAM_STR);
+	$stmt->bindParam(':dew', $nullValue, PDO::PARAM_STR);
 	$stmt->bindParam(':humidity', $_humidity, PDO::PARAM_STR);
 	$stmt->bindParam(':temperature', $_temperature, PDO::PARAM_STR);
 	$stmt->bindParam(':AQIval', $_AQIval, PDO::PARAM_STR);
@@ -165,14 +167,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	echo 'Lat: ' . $_latitude . PHP_EOL;
 	echo 'Long: ' . $_longitude . PHP_EOL;
 	echo 'PM2.5: ' . $_pm25 . PHP_EOL;
-	echo 'PM10: ' . $_pm10 . PHP_EOL; 
-	echo 'O3: ' . $_o3 . PHP_EOL; 
-	echo 'SO2: ' . $_so2 . PHP_EOL; 
-	echo 'NO2: ' . $_no2 . PHP_EOL; 
-	echo 'CO: ' . $_co . PHP_EOL; 
-	echo 'Dew: ' . $_dew . PHP_EOL;
-	echo 'Humidity: ' . $_humidity . PHP_EOL;
+	//echo 'PM10: ' . $_pm10 . PHP_EOL; 
+	//echo 'O3: ' . $_o3 . PHP_EOL; 
+	//echo 'SO2: ' . $_so2 . PHP_EOL; 
+	//echo 'NO2: ' . $_no2 . PHP_EOL; 
+	//echo 'CO: ' . $_co . PHP_EOL; 
+	//echo 'Dew: ' . $_dew . PHP_EOL;
 	echo 'Temperature: ' . $_temperature . PHP_EOL;
+	echo 'Humidity: ' . $_humidity . PHP_EOL;
 	echo 'AQLval: ' . $_AQIval . PHP_EOL;
 	echo 'AQIcat: ' . $_AQIcat . PHP_EOL;
 	echo 'Suburb: ' . $_Suburb . PHP_EOL;

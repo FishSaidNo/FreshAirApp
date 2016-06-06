@@ -63,7 +63,8 @@
 				<ul id="navMenuList" class="nav navbar-nav">
 					<!-- <li class="active"><a href="#">Home</a></li> -->
 					<li class="active"><a class="appLink" href="#homePage">Home</a></li>
-					<li><a class="appLink" href="#submitDataSamplePage">Submit Data Sample</a></li>
+					<li><a class="appLink" href="#submitAirbeamDataPage">Submit AirBeam Data</a></li>
+					<li><a class="appLink" href="#submitDataSamplePage">Generate Sample Data</a></li>
 					<!-- <li><a class="appLink" href="#sampleContentPage">Sample Content</a></li> -->
 					<li><a class="appLink" href="fakeLink">About the Project</a></li>
 					<li><a class="appLink" href="fakeLink">Contact the Team</a></li>
@@ -113,22 +114,26 @@
 		</div><!-- /#homePage -->	
 	
 		<div id="submitDataSamplePage" class="pageContent container" style="display:none;">
-			<h2 class="no-margin-top" style="text-align:center">Submit A Data Sample</h2>
+			<h2 class="no-margin-top" style="text-align:center">Generate Sample Data</h2>
 			<!-- <a class="appLink" href="#sampleContentPage">Sample Link</a> -->
 			<!-- </br> -->
 			
 			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
 				<button id="btnGenerateSample" type="button" class="btn btn-info">Generate Data</button>
 			</span>
-			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
-				<button id="btnGeoSend" type="button" class="btn btn-success">Send To Server</button>
-				<button id="btnShowSms" type="button" class="btn btn-warning">Submit Via Sms?</button>
-			<div id="smsOptions" style="display:none;margin-top:7px;">
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:0px;">
+				<button id="" type="button" class="btn btn-default disabled">Send To Server</button>
+				<button id="" type="button" class="btn btn-default disabled">Submit Via Sms?</button>
+
+<!-- 				<button id="btnGeoSend" type="button" class="btn btn-success">Send To Server</button>
+				<button id="btnShowSms" type="button" class="btn btn-warning">Submit Via Sms?</button> -->
+<!-- 			<div id="smsOptions" style="display:none;margin-top:7px;">
 				<input id="sendSmsTo" placeholder="Enter mobile number" value="" type="tel" min="10" max="10"></input>
 				<button id="btnSendSms" type="button" class="btn btn-warning">Send Sms</button>
-			</div>
+			</div> -->
 			</span>
-			</br>
+			<p class="no-margin-top" style="text-align:center"><i>Submission Disabled</i></p>
+
 			<div id="dataSampleResults">
 			
 				<p><strong>Date</strong>: <span id="dataDate"></span></p>
@@ -151,6 +156,57 @@
 			
 		</div><!-- /#submitDataSamplePage -->			
 		
+		
+		
+		<div id="submitAirbeamDataPage" class="pageContent container" style="display:none;">
+			<h2 class="no-margin-top" style="text-align:center">Submit AirBeam Data</h2>
+			<!-- </br> -->
+			
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
+				Target Device: <select id="selectDevice">
+					<option value="0">Select Device</option>
+				</select>
+				
+				<p>Device MAC Address: <span id="deviceMAC"><i>Please select device</i></span></p>
+			</span>
+			
+			
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
+				<button id="btnRequestReading" type="button" class="btn btn-info">Request Reading</button>
+			</span>
+			<div style="margin-bottom:7px;background-color:#808080;font-size:smaller;">
+				<strong>Bluetooth Status:</strong>
+				<div id="statusDiv">
+				
+				</div>
+			</div>
+
+			</br>
+			<div id="dataAirbeamResults">
+			
+				<p><strong>Date</strong>: <span id="dataDate"></span></p>
+				<p><strong>Time</strong>: <span id="dataTime"></span></p>
+				<p><strong>Latitude</strong>: <span id="dataLat"></span></p>
+				<p><strong>Longitude</strong>: <span id="dataLong"></span></p>
+				<p><strong>PM2.5</strong> (µg/m3): <span id="dataPM25"></span></p>
+				<p><strong>Temperature</strong> (&deg;C): <span id="dataTemperature"></span></p>
+				<p><strong>Humidity</strong> (&#37;): <span id="dataHumidity"></span></p>
+				
+			</div>
+			
+			<span style="display:block;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:7px;">
+				<button id="btnGeoSend" type="button" class="btn btn-success">Submit To Server</button>
+				<button id="btnShowSms" type="button" class="btn btn-warning">Submit Via Sms?</button>
+			<div id="smsOptions" style="display:none;margin-top:7px;">
+				<input id="sendSmsTo" placeholder="Enter mobile number" value="" type="tel" min="10" max="10"></input>
+				<button id="btnSendSms" type="button" class="btn btn-warning">Send Sms</button>
+			</div>
+			</span>
+			
+<!-- 			<div id="messageDiv"></div> -->
+		
+			
+		</div><!-- /#submitAirbeamDataPage -->			
 
 
 		<div id="sampleContentPage" class="pageContent container" style="display:none;">

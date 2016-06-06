@@ -2,6 +2,13 @@ var globalLatitude;
 var globalLongitude;
 
 var app = {
+	//macAddress: "00:18:96:10:61:28",  // get your mac address from bluetoothSerial.list
+	macAddress: "0",  // get your mac address from bluetoothSerial.list
+	
+	AB_PM25: "",
+	AB_Temp: "",
+	AB_Humidity: "",
+	
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -18,8 +25,39 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		// alert('hahaha');
         app.receivedEvent('deviceready');
 		generate_geolocation(); 
+		
+		
+        // check to see if Bluetooth is turned on.
+        // this function is called only
+        //if isEnabled(), below, returns success:
+        var listPorts = function() {
+            // list the available BT ports:
+            bluetoothSerial.list(
+                function(results) {
+                    //app.display(JSON.stringify(results));
+					results.forEach( function (device) {
+						$('<option>').text(device.name).val(device.address).appendTo('#selectDevice');
+					});
+                },
+                function(error) {
+                    app.display(JSON.stringify(error));
+                }
+            );
+        }
+
+        // if isEnabled returns failure, this function is called:
+        var notEnabled = function() {
+            app.display("Bluetooth is not enabled.")
+        }
+
+         // check if Bluetooth is on:
+        bluetoothSerial.isEnabled(
+            listPorts,
+            notEnabled
+        );		
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -50,13 +88,131 @@ var app = {
         var success = function () { alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success, error);
-    }
+    },
+	
+	
+	
+	
+/*
+    Connects if not connected, and disconnects if connected:
+*/
+    manageConnection: function() {
+
+        // connect() will get called only if isConnected() (below)
+        // returns failure. In other words, if not connected, then connect:
+        var connect = function () {
+            // if not connected, do this:
+            // clear the screen and display an attempt to connect
+            app.clear();
+            app.display("Attempting to connect. " +
+                "Make sure the serial port is open on the target device.");
+            // attempt to connect:
+            bluetoothSerial.connect(
+                app.macAddress,  // device to connect to
+                app.openPort,    // start listening if you succeed
+                app.showError    // show the error if you fail
+            );
+        };
+
+        // disconnect() will get called only if isConnected() (below)
+        // returns success  In other words, if  connected, then disconnect:
+        var disconnect = function () {
+            app.display("attempting to disconnect");
+            // if connected, do this:
+            bluetoothSerial.disconnect(
+                app.closePort,     // stop listening to the port
+                app.showError      // show the error if you fail
+            );
+        };
+
+        // here's the real action of the manageConnection function:
+        bluetoothSerial.isConnected(disconnect, connect);
+    },
+/*
+    subscribes to a Bluetooth serial listener for newline
+    and changes the button:
+*/
+    openPort: function() {
+        // if you get a good Bluetooth serial connection:
+        app.display("Connected to: " + app.macAddress);
+        // change the button's name:
+        //connectButton.innerHTML = "Disconnect";
+        // set up a listener to listen for newlines
+        // and display any new data that's come in since
+        // the last newline:
+        bluetoothSerial.subscribe('\n', function (data) {
+			var sData = String(data);
+			console.log('qqq'+sData);
+			if (sData.includes('BC:UI=01')) {
+				//
+			}
+			else {
+				if (sData.includes('Particulate Matter')) {
+					explodedData = sData.split(';');
+					app.AB_PM25 = explodedData[0];
+				}
+				if (sData.includes('Temperature')) {
+					explodedData = sData.split(';');
+					app.AB_Temp = toCelsius(explodedData[0]);
+				}
+				if (sData.includes('Humidity')) {
+					explodedData = sData.split(';');
+					app.AB_Humidity = explodedData[0];
+					
+					console.log(app.AB_PM25 + '...' + app.AB_Temp + '...' + app.AB_Humidity);
+					
+					app.manageConnection();
+					displayAirbeamReading();
+				}
+			    //app.clear();
+				//app.display(data);	
+			}
+        });
+    },
+
+/*
+    unsubscribes from any Bluetooth serial listener and changes the button:
+*/
+    closePort: function() {
+        // if you get a good Bluetooth serial connection:
+        app.display("Disconnected from: " + app.macAddress);
+        // change the button's name:
+        //connectButton.innerHTML = "Connect";
+        // unsubscribe from listening:
+        bluetoothSerial.unsubscribe(
+                function (data) {
+                    app.display(data);
+                },
+                app.showError
+        );
+    },
+/*
+    appends @error to the message div:
+*/
+    showError: function(error) {
+        app.display(error);
+    },
+
+/*
+    appends @message to the message div:
+*/
+    display: function(message) {
+        $('#statusDiv').append(message + '</br>');		
+    },
+/*
+    clears the message div:
+*/
+    clear: function() {
+        //var display = document.getElementById("message");
+        //display.innerHTML = "";
+    }	
 	
 };
 
 app.initialize();
 
 var ourDataset;
+var ourDatasetAirbeam;
 var navHistory = [];
 
 $('#btnGeoSend.btn').prop('disabled', true); //disable send button until data generated
@@ -93,6 +249,12 @@ $('a').on('click', function (e) {
 	
 })
 
+$('#selectDevice').change(function(){
+	var selectedMAC = $('#selectDevice option:selected').val();
+	app.macAddress = selectedMAC;
+	$('#deviceMAC').html(selectedMAC);
+});
+
 $('#btnGenerateSample.btn').on('click', function (e) {
 	ourDataset = generateDummyDataset();
 		
@@ -120,16 +282,53 @@ $('#btnGenerateSample.btn').on('click', function (e) {
 	}
 
 });
+$('#btnRequestReading.btn').on('click', function (e) {
+	
+	
+	
+	if (app.macAddress == 0) {
+		alert('Please select your AirBeam from the device list.');
+		return false;
+	}
+	
+	$('#statusDiv').empty();	
+	
+	app.manageConnection();
+
+
+});
+
+function displayAirbeamReading() {
+	ourDatasetAirbeam = generateRealDataset();
+		
+	if (ourDatasetAirbeam) {
+		var ourDatasetAirbeamJSON = JSON.stringify(ourDatasetAirbeam);
+		//$('#dataSampleResults').empty();
+		//$('#dataSampleResults').append('<p><strong>JSON Format</strong>:<br/>'+ourDatasetJSON+'</p>');
+
+		$('#dataAirbeamResults #dataDate').text(ourDatasetAirbeam.date);
+		$('#dataAirbeamResults #dataTime').text(ourDatasetAirbeam.time);
+		$('#dataAirbeamResults #dataLat').text(ourDatasetAirbeam.latitude);
+		$('#dataAirbeamResults #dataLong').text(ourDatasetAirbeam.longitude);
+		$('#dataAirbeamResults #dataPM25').text(ourDatasetAirbeam.pm25);
+		$('#dataAirbeamResults #dataTemperature').text(ourDatasetAirbeam.temperature);
+		$('#dataAirbeamResults #dataHumidity').text(ourDatasetAirbeam.humidity);
+
+
+		$('#btnGeoSend.btn').prop('disabled', false);
+		$('#btnShowSms.btn').prop('disabled', false);
+	}
+}
 
 $('#btnGeoSend.btn').on('click', function (e) {		
-	if (ourDataset) {
+	if (ourDatasetAirbeam) {
 		
 		var request = $.ajax({
 			//url: 'http://192.168.178.30:80/receiveDataFromApp.php', //local
 			url: 'http://freshairbrisbane.com:80/receiveDataFromApp.php', //server
 			type: 'GET',
 			//data: {id : menuId},
-			data: ourDataset,
+			data: ourDatasetAirbeam,
 			dataType: 'html',
 			success: function (resp) {
 				alert('Server Response:\n' + resp);
@@ -156,7 +355,7 @@ $('#btnSendSms.btn').on('click', function (e) {
 		alert('Invalid mobile number. Please try again...');
 		return false;
 	}
-	var msg = JSON.stringify(ourDataset);
+	var msg = JSON.stringify(ourDatasetAirbeam);
 	app.sendSms(num, msg);
 	
 	$('#btnShowSms.btn').trigger('click');
@@ -221,6 +420,58 @@ function generateDummyDataset() {
 				dew: _dew,
 				humidity: _humidity,
 				temperature: _temperature
+				}
+	
+	return dataset;
+}
+
+//This function will generate an object of data realting to an air quilty sample FROM AIRBEAM DEVICE
+function generateRealDataset() {
+	
+	var _date;
+	var _time;
+	var _latitude;
+	var _longitude;
+	var _pm25; //particle matter 2.5
+	var _temperature;
+	var _humidity;
+
+	//values for AQIval, AQIcat and suburb will be generated on the server side from this data...
+
+	if (!globalLatitude || !globalLongitude) {
+		alert('There has been an error obtaining the geolocation data :-( Please wait 5 seconds and try again');
+		return false;
+	}
+	
+	if (!app.AB_PM25 || !app.AB_Temp || !app.AB_Humidity) {
+		alert('There has been an error obtaining data from the AirBeam. PLease try again...');
+		return false;		
+	}
+	
+	_date = generate_date();
+	_time = generate_Time();
+	_pm25 = app.AB_PM25;
+	_temperature = app.AB_Temp;
+	_humidity = app.AB_Humidity;
+
+	
+	generate_geolocation(); //This will update globalLatitude & globalLongitude
+	_latitude = globalLatitude;
+	_longitude = globalLongitude;
+	
+	if (!globalLatitude || !globalLongitude) {
+		generate_geolocation(); 
+		alert('There has been an error obtaining the geolocation data :-( Please wait 5 seconds and try again');
+		return false;
+	}
+	
+	dataset = {date: _date, 
+				time: _time,
+				latitude: _latitude,
+				longitude: _longitude,
+				pm25: _pm25,
+				temperature: _temperature,
+				humidity: _humidity
 				}
 	
 	return dataset;
@@ -379,6 +630,10 @@ function getRandomInt(min, max) {
 function getRandomDouble(min, max) {
     var num = Math.random() < 0.5 ? ((1-Math.random()) * (max-min) + min) : (Math.random() * (max-min) + min);
 	return num.toFixed(2);
+}
+
+function toCelsius(f) {
+    return parseInt((5/9) * (f-32));
 }
 
 

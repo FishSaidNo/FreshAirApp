@@ -69,7 +69,7 @@ session_start();
 						
 						<div style="text-align:center"><img src="assets/images/airbeam.jpg" width="650" height="720" alt="" /></div></br>
 						 
-						<p class="text-right"><a href="downloads/android-debug.apk" class="btn btn-primary btn-large">Download App</a></p>
+						<p class="text-right"><a href="assets/downloads/android-debug.apk" download class="btn btn-primary btn-large">Download App</a></p>
 					
 					</div>				
 				

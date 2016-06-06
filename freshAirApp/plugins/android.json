@@ -18,6 +18,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.greenit.freshair"
+        },
+        "cordova-plugin-bluetooth-serial": {
+            "PACKAGE_NAME": "com.greenit.freshair"
         }
     },
     "dependent_plugins": {}
